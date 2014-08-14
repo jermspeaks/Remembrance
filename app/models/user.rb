@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-	has_many :created_memorials, class_name: Memorial, foreign_key: :moderator_id
+	has_many :created_memorials, class_name: 'Memorial', foreign_key: :moderator_id
 	has_many :memorial_guests, foreign_key: :guest_id
-	has_many :attended_memorials, through: :memorial_guests, class_name: Memorial
+	has_many :attended_memorials, through: :memorial_guests, source: :memorial
 	has_many :posts, foreign_key: :author_id
 	has_many :photos, foreign_key: :uploader_id
 	has_many :comments, foreign_key: :commenter_id
