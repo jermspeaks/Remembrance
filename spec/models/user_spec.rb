@@ -79,4 +79,9 @@ RSpec.describe User, :type => :model do
 
     it { is_expected.to_not be_valid }
   end
+
+  describe "should have many memorials" do
+  	before { @user.created_memorials << Memorial.create }
+  	it { is_expected.to be_valid }
+  end
 end
