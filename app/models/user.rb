@@ -8,9 +8,7 @@ class User < ActiveRecord::Base
 
 	before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  VALID_PHONE_REGEX = /\A\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})\z/
 
 	validates :name, presence: true
 	validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
-	validates :phone, presence: true, format: { with: VALID_PHONE_REGEX }, uniqueness: true
 end
