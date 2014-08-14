@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :memorials, except: [:index]
   end
+
+  root "sessions#new"
 end
