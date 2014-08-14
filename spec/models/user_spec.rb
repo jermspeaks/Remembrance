@@ -54,4 +54,27 @@ RSpec.describe User, :type => :model do
     before { @user.phone = '' }
     it { is_expected.to_not be_valid }
   end
+
+  describe "when phone number format is invalid" do
+  	phone_numbers = %w[555555555 (51)748-3829 859-4839 +12837549]
+  	phone_numbers.each do |invalid_phone|
+  		before { @user.phone = invalid_phone }
+  		it { is_expected.to_not be_valid }
+  end
+
+  describe "when phone number format is valid" do
+  	phone_numbers = ["(555)555-5555", "555-555-5555", "(555) 555-5555", "123 456 7890", "123.456.7890", "1234567890"]
+  	phone_numbers.each do |valid_phone|
+  		before { @user.phone = valid_phone }
+  		it { is_expected.to be_valid }
+  end
+
+  describe "when phone number is already taken" do
+    before do
+      user_with_same_phone = @user.dup
+      user_with_same_phone.save
+    end
+
+    it { is_expected.to_not be_valid }
+  end
 end
