@@ -80,8 +80,38 @@ RSpec.describe User, :type => :model do
     it { is_expected.to_not be_valid }
   end
 
-  describe "should have many memorials" do
-  	before { @user.created_memorials << Memorial.create }
+  describe "should have many created memorials" do
+  	before { @user.created_memorials << Memorial.new }
+  	it { is_expected.to be_valid }
+  end
+
+  describe "should have many attended memorials" do
+  	before do
+  		@memorial = Memorial.new
+  		@user.created_memorials << @memorial
+  		@user2 = User.new(name: "Gondeck", email: "gondeck@example.com", phone: "552-555-5555")
+  		@user2.attended_memorials << @memorial
+  	end
+  	it { is_expected.to be_valid }
+  end
+
+  describe "should have many authored posts" do
+  	before { @user.posts << Post.new }
+  	it { is_expected.to be_valid }
+  end
+
+  describe "should have many uploaded photos" do
+  	before { @user.photos << Photo.new }
+  	it { is_expected.to be_valid }
+  end
+
+  describe "should have many comments" do
+  	before do
+      @photo = Photo.new
+      @comment = Comment.new
+      @comment.commentable = @photo
+      @user.comments << @comment
+    end
   	it { is_expected.to be_valid }
   end
 end
