@@ -60,6 +60,7 @@ RSpec.describe User, :type => :model do
   	phone_numbers.each do |invalid_phone|
   		before { @user.phone = invalid_phone }
   		it { is_expected.to_not be_valid }
+  	end
   end
 
   describe "when phone number format is valid" do
@@ -67,6 +68,7 @@ RSpec.describe User, :type => :model do
   	phone_numbers.each do |valid_phone|
   		before { @user.phone = valid_phone }
   		it { is_expected.to be_valid }
+  	end
   end
 
   describe "when phone number is already taken" do
