@@ -3448,3 +3448,1401 @@
   [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
   [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
   [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:11:32.672532"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:11:32.672532"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:11:32.683263"], ["text", "text"], ["updated_at", "2014-08-14 19:11:32.683263"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:11:32.691611"], ["profile?", "f"], ["updated_at", "2014-08-14 19:11:32.691611"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commenter_id" = $1  [["commenter_id", 42]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:11:32.708333"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:11:32.708333"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:11:32.710205"], ["text", "text"], ["updated_at", "2014-08-14 19:11:32.710205"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:11:32.711375"], ["profile?", "f"], ["updated_at", "2014-08-14 19:11:32.711375"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 43]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:11:32.719735"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:11:32.719735"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:11:32.721599"], ["text", "text"], ["updated_at", "2014-08-14 19:11:32.721599"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:11:32.722775"], ["profile?", "f"], ["updated_at", "2014-08-14 19:11:32.722775"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 16], ["commentable_type", "Post"], ["commenter_id", 1], ["created_at", "2014-08-14 19:11:32.724892"], ["text", "comment"], ["updated_at", "2014-08-14 19:11:32.724892"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:11:32.729906"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:11:32.729906"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:11:32.731610"], ["text", "text"], ["updated_at", "2014-08-14 19:11:32.731610"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:11:32.733498"], ["profile?", "f"], ["updated_at", "2014-08-14 19:11:32.733498"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 17], ["commentable_type", "Photo"], ["commenter_id", 1], ["created_at", "2014-08-14 19:11:32.734794"], ["text", "comment"], ["updated_at", "2014-08-14 19:11:32.734794"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('FRANK@EXAMPLE.COM') LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:11:32.786894"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:11:32.786894"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-08-14 19:11:32.856276"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:11:32.856276"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "memorials" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2014-08-14 19:11:32.861529"], ["updated_at", "2014-08-14 19:11:32.861529"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:11:55.834560"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:11:55.834560"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:11:55.843500"], ["text", "text"], ["updated_at", "2014-08-14 19:11:55.843500"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:11:55.851594"], ["profile?", "f"], ["updated_at", "2014-08-14 19:11:55.851594"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commenter_id" = $1  [["commenter_id", 48]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:11:55.864654"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:11:55.864654"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:11:55.866041"], ["text", "text"], ["updated_at", "2014-08-14 19:11:55.866041"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:11:55.867142"], ["profile?", "f"], ["updated_at", "2014-08-14 19:11:55.867142"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 49]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:11:55.875408"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:11:55.875408"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:11:55.876756"], ["text", "text"], ["updated_at", "2014-08-14 19:11:55.876756"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:11:55.877903"], ["profile?", "f"], ["updated_at", "2014-08-14 19:11:55.877903"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 20], ["commentable_type", "Post"], ["commenter_id", 1], ["created_at", "2014-08-14 19:11:55.879861"], ["text", "comment"], ["updated_at", "2014-08-14 19:11:55.879861"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:11:55.884664"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:11:55.884664"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:11:55.885901"], ["text", "text"], ["updated_at", "2014-08-14 19:11:55.885901"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:11:55.887003"], ["profile?", "f"], ["updated_at", "2014-08-14 19:11:55.887003"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 21], ["commentable_type", "Photo"], ["commenter_id", 1], ["created_at", "2014-08-14 19:11:55.888189"], ["text", "comment"], ["updated_at", "2014-08-14 19:11:55.888189"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('FRANK@EXAMPLE.COM') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:11:55.940316"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:11:55.940316"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-08-14 19:11:56.005188"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:11:56.005188"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "memorials" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2014-08-14 19:11:56.010263"], ["updated_at", "2014-08-14 19:11:56.010263"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:13:07.464053"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:13:07.464053"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:13:07.473670"], ["text", "text"], ["updated_at", "2014-08-14 19:13:07.473670"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:13:07.482868"], ["profile?", "f"], ["updated_at", "2014-08-14 19:13:07.482868"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commenter_id" = $1  [["commenter_id", 54]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:13:07.496801"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:13:07.496801"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:13:07.498189"], ["text", "text"], ["updated_at", "2014-08-14 19:13:07.498189"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:13:07.499286"], ["profile?", "f"], ["updated_at", "2014-08-14 19:13:07.499286"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 55]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:13:07.507779"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:13:07.507779"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:13:07.509196"], ["text", "text"], ["updated_at", "2014-08-14 19:13:07.509196"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:13:07.510354"], ["profile?", "f"], ["updated_at", "2014-08-14 19:13:07.510354"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 24], ["commentable_type", "Post"], ["commenter_id", 1], ["created_at", "2014-08-14 19:13:07.512343"], ["text", "comment"], ["updated_at", "2014-08-14 19:13:07.512343"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:13:07.518366"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:13:07.518366"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:13:07.519824"], ["text", "text"], ["updated_at", "2014-08-14 19:13:07.519824"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:13:07.520959"], ["profile?", "f"], ["updated_at", "2014-08-14 19:13:07.520959"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 25], ["commentable_type", "Photo"], ["commenter_id", 1], ["created_at", "2014-08-14 19:13:07.522090"], ["text", "comment"], ["updated_at", "2014-08-14 19:13:07.522090"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('FRANK@EXAMPLE.COM') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:13:07.567647"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:13:07.567647"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-08-14 19:13:07.599742"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:13:07.599742"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "memorials" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2014-08-14 19:13:07.642265"], ["updated_at", "2014-08-14 19:13:07.642265"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:14:51.594205"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:14:51.594205"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:14:51.604645"], ["text", "text"], ["updated_at", "2014-08-14 19:14:51.604645"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:14:51.613012"], ["profile?", "f"], ["updated_at", "2014-08-14 19:14:51.613012"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commenter_id" = $1  [["commenter_id", 60]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:14:51.627391"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:14:51.627391"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:14:51.628747"], ["text", "text"], ["updated_at", "2014-08-14 19:14:51.628747"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:14:51.629913"], ["profile?", "f"], ["updated_at", "2014-08-14 19:14:51.629913"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 61]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:14:51.638774"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:14:51.638774"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:14:51.640136"], ["text", "text"], ["updated_at", "2014-08-14 19:14:51.640136"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:14:51.641465"], ["profile?", "f"], ["updated_at", "2014-08-14 19:14:51.641465"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 28], ["commentable_type", "Post"], ["commenter_id", 1], ["created_at", "2014-08-14 19:14:51.643735"], ["text", "comment"], ["updated_at", "2014-08-14 19:14:51.643735"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:14:51.649316"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:14:51.649316"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:14:51.650741"], ["text", "text"], ["updated_at", "2014-08-14 19:14:51.650741"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:14:51.652334"], ["profile?", "f"], ["updated_at", "2014-08-14 19:14:51.652334"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 29], ["commentable_type", "Photo"], ["commenter_id", 1], ["created_at", "2014-08-14 19:14:51.653667"], ["text", "comment"], ["updated_at", "2014-08-14 19:14:51.653667"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('FRANK@EXAMPLE.COM') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:14:51.706453"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:14:51.706453"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-08-14 19:14:51.776149"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:14:51.776149"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "memorials" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2014-08-14 19:14:51.781660"], ["updated_at", "2014-08-14 19:14:51.781660"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:15:18.177077"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:15:18.177077"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:15:18.186244"], ["text", "text"], ["updated_at", "2014-08-14 19:15:18.186244"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:15:18.194091"], ["profile?", "f"], ["updated_at", "2014-08-14 19:15:18.194091"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commenter_id" = $1  [["commenter_id", 66]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:15:18.207555"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:15:18.207555"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:15:18.208953"], ["text", "text"], ["updated_at", "2014-08-14 19:15:18.208953"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:15:18.210101"], ["profile?", "f"], ["updated_at", "2014-08-14 19:15:18.210101"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 67]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:15:18.218607"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:15:18.218607"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:15:18.219937"], ["text", "text"], ["updated_at", "2014-08-14 19:15:18.219937"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:15:18.221040"], ["profile?", "f"], ["updated_at", "2014-08-14 19:15:18.221040"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 32], ["commentable_type", "Post"], ["commenter_id", 1], ["created_at", "2014-08-14 19:15:18.223023"], ["text", "comment"], ["updated_at", "2014-08-14 19:15:18.223023"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:15:18.227858"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:15:18.227858"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:15:18.229257"], ["text", "text"], ["updated_at", "2014-08-14 19:15:18.229257"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:15:18.230495"], ["profile?", "f"], ["updated_at", "2014-08-14 19:15:18.230495"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 33], ["commentable_type", "Photo"], ["commenter_id", 1], ["created_at", "2014-08-14 19:15:18.231752"], ["text", "comment"], ["updated_at", "2014-08-14 19:15:18.231752"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('FRANK@EXAMPLE.COM') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:15:18.279883"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:15:18.279883"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-08-14 19:15:18.346857"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:15:18.346857"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "memorials" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2014-08-14 19:15:18.351766"], ["updated_at", "2014-08-14 19:15:18.351766"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:15:39.595408"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:15:39.595408"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:15:39.605686"], ["text", "text"], ["updated_at", "2014-08-14 19:15:39.605686"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:15:39.614178"], ["profile?", "f"], ["updated_at", "2014-08-14 19:15:39.614178"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commenter_id" = $1  [["commenter_id", 72]]
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:15:39.628143"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:15:39.628143"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:15:39.629540"], ["text", "text"], ["updated_at", "2014-08-14 19:15:39.629540"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:15:39.630632"], ["profile?", "f"], ["updated_at", "2014-08-14 19:15:39.630632"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 73]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:15:39.639052"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:15:39.639052"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:15:39.640545"], ["text", "text"], ["updated_at", "2014-08-14 19:15:39.640545"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:15:39.641660"], ["profile?", "f"], ["updated_at", "2014-08-14 19:15:39.641660"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 36], ["commentable_type", "Post"], ["commenter_id", 1], ["created_at", "2014-08-14 19:15:39.643696"], ["text", "comment"], ["updated_at", "2014-08-14 19:15:39.643696"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:15:39.648701"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:15:39.648701"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:15:39.650095"], ["text", "text"], ["updated_at", "2014-08-14 19:15:39.650095"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:15:39.651232"], ["profile?", "f"], ["updated_at", "2014-08-14 19:15:39.651232"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 37], ["commentable_type", "Photo"], ["commenter_id", 1], ["created_at", "2014-08-14 19:15:39.652431"], ["text", "comment"], ["updated_at", "2014-08-14 19:15:39.652431"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('FRANK@EXAMPLE.COM') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:15:39.703122"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:15:39.703122"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-08-14 19:15:39.768988"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:15:39.768988"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "memorials" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2014-08-14 19:15:39.774009"], ["updated_at", "2014-08-14 19:15:39.774009"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:16:50.849141"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:16:50.849141"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:16:50.858156"], ["text", "text"], ["updated_at", "2014-08-14 19:16:50.858156"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:16:50.868412"], ["profile?", "f"], ["updated_at", "2014-08-14 19:16:50.868412"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments"  WHERE "comments"."commenter_id" = $1  [["commenter_id", 78]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:16:50.881870"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:16:50.881870"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:16:50.883225"], ["text", "text"], ["updated_at", "2014-08-14 19:16:50.883225"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:16:50.884299"], ["profile?", "f"], ["updated_at", "2014-08-14 19:16:50.884299"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 79]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:16:50.892573"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:16:50.892573"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:16:50.893977"], ["text", "text"], ["updated_at", "2014-08-14 19:16:50.893977"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:16:50.895120"], ["profile?", "f"], ["updated_at", "2014-08-14 19:16:50.895120"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 40], ["commentable_type", "Post"], ["commenter_id", 1], ["created_at", "2014-08-14 19:16:50.897121"], ["text", "comment"], ["updated_at", "2014-08-14 19:16:50.897121"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('jonyoungg@gmail.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '9083803287' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:16:50.902044"], ["email", "jonyoungg@gmail.com"], ["name", "Jonathan"], ["phone", "9083803287"], ["updated_at", "2014-08-14 19:16:50.902044"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "posts" ("approved", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["approved", "t"], ["created_at", "2014-08-14 19:16:50.903349"], ["text", "text"], ["updated_at", "2014-08-14 19:16:50.903349"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "photos" ("approved", "caption", "created_at", "profile?", "updated_at", "url") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["approved", "t"], ["caption", "caption"], ["created_at", "2014-08-14 19:16:50.904447"], ["profile?", "f"], ["updated_at", "2014-08-14 19:16:50.904447"], ["url", "www.google.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "comments" ("commentable_id", "commentable_type", "commenter_id", "created_at", "text", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["commentable_id", 41], ["commentable_type", "Photo"], ["commenter_id", 1], ["created_at", "2014-08-14 19:16:50.905627"], ["text", "comment"], ["updated_at", "2014-08-14 19:16:50.905627"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('foo@bar+baz.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('a+b@baz.cn') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('FRANK@EXAMPLE.COM') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-08-14 19:16:50.957997"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:16:50.957997"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '+12837549' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '1234567890' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "phone", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", "2014-08-14 19:16:51.027427"], ["email", "frank@example.com"], ["name", "Frank"], ["phone", "555-555-5555"], ["updated_at", "2014-08-14 19:16:51.027427"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "memorials" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"  [["created_at", "2014-08-14 19:16:51.032321"], ["updated_at", "2014-08-14 19:16:51.032321"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE LOWER("users"."email") = LOWER('frank@example.com') LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."phone" = '555-555-5555' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
