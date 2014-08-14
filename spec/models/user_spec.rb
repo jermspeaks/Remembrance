@@ -106,7 +106,12 @@ RSpec.describe User, :type => :model do
   end
 
   describe "should have many comments" do
-  	before { @user.comments << Comment.new }
+  	before do
+      @photo = Photo.new
+      @comment = Comment.new
+      @comment.commentable = @photo
+      @user.comments << @comment
+    end
   	it { is_expected.to be_valid }
   end
 end
