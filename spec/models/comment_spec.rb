@@ -5,7 +5,7 @@ RSpec.describe Comment, :type => :model do
   	@comment = Comment.create(commenter_id: 1,commentable_id: 1, commentable_type: "photo", text: "comment")
   	@user = User.create(name: "Jonathan", email: "jonyoungg@gmail.com", phone: "9083803287")
   	@post = Post.create(approved: true, text: "text")
-  	@photo = Photo.create(approved: true, url: "www.google.com", caption: "caption", profile?: false)
+  	@photo = Photo.create(approved: true, url: "www.google.com", caption: "caption", profile: false)
   end
 
   it 'a users comments should all be comments' do
