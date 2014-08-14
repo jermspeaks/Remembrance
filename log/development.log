@@ -66,3 +66,39 @@ Migrating to CreateComments (20140814153235)
   [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153235"]]
   [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (19.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140814152801)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (35.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "name" character varying(255), "email" character varying(255), "phone" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (16.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814152801"]]
+  [1m[36m (15.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePosts (20140814152836)
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "author_id" integer, "memorial_id" integer, "approved" boolean, "text" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (22.6ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814152836"]]
+  [1m[36m (15.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMemorials (20140814153020)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (3.3ms)[0m  [1mCREATE TABLE "memorials" ("id" serial primary key, "moderator_id" integer, "deceased_name" character varying(255), "date_of_birth" timestamp, "date_of_death" timestamp, "obituary_description" text, "service_description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153020"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMemorialGuests (20140814153056)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "memorial_guests" ("id" serial primary key, "guest_id" integer, "memorial_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153056"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePhotos (20140814153147)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "uploader_id" integer, "memorial_id" integer, "approved" boolean, "url" character varying(255), "caption" character varying(255), "profile?" boolean, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153147"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20140814153235)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "commenter_id" integer, "commentable_id" integer, "commentable_type" character varying(255), "text" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153235"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
