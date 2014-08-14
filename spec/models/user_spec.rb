@@ -101,7 +101,7 @@ RSpec.describe User, :type => :model do
   end
 
   describe "should have many uploaded photos" do
-  	before { @user.photos << Photo.new }
+  	before { @user.photos << Photo.new(approved: true, url: "http://blog.jimdo.com/wp-content/uploads/2014/01/tree-247122.jpg", caption: "This is a test picture", profile: false) }
   	it { is_expected.to be_valid }
   end
 

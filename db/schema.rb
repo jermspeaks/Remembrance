@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 20140814153235) do
     t.boolean  "approved"
     t.string   "url"
     t.string   "caption"
-    t.boolean  "profile"
+    t.boolean  "profile",     default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
