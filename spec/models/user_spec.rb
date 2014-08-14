@@ -96,7 +96,7 @@ RSpec.describe User, :type => :model do
   end
 
   describe "should have many authored posts" do
-  	before { @user.posts << Post.new }
+  	before { @user.posts << Post.new(approved: true, text: "This guy had lots of fun") }
   	it { is_expected.to be_valid }
   end
 
