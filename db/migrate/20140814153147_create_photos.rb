@@ -6,7 +6,7 @@ class CreatePhotos < ActiveRecord::Migration
       t.boolean :approved
       t.string :url
       t.string :caption
-      t.boolean :profile?
+      t.boolean :profile
 
       t.timestamps
     end
