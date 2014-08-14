@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Comment, :type => :model do
   before do
   	@comment = Comment.create(commenter_id: 1,commentable_id: 1, commentable_type: "photo", text: "comment")
-  	@user = User.create(name: "Jonathan", email: "jonyoungg@gmail.com", phone: "9083803287")
+  	@user = User.create(name: "Jonathan", email: "jonyoungg@gmail.com")
   	@post = Post.create(approved: true, text: "text")
   	@photo = Photo.create(approved: true, url: "www.google.com", caption: "caption", profile: false)
   end

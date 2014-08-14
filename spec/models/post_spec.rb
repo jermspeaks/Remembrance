@@ -28,7 +28,7 @@ RSpec.describe Post, :type => :model do
   end
 
   describe "should belong to an uploader" do
-    before { @post.author = User.new(name: "Frank", email: "frank@example.com", phone: "555-555-5555") }
+    before { @post.author = User.new(name: "Frank", email: "frank@example.com") }
     it { is_expected.to be_valid }
   end
 
