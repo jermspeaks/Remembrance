@@ -38,4 +38,28 @@ RSpec.describe Photo, :type => :model do
     before { @photo = Photo.new(approved: true, url: "http://blog.jimdo.com/wp-content/uploads/2014/01/tree-247122.jpg", caption: "This is a test picture") }
     it { expect(@photo.profile).to eq(false) }
   end
+
+  describe "should have many comments" do
+    before { @photo.comments << Comment.new(commentable: @photo) }
+    it { is_expected.to be_valid }
+  end
+
+  describe "should belong to an uploader" do
+    before { @photo.uploader = User.new }
+    it { is_expected.to be_valid }
+  end
+
+  describe "should belong to a memorial" do
+    before { @photo.memorial = Memorial.new }
+    it { is_expected.to be_valid }
+  end
+
 end
+
+
+  
+
+
+
+
+
