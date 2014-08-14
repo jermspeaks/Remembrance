@@ -18,10 +18,10 @@ Git/Github
 
 
 ###Collaborators: 
-Simon Gondeck
-Francisco Scala
-Jeremy Wong
-Jonathan Young
+Simon Gondeck, 
+Francisco Scala, 
+Jeremy Wong, 
+Jonathan Young, 
 
 
 ========
