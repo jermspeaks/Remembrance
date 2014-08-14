@@ -2,8 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Memorial, :type => :model do
   before do
-  	@user = User.new
+  	@user = User.new(name: "Jonathan", email: "jonyoungg@gmail.com", phone: "9083803287")
+  	@user2 = User.new(name: "Simon", email: "simon@gmail.com", phone: "123456789")
+  	@
   	@memorial = Memorial.new(moderator_id: @user.id)
+  	@memorial.post << Post.new(author_id: @user2.id, memorial_id: @memorial.id, approved: true, text: "This is a test post")
+  	@memorial.photo << Photo.new(uploader_id: @user2.id, memorial_id: @memorial.id, approved: true, url: "www.google.com", caption: "This is a caption", profile: false)
+  	@memorial.comments << Comment.new(commentable_id: )
   end
 end
 
