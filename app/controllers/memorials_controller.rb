@@ -1,5 +1,5 @@
 class MemorialsController < ApplicationController
-
+	include ApplicationHelper
 
 	def index
 		current_user
