@@ -3,8 +3,14 @@ ruby "2.0.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
-gem 'rspec-rails'
-gem 'capybara'
+
+group :development, :test do
+  gem 'database_cleaner', '~> 1.3.0'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'capybara', '~> 2.4.1'
+  gem 'launchy', '~> 2.4.2'
+end
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
