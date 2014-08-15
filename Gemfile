@@ -20,6 +20,9 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'omniauth'
 gem 'omniauth-facebook', '1.4.0'
 
+#simplecov
+gem 'simplecov', '~> 0.9.0', :require => false, :group => :test
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
