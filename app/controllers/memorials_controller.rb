@@ -2,11 +2,7 @@ class MemorialsController < ApplicationController
 	include ApplicationHelper
 
 	def new 
-		
-	end
-
-	def create 
-
+		@memorial = Memorial.new
 	end
 
 	def index

@@ -2,20 +2,20 @@
   <%= form_for @memorial, url: {action: "create"} do |f| %>
     
     <%= f.label :deceased_name %><br>
-    <%= f.text_field :deceased_name %>
+    <%= f.text_field :deceased_name, placeholder: "Name" %><br>
 
     <%= f.label :date_of_birth %><br>
-    <%= f.date_field :date_of_birth %>
+    <%= f.date_field :date_of_birth, placeholder: "Date of Birth" %><br>
 
     <%= f.label :date_of_death %><br>
-    <%= f.date_field :date_of_death %>
+    <%= f.date_field :date_of_death, placeholder: "Date of Passing" %><br>
 
     <%= f.label :obituary_description %><br>
-    <%= f.text_area :obituary_description %>
+    <%= f.text_area :obituary_description, placeholder: "Obituary Description" %><br>
 
     <%= f.label :service_description %><br>
-    <%= f.text_area :service_description %>
-
+    <%= f.text_area :service_description, placeholder: "Service Description" %><br>
+    <br>
     <%= f.submit %>
   <% end %>
 </div>
