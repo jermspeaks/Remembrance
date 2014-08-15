@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :memorials, only: [:index, :show]
 
+  scope :memorials, :controller => 'memorials' do
+    get :attended, :created
+  end
+
   namespace :admin do
     resources :memorials, except: [:index]
   end
