@@ -21,8 +21,8 @@
 <div id="user-widget">
   <% if current_user %>
     <%= link_to "Create new memorial", new_admin_memorial_path, id: "new_memorial", class: "btn btn-default btn-sm" %>
-    <%= link_to "Created memorials", new_admin_memorial_path, id: "new_memorial", class: "btn btn-default btn-sm" %>
-    <%= link_to "Attended memorials", new_admin_memorial_path, id: "new_memorial", class: "btn btn-default btn-sm" %>
+    <%= link_to "Created memorials", created_path, id: "new_memorial", class: "btn btn-default btn-sm" %>
+    <%= link_to "Attended memorials", attended_path, id: "new_memorial", class: "btn btn-default btn-sm" %>
     <%= link_to "Sign out", signout_path, id: "sign_out", class: "btn btn-default btn-sm" %>
   <% else %>
     <%= link_to "Login with Facebook", "/auth/facebook", id: "sign_in", class: "btn btn-default btn-sm" %>

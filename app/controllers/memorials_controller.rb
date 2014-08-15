@@ -11,6 +11,14 @@ class MemorialsController < ApplicationController
 		@created_memorials = @current_user.created_memorials 
 	end
 
+	def created
+
+	end
+
+	def attended
+
+	end
+
 	def show
 		@memorial = Memorial.find params[:id]
 	end
