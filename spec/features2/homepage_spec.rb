@@ -1,15 +1,12 @@
 require "rails_helper"
 
 feature "the homepage" do
-  scenario "a user can sign up with Facebook" do
-    # given a set posts in the database
-    # post = Post.create(:title => "My best cat gif", :content => "Funny cat gif")
-    # as a user I want to see all the posts on the homepage
-    # visit('/')
-    # so that i can enjoy my morning cat gifs
-    # save_and_open_page
+  scenario "a user should get the home page" do
+    visit root_path
+    expect(page).to have_content("Memorials")
+  end
 
-    # expect(page).to have_link post.title
+  scenario "a user can sign up with Facebook" do
   end
 
   scenario "a user can log in with Facebook" do
