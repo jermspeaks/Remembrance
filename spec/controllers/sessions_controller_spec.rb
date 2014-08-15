@@ -23,6 +23,6 @@ RSpec.describe SessionsController, :type => :controller do
 		it 'should create a new user' do
 	 #    post :create, auth: env
 		# 	expect(User.last.email_address).to eq("jeremy_rhvuhfx_wongwong@tfbnw.net")
-		# end
+		end
 	end
 end
