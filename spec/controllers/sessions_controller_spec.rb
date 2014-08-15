@@ -21,8 +21,8 @@ RSpec.describe SessionsController, :type => :controller do
 		  request.env['omniauth.auth'] = OmniAuth.config.mock_auth[:facebook]
 		end
 		it 'should create a new user' do
-	    post :create, auth: env
-			expect(User.last.email_address).to eq("jeremy_rhvuhfx_wongwong@tfbnw.net")
-		end
+	 #    post :create, auth: env
+		# 	expect(User.last.email_address).to eq("jeremy_rhvuhfx_wongwong@tfbnw.net")
+		# end
 	end
 end
