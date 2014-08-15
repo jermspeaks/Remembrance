@@ -29,9 +29,6 @@ RSpec.configure do |config|
   # Capybara.default\_wait\_time = 10
   # Capybara.app_host = 'http://' + Settings.host
 
-  config.include(FacebookMacros)
-
-
   config.before :each do
     DatabaseCleaner.strategy = :truncation
     DatabaseCleaner.start
