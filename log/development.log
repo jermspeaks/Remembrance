@@ -10504,3 +10504,337 @@ ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.ma
   Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
   Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (36.7ms)
 >>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-15 14:30:24 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 204ms (Views: 195.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/grayscale.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/grayscale.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/jquery.easing.min.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+
+Started GET "/img/intro-bg.jpg" for 127.0.0.1 at 2014-08-15 14:30:25 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/intro-bg.jpg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.8ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (8.7ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (108.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/grayscale.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/grayscale.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/jquery.easing.min.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+
+Started GET "/img/intro-bg.jpg" for 127.0.0.1 at 2014-08-15 14:30:27 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/intro-bg.jpg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.3ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (31.7ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 14:30:41 -0500
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 14:30:41 -0500
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook/callback?code=AQCZLaQS6SVeQq2KZJ4qAFoIrxHxOoLjUHPDWg8Ia8T344MtxiwD_Fo-ZR5cN1zzHda92yYdQa9ykRQ2A3aKKWOWR_ps7oV0XQWTykEqgYdSOOK24iNjSKV4iZsI2Dl4YT1BpzadI_chqaSWB9gXyUqe9bxDPguC2lq6MEkxH-OdiSKtes34idl73S8hV2f_GOmu4xwFbOTWphqOCUMt3Pxv-9bzKSgpEKXAxYkYY5LXIZsB_XNiau4sQCXKTKsvzoZ7MMGkbDtqvWeRyU1MlaAUj71SM_VclR6xlNELxVxxfFs-hIRvmUdiQJ6TR8Ft6gM" for 127.0.0.1 at 2014-08-15 14:30:41 -0500
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQCZLaQS6SVeQq2KZJ4qAFoIrxHxOoLjUHPDWg8Ia8T344MtxiwD_Fo-ZR5cN1zzHda92yYdQa9ykRQ2A3aKKWOWR_ps7oV0XQWTykEqgYdSOOK24iNjSKV4iZsI2Dl4YT1BpzadI_chqaSWB9gXyUqe9bxDPguC2lq6MEkxH-OdiSKtes34idl73S8hV2f_GOmu4xwFbOTWphqOCUMt3Pxv-9bzKSgpEKXAxYkYY5LXIZsB_XNiau4sQCXKTKsvzoZ7MMGkbDtqvWeRyU1MlaAUj71SM_VclR6xlNELxVxxfFs-hIRvmUdiQJ6TR8Ft6gM", "provider"=>"facebook"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."provider" = 'facebook' AND "users"."uid" = '2617430878302'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE (LOWER("users"."email_address") = LOWER('jonyoungg@gmail.com') AND "users"."id" != 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "oauth_token" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["oauth_token", "CAAGrm0zGx0UBAEBZCVij6ftG7klzZBa47hANuItlfWwoNUKi3ZCYMZBCS0tj2egLutexxczUfr6i3I5ZBAGZCjKF7NZCeV0qIxq73I8QrE1kJPgp2QuSDKii7c68rjpnYHlUBwCV4NGiV5Hjs0CZADkw4P0RfDagMv2BWxcNLsRKQhMw9WRe3LfuQCDrZBH1BMZBGDLzX1jS0ADIsLSd5AJrki"], ["updated_at", "2014-08-15 19:30:41.922649"]]
+  [1m[35m (64.1ms)[0m  COMMIT
+Redirected to http://localhost:3000/memorials
+Completed 302 Found in 153ms (ActiveRecord: 68.0ms)
+
+
+Started GET "/memorials" for 127.0.0.1 at 2014-08-15 14:30:41 -0500
+Processing by MemorialsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered memorials/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 48ms (Views: 10.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/grayscale.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/grayscale.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/jquery.easing.min.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 14:30:42 -0500
