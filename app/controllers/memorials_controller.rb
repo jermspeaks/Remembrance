@@ -1,6 +1,14 @@
 class MemorialsController < ApplicationController
 	include ApplicationHelper
 
+	def new 
+		
+	end
+
+	def create 
+
+	end
+
 	def index
 		current_user
 		@attended_memorials = @current_user.attended_memorials
