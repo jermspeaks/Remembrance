@@ -12,12 +12,6 @@ class User < ActiveRecord::Base
 	validates :name, presence: true
 	validates :email_address, format: { with: VALID_EMAIL_ADDRESS_REGEX }, uniqueness: { case_sensitive: false }
 
-  # def is_email_address_there
-  # 	unless self.email_address
-  # 		redirect to form
-  # 	end
-  # end
-
 	def self.from_omniauth(auth)
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
@@ -26,13 +20,8 @@ class User < ActiveRecord::Base
       user.email_address = auth.info.email
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
-      
       user.save!
     end
   end
-
-
-  
-
 
 end
