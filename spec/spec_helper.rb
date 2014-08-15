@@ -1,4 +1,6 @@
 require 'simplecov'
+require 'capybara/rails'
+require 'capybara/rspec'
 SimpleCov.start
 
 ENV['RAILS_ENV'] ||= 'test'
