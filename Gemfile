@@ -9,6 +9,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0.0'
   gem 'capybara', '~> 2.4.1'
   gem 'launchy', '~> 2.4.2'
+  gem 'factory_girl_rails', '~> 4.4.1'
 end
 
 # Use postgresql as the database for Active Record
