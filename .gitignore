@@ -24,5 +24,3 @@ config/initializers/secret_token.rb
 .rvmrc
 
 /coverage
-log/development.log
-log/test.log
