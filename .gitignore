@@ -25,3 +25,5 @@ config/initializers/secret_token.rb
 
 ##Facebook/Google oauth
 /config/initializers/omniauth.rb
+
+coverage
