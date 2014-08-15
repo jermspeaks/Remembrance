@@ -1467,6 +1467,7 @@ Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:36:19 -0500
 
 Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:36:19 -0500
 (facebook) Request phase initiated.
+<<<<<<< HEAD
 
 
 Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:39:42 -0500
@@ -1494,6 +1495,238 @@ Completed 500 Internal Server Error in 66ms
 
 ActionView::MissingTemplate (Missing template memorials/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
   * "/Users/simongondeck/Desktop/memorium/app/views"
+=======
+  [1m[36m (7.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (12.9ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140814152836)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (19.3ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "author_id" integer, "memorial_id" integer, "approved" boolean, "text" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (6.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814152836"]]
+  [1m[36m (6.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMemorials (20140814153020)
+  [1m[35m (6.1ms)[0m  BEGIN
+  [1m[36m (15.7ms)[0m  [1mCREATE TABLE "memorials" ("id" serial primary key, "moderator_id" integer, "deceased_name" character varying(255), "date_of_birth" timestamp, "date_of_death" timestamp, "obituary_description" text, "service_description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153020"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMemorialGuests (20140814153056)
+  [1m[35m (6.0ms)[0m  BEGIN
+  [1m[36m (7.7ms)[0m  [1mCREATE TABLE "memorial_guests" ("id" serial primary key, "guest_id" integer, "memorial_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153056"]]
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePhotos (20140814153147)
+  [1m[35m (6.2ms)[0m  BEGIN
+  [1m[36m (14.5ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "uploader_id" integer, "memorial_id" integer, "approved" boolean, "url" character varying(255), "caption" character varying(255), "profile" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153147"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20140814153235)
+  [1m[35m (6.1ms)[0m  BEGIN
+  [1m[36m (14.6ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "commenter_id" integer, "commentable_id" integer, "commentable_type" character varying(255), "text" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153235"]]
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20140815004343)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "provider" character varying(255), "uid" character varying(255), "name" character varying(255), "email_address" character varying(255), "oauth_token" character varying(255), "oauth_expires_at" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140815004343"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-15 13:49:50 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 404 Not Found in 23ms
+
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=1):
+  app/helpers/application_helper.rb:4:in `current_user'
+  app/controllers/sessions_controller.rb:10:in `new'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.7ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.8ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (20.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 277ms (Views: 276.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/grayscale.css?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/grayscale.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/jquery.easing.min.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.7ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.6ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (51.7ms)
+
+
+Started GET "/img/intro-bg.jpg" for 127.0.0.1 at 2014-08-15 13:50:04 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/intro-bg.jpg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.2ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.1ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (32.3ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:50:21 -0500
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:50:21 -0500
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook/callback?code=AQD2JiUHHVUGoasA9lhfbLFEEI1MgbKHzB6Eiyg6Mp06b7DCfsbI-r35KJDJ-C4wE2FBzaiIMQ02bJlRCfYeiD9dPlam_RpO9wLvpx9MKXeIunqmohcTcyufY3NS0zpu5KbGaoesFUPKNDlK7ddlUq_bYDXbm1rDZ9CM6FUzkmUdX-6OD9x62_rOiu_5lK4xhXoWYFsC48gCWYHjUZt-rBguGX7ljJbbANMO9oKiV2xsIQosSLNaiNztmptZj6w24-eXHrhzXxS-RPUzt3cra_tBUl_zyL4J3JB1MOcUGTnAgd4Iom0WRlTP_MFasBfKFdI" for 127.0.0.1 at 2014-08-15 13:50:21 -0500
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQD2JiUHHVUGoasA9lhfbLFEEI1MgbKHzB6Eiyg6Mp06b7DCfsbI-r35KJDJ-C4wE2FBzaiIMQ02bJlRCfYeiD9dPlam_RpO9wLvpx9MKXeIunqmohcTcyufY3NS0zpu5KbGaoesFUPKNDlK7ddlUq_bYDXbm1rDZ9CM6FUzkmUdX-6OD9x62_rOiu_5lK4xhXoWYFsC48gCWYHjUZt-rBguGX7ljJbbANMO9oKiV2xsIQosSLNaiNztmptZj6w24-eXHrhzXxS-RPUzt3cra_tBUl_zyL4J3JB1MOcUGTnAgd4Iom0WRlTP_MFasBfKFdI", "provider"=>"facebook"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."provider" = 'facebook' AND "users"."uid" = '2617430878302'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE LOWER("users"."email_address") = LOWER('jonyoungg@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (6.1ms)[0m  INSERT INTO "users" ("created_at", "email_address", "name", "oauth_expires_at", "oauth_token", "provider", "uid", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["created_at", "2014-08-15 18:50:22.660821"], ["email_address", "jonyoungg@gmail.com"], ["name", "Jon Young"], ["oauth_expires_at", "2014-10-14 18:50:21.000000"], ["oauth_token", "CAAGrm0zGx0UBAEA1hhwcqoO5adZCLZAdHBPxr4ObpMmrtSRW9BM3QnY83tmGdZBJUK5IoPDG517uB6ShFxvt8KgX4nw6oJZBMWJQud6AZCzEzEku1ZCGZCv34pdf5JsBHultaSn0nGRAVntHU4ucsZC5cz6wSmPrAIZA5DUUUgMdtwQOZBawaQeAxIviZCta3ROYfh5d8lKR7Omkr5miXZAwXW0q"], ["provider", "facebook"], ["uid", "2617430878302"], ["updated_at", "2014-08-15 18:50:22.660821"]]
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/memorials
+Completed 302 Found in 40ms (ActiveRecord: 13.3ms)
+
+
+Started GET "/memorials" for 127.0.0.1 at 2014-08-15 13:50:22 -0500
+Processing by MemorialsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 70ms
+
+ActionView::MissingTemplate (Missing template memorials/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/JYoung/Desktop/memorium/app/views"
+>>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
 ):
   actionview (4.1.4) lib/action_view/path_set.rb:46:in `find'
   actionview (4.1.4) lib/action_view/lookup_context.rb:124:in `find'
@@ -1511,7 +1744,11 @@ ActionView::MissingTemplate (Missing template memorials/index, application/index
   actionpack (4.1.4) lib/action_controller/metal/rendering.rb:16:in `render'
   actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
   activesupport (4.1.4) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+<<<<<<< HEAD
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+=======
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+>>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
   activesupport (4.1.4) lib/active_support/core_ext/benchmark.rb:12:in `ms'
   actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
   actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
@@ -1595,6 +1832,7 @@ ActionView::MissingTemplate (Missing template memorials/index, application/index
   rack (1.5.2) lib/rack/lock.rb:17:in `call'
   rack (1.5.2) lib/rack/content_length.rb:14:in `call'
   rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+<<<<<<< HEAD
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
@@ -1630,6 +1868,44 @@ Completed 500 Internal Server Error in 3ms
 
 ActionView::MissingTemplate (Missing template memorials/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
   * "/Users/simongondeck/Desktop/memorium/app/views"
+=======
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.5ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:50:33 -0500
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:50:33 -0500
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook/callback?code=AQAK8ZU8gGinfNQbw5H0J66vBHm5wl2DAYUJ4jPugnxa7EydTJlAjgHHsVQPM6cC7ZDfPbFZpeSOGwpIhQyMSJ1oPtXBFYg8j-85YA0Fo37HlXgdDEx1roKYymT0PpFmPQjk_B8eZYDuyw694xLJkUfXIH44NvYmsnWHlp2BTz9uERJakEEP-Nlraia6HRI90tmFBl0qfFCdiR934UCrWsr_uIFyGBrLNAh_3rqt_KXzBQcknXLl4xlWXC7axk-eBgrWwmNuL4P4eWZEfa8B2uExDRSxQU4BNsc5GUnus-PZYfn7kzCoDjJjKVdRU2fBrx0" for 127.0.0.1 at 2014-08-15 13:50:34 -0500
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAK8ZU8gGinfNQbw5H0J66vBHm5wl2DAYUJ4jPugnxa7EydTJlAjgHHsVQPM6cC7ZDfPbFZpeSOGwpIhQyMSJ1oPtXBFYg8j-85YA0Fo37HlXgdDEx1roKYymT0PpFmPQjk_B8eZYDuyw694xLJkUfXIH44NvYmsnWHlp2BTz9uERJakEEP-Nlraia6HRI90tmFBl0qfFCdiR934UCrWsr_uIFyGBrLNAh_3rqt_KXzBQcknXLl4xlWXC7axk-eBgrWwmNuL4P4eWZEfa8B2uExDRSxQU4BNsc5GUnus-PZYfn7kzCoDjJjKVdRU2fBrx0", "provider"=>"facebook"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."provider" = 'facebook' AND "users"."uid" = '2617430878302'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE (LOWER("users"."email_address") = LOWER('jonyoungg@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "oauth_expires_at" = $1, "oauth_token" = $2, "updated_at" = $3 WHERE "users"."id" = 1  [["oauth_expires_at", "2014-10-14 18:50:22.000000"], ["oauth_token", "CAAGrm0zGx0UBABKIzsEA6CmZCJieCqWPqUmNmMPrSYr5ZBu1BZBsH9nCCnQBfMv7xYUGmb1rLz2l4NNmFZB5ORFNax3soZAbYza6GFRKBH6u4CqXd9G9ZAA69VW5CFrZBimWZA68mSfomhXp5ZBb9FZCcomMpquzZABKp4wmA8UizZC7paCxJeCSZAOf2U3sJpBGPnBvbR7yhA58ZAG4KNZCOcN9c0ZB"], ["updated_at", "2014-08-15 18:50:35.355109"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/memorials
+Completed 302 Found in 8ms (ActiveRecord: 2.0ms)
+
+
+Started GET "/memorials" for 127.0.0.1 at 2014-08-15 13:50:35 -0500
+Processing by MemorialsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 3ms
+
+ActionView::MissingTemplate (Missing template memorials/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/JYoung/Desktop/memorium/app/views"
+>>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
 ):
   actionview (4.1.4) lib/action_view/path_set.rb:46:in `find'
   actionview (4.1.4) lib/action_view/lookup_context.rb:124:in `find'
@@ -1647,7 +1923,11 @@ ActionView::MissingTemplate (Missing template memorials/index, application/index
   actionpack (4.1.4) lib/action_controller/metal/rendering.rb:16:in `render'
   actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
   activesupport (4.1.4) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+<<<<<<< HEAD
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+=======
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+>>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
   activesupport (4.1.4) lib/active_support/core_ext/benchmark.rb:12:in `ms'
   actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
   actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
@@ -1731,6 +2011,7 @@ ActionView::MissingTemplate (Missing template memorials/index, application/index
   rack (1.5.2) lib/rack/lock.rb:17:in `call'
   rack (1.5.2) lib/rack/content_length.rb:14:in `call'
   rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+<<<<<<< HEAD
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
@@ -1760,6 +2041,78 @@ Completed 500 Internal Server Error in 3ms
 
 ActionView::MissingTemplate (Missing template memorials/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
   * "/Users/simongondeck/Desktop/memorium/app/views"
+=======
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2014-08-15 13:50:43 -0500
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (4.5ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (36.2ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:50:56 -0500
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:50:56 -0500
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook/callback?code=AQDQSit-_qGZsa1zPOiOKiDgaRde0058NagbCVW3_-W_28gdFhixfAXVLO1vB11omL-wsRfirNJyFPMpI-o2Wp5O5qOmAqWoMVL7fXKIuFI0_usWUFlYYXw04QECiXI4D1RHTkuu7PwGoPlb6Go6TseXTWlMInBQGOT1RnZO8mkIZ31s8dQxTmQ03HM3-dXksLyCJ6JRSV1DrDRtxrCUT1dxNFPi6WvDCifLUudwDQ2HOcq8wUTifNfh4czinsDK01OgMbuGXroiCQBlyrtDb7xEp8FXLos18H_cX8_Hnq3vb-4vBeIPd4cAmwlwIXT4I50" for 127.0.0.1 at 2014-08-15 13:50:57 -0500
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQDQSit-_qGZsa1zPOiOKiDgaRde0058NagbCVW3_-W_28gdFhixfAXVLO1vB11omL-wsRfirNJyFPMpI-o2Wp5O5qOmAqWoMVL7fXKIuFI0_usWUFlYYXw04QECiXI4D1RHTkuu7PwGoPlb6Go6TseXTWlMInBQGOT1RnZO8mkIZ31s8dQxTmQ03HM3-dXksLyCJ6JRSV1DrDRtxrCUT1dxNFPi6WvDCifLUudwDQ2HOcq8wUTifNfh4czinsDK01OgMbuGXroiCQBlyrtDb7xEp8FXLos18H_cX8_Hnq3vb-4vBeIPd4cAmwlwIXT4I50", "provider"=>"facebook"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."provider" = 'facebook' AND "users"."uid" = '2617430878302'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE (LOWER("users"."email_address") = LOWER('jonyoungg@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "oauth_token" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["oauth_token", "CAAGrm0zGx0UBAORN4Los8SzEXhBhsNUdWha953wpp3xYUELrtBdF5K4ZCQbDk7ZBJgl2EZBsQZBAeNl6dbjH4eLUXmGBn0U7eyn1ZAqZAywrgfPFacx01H9DmFgZApkyvMZCBurV8Ss0XExYXuzq4cXXPYN5J2DvOLk51VgMkcL6hfkczCK1O73FHPLa9c3pGacJLujnZAt064OhYrd29sVP9"], ["updated_at", "2014-08-15 18:50:57.357351"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/memorials
+Completed 302 Found in 8ms (ActiveRecord: 2.4ms)
+
+
+Started GET "/memorials" for 127.0.0.1 at 2014-08-15 13:50:57 -0500
+Processing by MemorialsController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 3ms
+
+ActionView::MissingTemplate (Missing template memorials/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/JYoung/Desktop/memorium/app/views"
+>>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
 ):
   actionview (4.1.4) lib/action_view/path_set.rb:46:in `find'
   actionview (4.1.4) lib/action_view/lookup_context.rb:124:in `find'
@@ -1777,7 +2130,11 @@ ActionView::MissingTemplate (Missing template memorials/index, application/index
   actionpack (4.1.4) lib/action_controller/metal/rendering.rb:16:in `render'
   actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
   activesupport (4.1.4) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+<<<<<<< HEAD
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+=======
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+>>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
   activesupport (4.1.4) lib/active_support/core_ext/benchmark.rb:12:in `ms'
   actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
   actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
@@ -1861,6 +2218,7 @@ ActionView::MissingTemplate (Missing template memorials/index, application/index
   rack (1.5.2) lib/rack/lock.rb:17:in `call'
   rack (1.5.2) lib/rack/content_length.rb:14:in `call'
   rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+<<<<<<< HEAD
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
@@ -1891,6 +2249,78 @@ Completed 500 Internal Server Error in 35ms
 
 ActionView::MissingTemplate (Missing template memorials/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
   * "/Users/simongondeck/Desktop/memorium/app/views"
+=======
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.4ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2014-08-15 13:50:59 -0500
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.0ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.0ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (27.9ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:51:59 -0500
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:52:00 -0500
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook/callback?code=AQAjMfGRBsoGid2KK0qxvTh2J_BxcG5kgWdjOmC_S8qbK4G2nm_1kMmIdPWNAYwXsk8W0Sj_RQdEqwpn07C_wDJ-BRnh5k61tXmN1FDSVbt9oZnoQquMw00rC1TnkVh_yL0oCIEIFjkOldcP9IglnYBFI4VWjqJhF8wkgYOEXDHN5wS3pUma_5Rf7xEwWuvs_VdJlYR1rn_Mu4YRgQdyn5yt3nmoDc-Q08OOVJ3AqcgSFuuiRM6RU1ZGlvcbW3ANC8cuboULVpzZMAYijQFoHd7reQMQJ7Ny3GeCXsTObPx7rRE8KFKMoqSdXbzCW9eihk0" for 127.0.0.1 at 2014-08-15 13:52:00 -0500
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAjMfGRBsoGid2KK0qxvTh2J_BxcG5kgWdjOmC_S8qbK4G2nm_1kMmIdPWNAYwXsk8W0Sj_RQdEqwpn07C_wDJ-BRnh5k61tXmN1FDSVbt9oZnoQquMw00rC1TnkVh_yL0oCIEIFjkOldcP9IglnYBFI4VWjqJhF8wkgYOEXDHN5wS3pUma_5Rf7xEwWuvs_VdJlYR1rn_Mu4YRgQdyn5yt3nmoDc-Q08OOVJ3AqcgSFuuiRM6RU1ZGlvcbW3ANC8cuboULVpzZMAYijQFoHd7reQMQJ7Ny3GeCXsTObPx7rRE8KFKMoqSdXbzCW9eihk0", "provider"=>"facebook"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."provider" = 'facebook' AND "users"."uid" = '2617430878302'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE (LOWER("users"."email_address") = LOWER('jonyoungg@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "oauth_expires_at" = $1, "oauth_token" = $2, "updated_at" = $3 WHERE "users"."id" = 1  [["oauth_expires_at", "2014-10-14 18:50:21.000000"], ["oauth_token", "CAAGrm0zGx0UBALmtUwQ2xMDbZBBwMZBTNFYRKssoBdknqL862pHmEKdvA9W1GiJyTTQFgKIHZAcpWissob5RNfTix9jZAT16McQKmJrfjotqRSYAIZA4vBZA5F50Hkcl9ral1Ar3uNrnhogV0ZBq7r9Ohqv60TAuFXG9wSOUsQSY3ipnQrcTohlPFvVG4Y6NAQ0kZBtIZBtKXtwHfjhP6pmwj"], ["updated_at", "2014-08-15 18:52:00.734142"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/memorials
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/memorials" for 127.0.0.1 at 2014-08-15 13:52:00 -0500
+Processing by MemorialsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 500 Internal Server Error in 3ms
+
+ActionView::MissingTemplate (Missing template memorials/index, application/index with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/JYoung/Desktop/memorium/app/views"
+>>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
 ):
   actionview (4.1.4) lib/action_view/path_set.rb:46:in `find'
   actionview (4.1.4) lib/action_view/lookup_context.rb:124:in `find'
@@ -1908,7 +2338,11 @@ ActionView::MissingTemplate (Missing template memorials/index, application/index
   actionpack (4.1.4) lib/action_controller/metal/rendering.rb:16:in `render'
   actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
   activesupport (4.1.4) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+<<<<<<< HEAD
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+=======
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/benchmark.rb:296:in `realtime'
+>>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
   activesupport (4.1.4) lib/active_support/core_ext/benchmark.rb:12:in `ms'
   actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
   actionpack (4.1.4) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
@@ -1992,6 +2426,7 @@ ActionView::MissingTemplate (Missing template memorials/index, application/index
   rack (1.5.2) lib/rack/lock.rb:17:in `call'
   rack (1.5.2) lib/rack/content_length.rb:14:in `call'
   rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+<<<<<<< HEAD
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
@@ -9471,6 +9906,122 @@ ActionView::MissingTemplate (Missing template memorials/index, application/index
   actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
   actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
   actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+=======
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+Processing by SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/memorials
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/memorials" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+Processing by MemorialsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered memorials/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 9ms (Views: 6.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/grayscale.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/grayscale.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/jquery.easing.min.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:34 -0500
+
+
+Started GET "/signout" for 127.0.0.1 at 2014-08-15 13:53:38 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-15 13:53:38 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 15ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/img/intro-bg.jpg" for 127.0.0.1 at 2014-08-15 13:53:38 -0500
+
+ActionController::RoutingError (No route matches [GET] "/img/intro-bg.jpg"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+>>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
   actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
   railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
   railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
@@ -9490,6 +10041,7 @@ ActionView::MissingTemplate (Missing template memorials/index, application/index
   rack (1.5.2) lib/rack/lock.rb:17:in `call'
   rack (1.5.2) lib/rack/content_length.rb:14:in `call'
   rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+<<<<<<< HEAD
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
@@ -9621,6 +10173,135 @@ ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.ma
 
 
 Started GET "/img/intro-bg.jpg" for 127.0.0.1 at 2014-08-15 14:16:51 -0500
+=======
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.7ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (38.5ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+(facebook) Request phase initiated.
+
+
+Started GET "/auth/facebook/callback?code=AQAX9C85qo-RxVTTFOMsr5awoQo2KylC9HDxeZYs1QdGlzjKp96zUG9s4B9wSV5Bg1zwkcJ_X6Ysael6avh8R1k4e61LOoFRJzOCs6FMXepSBMwloxFRr0Zv1feMJ-ijjE89n44f8CBV30PjRAslH-61V-WTrz6n_DAazACbvxT-5n3fgXQ-l8ABwmB7iOd0HnFUW9PttB4ciwYp4OTUc0xUliHKxWZF9AwLaB3PfKB8X0EztkppaLYid8AdhMdbmDBeWiGOtr6I7IuLDsn55QlabfJ774C6AuH1Qi6mm727x0IvV7EQT5rNRUrvt82zw6M" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"code"=>"AQAX9C85qo-RxVTTFOMsr5awoQo2KylC9HDxeZYs1QdGlzjKp96zUG9s4B9wSV5Bg1zwkcJ_X6Ysael6avh8R1k4e61LOoFRJzOCs6FMXepSBMwloxFRr0Zv1feMJ-ijjE89n44f8CBV30PjRAslH-61V-WTrz6n_DAazACbvxT-5n3fgXQ-l8ABwmB7iOd0HnFUW9PttB4ciwYp4OTUc0xUliHKxWZF9AwLaB3PfKB8X0EztkppaLYid8AdhMdbmDBeWiGOtr6I7IuLDsn55QlabfJ774C6AuH1Qi6mm727x0IvV7EQT5rNRUrvt82zw6M", "provider"=>"facebook"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."provider" = 'facebook' AND "users"."uid" = '2617430878302'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE (LOWER("users"."email_address") = LOWER('jonyoungg@gmail.com') AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "oauth_token" = $1, "updated_at" = $2 WHERE "users"."id" = 1  [["oauth_token", "CAAGrm0zGx0UBAOZAOxvBf7462ksFu1XM3cEz3NgZCsCuok1A9ZARwSU5vdZAvRp8FpzU8ZCRfWKyEQ8yoaWj5DwJwxthDHx4rHjrhIGn8AG9yIt3JyxE2Xz1DUbfG2AgEzJXrrUkfEkgxZBfexRMRZBtIA49KdRVO5v2EzFyNBopQ7cGhRDjETTN8XwgqymBRXvnHD24O3VtZAvzT86cXHJe"], ["updated_at", "2014-08-15 18:53:40.864955"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/memorials
+Completed 302 Found in 6ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/memorials" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+Processing by MemorialsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered memorials/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/bootstrap.min.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/grayscale.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:40 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:41 -0500
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:41 -0500
+
+
+Started GET "/assets/bootstrap.min.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:41 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:41 -0500
+
+
+Started GET "/assets/grayscale.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:41 -0500
+
+
+Started GET "/assets/jquery-1.11.0.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:41 -0500
+
+
+Started GET "/assets/jquery.easing.min.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:41 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:41 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:41 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:41 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:41 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-15 13:53:41 -0500
+
+
+Started GET "/signout" for 127.0.0.1 at 2014-08-15 13:54:05 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-15 13:54:05 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/img/intro-bg.jpg" for 127.0.0.1 at 2014-08-15 13:54:05 -0500
+>>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
 
 ActionController::RoutingError (No route matches [GET] "/img/intro-bg.jpg"):
   actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
@@ -9643,6 +10324,7 @@ ActionController::RoutingError (No route matches [GET] "/img/intro-bg.jpg"):
   rack (1.5.2) lib/rack/lock.rb:17:in `call'
   rack (1.5.2) lib/rack/content_length.rb:14:in `call'
   rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+<<<<<<< HEAD
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
@@ -9768,6 +10450,23 @@ ActionView::MissingTemplate (Missing template memorials/index, application/index
   actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
   actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
   actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+=======
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.9ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (0.9ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (52.0ms)
+
+
+Started GET "/assets/bootstrap.css.map" for 127.0.0.1 at 2014-08-15 13:59:28 -0500
+
+ActionController::RoutingError (No route matches [GET] "/assets/bootstrap.css.map"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+>>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
   actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
   railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
   railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
@@ -9787,9 +10486,21 @@ ActionView::MissingTemplate (Missing template memorials/index, application/index
   rack (1.5.2) lib/rack/lock.rb:17:in `call'
   rack (1.5.2) lib/rack/content_length.rb:14:in `call'
   rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+<<<<<<< HEAD
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
   /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
 
 
   Rendered /Users/simongondeck/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (0.5ms)
+=======
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.0ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/JYoung/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (36.7ms)
+>>>>>>> 9cbd934f57ed82fda25e44e29844dd25a4ddb515
