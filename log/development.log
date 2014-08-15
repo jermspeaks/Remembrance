@@ -102,3 +102,972 @@ Migrating to CreateComments (20140814153235)
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
   [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:48:19 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (7.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.1.4) lib/active_record/migration.rb:389:in `check_pending!'
+  activerecord (4.1.4) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.1.4) lib/active_support/callbacks.rb:82:in `run_callbacks'
+  actionpack (4.1.4) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (21.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20140815004343)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (30.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "provider" character varying(255), "uid" character varying(255), "name" character varying(255), "email" character varying(255), "oauth_token" character varying(255), "oauth_expires_at" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+PG::DuplicateTable: ERROR:  relation "users" already exists
+: CREATE TABLE "users" ("id" serial primary key, "provider" character varying(255), "uid" character varying(255), "name" character varying(255), "email" character varying(255), "oauth_token" character varying(255), "oauth_expires_at" timestamp, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (157.0ms)[0m  [1mDROP DATABASE IF EXISTS "in_memorium_development"[0m
+  [1m[36m (384.3ms)[0m  [1mCREATE DATABASE "in_memorium_development" ENCODING = 'unicode'[0m
+  [1m[36m (2.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (2.7ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140814152836)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (27.3ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "author_id" integer, "memorial_id" integer, "approved" boolean, "text" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814152836"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMemorials (20140814153020)
+  [1m[35m (5.5ms)[0m  BEGIN
+  [1m[36m (14.7ms)[0m  [1mCREATE TABLE "memorials" ("id" serial primary key, "moderator_id" integer, "deceased_name" character varying(255), "date_of_birth" timestamp, "date_of_death" timestamp, "obituary_description" text, "service_description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (5.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153020"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMemorialGuests (20140814153056)
+  [1m[35m (6.2ms)[0m  BEGIN
+  [1m[36m (8.4ms)[0m  [1mCREATE TABLE "memorial_guests" ("id" serial primary key, "guest_id" integer, "memorial_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153056"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePhotos (20140814153147)
+  [1m[35m (5.5ms)[0m  BEGIN
+  [1m[36m (14.9ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "uploader_id" integer, "memorial_id" integer, "approved" boolean, "url" character varying(255), "caption" character varying(255), "profile" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153147"]]
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20140814153235)
+  [1m[35m (5.5ms)[0m  BEGIN
+  [1m[36m (14.5ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "commenter_id" integer, "commentable_id" integer, "commentable_type" character varying(255), "text" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153235"]]
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20140815004343)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "provider" character varying(255), "uid" character varying(255), "name" character varying(255), "email" character varying(255), "oauth_token" character varying(255), "oauth_expires_at" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140815004343"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:48:58 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (32.7ms)
+Completed 200 OK in 376ms (Views: 364.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:48:59 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:49:59 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 121ms (Views: 111.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:00 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:50:27 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 103ms (Views: 93.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:28 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:38 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:50:40 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:52:20 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (33.9ms)
+Completed 200 OK in 391ms (Views: 381.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:52:21 -0500
+
+
+Started GET "/auth/facebook/callback" for 127.0.0.1 at 2014-08-14 19:52:23 -0500
+(facebook) Callback phase initiated.
+
+ActionController::RoutingError (No route matches [GET] "/auth/facebook/callback"):
+  actionpack (4.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.1.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.1.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.1.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:26:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.1.4) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.1.4) lib/rails/engine.rb:514:in `call'
+  railties (4.1.4) lib/rails/application.rb:144:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (0.9ms)
+  Rendered /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (2.2ms)
+  Rendered /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (16.5ms)
+  Rendered /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (47.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:54:21 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (30.4ms)
+Completed 200 OK in 104ms (Views: 95.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:22 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:54:23 -0500
+
+
+Started GET "/auth/facebook/callback" for 127.0.0.1 at 2014-08-14 19:54:24 -0500
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"facebook"}
+  [1m[35mUser Load (24.3ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."provider" = 'facebook' AND "users"."uid" = '10202502315532478'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (6.5ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."email" IS NULL LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+Completed 422 Unprocessable Entity in 121ms
+
+ActiveRecord::RecordInvalid (Validation failed: Email is invalid):
+  app/models/user.rb:21:in `block in from_omniauth'
+  app/models/user.rb:15:in `tap'
+  app/models/user.rb:15:in `from_omniauth'
+  app/controllers/sessions_controller.rb:4:in `create'
+
+
+  Rendered /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.6ms)
+  Rendered /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/Jeremy/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.1.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (17.6ms)
+  [1m[36m (7.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (13.0ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreatePosts (20140814152836)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (27.3ms)[0m  [1mCREATE TABLE "posts" ("id" serial primary key, "author_id" integer, "memorial_id" integer, "approved" boolean, "text" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (6.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814152836"]]
+  [1m[36m (5.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMemorials (20140814153020)
+  [1m[35m (6.3ms)[0m  BEGIN
+  [1m[36m (16.0ms)[0m  [1mCREATE TABLE "memorials" ("id" serial primary key, "moderator_id" integer, "deceased_name" character varying(255), "date_of_birth" timestamp, "date_of_death" timestamp, "obituary_description" text, "service_description" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153020"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMemorialGuests (20140814153056)
+  [1m[35m (6.3ms)[0m  BEGIN
+  [1m[36m (8.3ms)[0m  [1mCREATE TABLE "memorial_guests" ("id" serial primary key, "guest_id" integer, "memorial_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153056"]]
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePhotos (20140814153147)
+  [1m[35m (6.0ms)[0m  BEGIN
+  [1m[36m (15.1ms)[0m  [1mCREATE TABLE "photos" ("id" serial primary key, "uploader_id" integer, "memorial_id" integer, "approved" boolean, "url" character varying(255), "caption" character varying(255), "profile" boolean DEFAULT 'f', "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153147"]]
+  [1m[36m (6.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20140814153235)
+  [1m[35m (6.1ms)[0m  BEGIN
+  [1m[36m (14.9ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "commenter_id" integer, "commentable_id" integer, "commentable_type" character varying(255), "text" text, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140814153235"]]
+  [1m[36m (5.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUsers (20140815004343)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (3.7ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "provider" character varying(255), "uid" character varying(255), "name" character varying(255), "email_address" character varying(255), "oauth_token" character varying(255), "oauth_expires_at" timestamp, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20140815004343"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (33.2ms)
+Completed 200 OK in 119ms (Views: 106.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:36 -0500
+
+
+Started GET "/auth/facebook/callback" for 127.0.0.1 at 2014-08-14 19:55:38 -0500
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"facebook"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."provider" = 'facebook' AND "users"."uid" = '10202502315532478'  ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.4ms)[0m  INSERT INTO "users" ("created_at", "name", "oauth_expires_at", "oauth_token", "provider", "uid", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"  [["created_at", "2014-08-15 00:55:38.897749"], ["name", "Jeremy Wong"], ["oauth_expires_at", "2014-08-15 02:00:00.000000"], ["oauth_token", "CAAGrm0zGx0UBAKhUZBai66uAIDOI78Kqo34Lsl7lG9JWjZBZAXdlA6VDrnYI4dQmkMyUMYVvrDCDUiZCKqaeuJQqV4ZC0IUlOG57lcpYzCG2ZBfVZAZBlBlSUMzqbqBSZBVRlhnCtM9sDf8hY4ZAepo1LZB3ZAmGaevur0ORRuKDpcpqcjnM4IZAAaiciZB6kZCmPmrnO7ZCn3ZChvbZB4xwXl3k7VWEZBeCIImLa6v8FEZD"], ["provider", "facebook"], ["uid", "10202502315532478"], ["updated_at", "2014-08-15 00:55:38.897749"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 81ms (ActiveRecord: 4.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:55:38 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:39 -0500
+
+
+Started GET "/signout" for 127.0.0.1 at 2014-08-14 19:55:45 -0500
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:55:45 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:55:46 -0500
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:17 -0500
+
+
+Started GET "/auth/facebook/callback" for 127.0.0.1 at 2014-08-14 19:56:27 -0500
+(facebook) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"provider"=>"facebook"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."provider" = 'facebook' AND "users"."uid" = '10202502315532478'  ORDER BY "users"."id" ASC LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE "users" SET "oauth_token" = $1, "updated_at" = $2 WHERE "users"."id" = 1[0m  [["oauth_token", "CAAGrm0zGx0UBAIPJvZChkzIUZBBPxqwr7PX0tWgfZA9ForsaZBC2hQZCjvDhA8FWD5w07RyWNHCt5qSSFtAfs0ZAKHFhaFSKCWAkuE1nP5wQGTm546tD8sUGN7PgvpYvrOhltYodTQbt9bqZBaWmB9jAVgFYkGkyZC1YIJeXXKZB47gQQTmgb0LdYgJCVDZCG3JHWrvUCy4d2XlKvkdwDLXW2Y"], ["updated_at", "2014-08-15 00:56:28.156197"]]
+  [1m[35m (6.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 25ms (ActiveRecord: 7.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users"  WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/admin/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/memorials.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/photos.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/admin/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/memorials.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/photos.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-08-14 19:56:28 -0500
