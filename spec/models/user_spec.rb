@@ -2,13 +2,13 @@ require 'rails_helper'
 
 RSpec.describe User, :type => :model do
   before do
-    @user = User.new(name: "Frank", email: "frank@example.com")
+    @user = User.new(name: "Frank", email_address: "frank@example.com")
   end
 
   subject(:user) { @user }
 
   it { is_expected.to respond_to(:name) }
-  it { is_expected.to respond_to(:email) }
+  it { is_expected.to respond_to(:email_address) }
 
   it { is_expected.to be_valid }
 
@@ -17,33 +17,33 @@ RSpec.describe User, :type => :model do
     it { is_expected.to_not be_valid }
   end
 
-  describe "when email is not present" do
-    before { @user.email = '' }
+  describe "when email_address is not present" do
+    before { @user.email_address = '' }
     it { is_expected.to_not be_valid }
   end
 
-  describe "when email format is invalid" do
+  describe "when email_address format is invalid" do
     addresses = %w[user@foo,com user_at_foo.org example.user@foo.
                   foo@bar_baz.com foo@bar+baz.com]
     addresses.each do |invalid_address|
-      before { @user.email = invalid_address }
+      before { @user.email_address = invalid_address }
       it { is_expected.to_not be_valid }
     end
   end
 
-  describe "when email format is valid" do
+  describe "when email_address format is valid" do
     addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
     addresses.each do |valid_address|
-      before { @user.email = valid_address }
+      before { @user.email_address = valid_address }
       it { is_expected.to be_valid }
     end
   end
 
-  describe "when email address is already taken" do
+  describe "when email_address address is already taken" do
     before do
-      user_with_same_email = @user.dup
-      user_with_same_email.email = @user.email.upcase
-      user_with_same_email.save
+      user_with_same_email_address = @user.dup
+      user_with_same_email_address.email_address = @user.email_address.upcase
+      user_with_same_email_address.save
     end
 
     it { is_expected.to_not be_valid }
@@ -59,7 +59,7 @@ RSpec.describe User, :type => :model do
   	before do
   		@memorial = Memorial.new
   		@user.created_memorials << @memorial
-  		@user2 = User.new(name: "Gondeck", email: "gondeck@example.com")
+  		@user2 = User.new(name: "Gondeck", email_address: "gondeck@example.com")
   		@user2.attended_memorials << @memorial
   	end
   	it { is_expected.to be_valid }

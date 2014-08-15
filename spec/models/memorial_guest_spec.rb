@@ -2,7 +2,7 @@ require 'rails_helper'
 #this one
 RSpec.describe MemorialGuest, :type => :model do
   before do
-    @user = User.new(name: "Jonathan", email: "jonyoungg@gmail.com")
+    @user = User.new(name: "Jonathan", email_address: "jonyoungg@gmail.com")
     @memorial = Memorial.new(moderator_id: @user.id)
     @memorial_guest = MemorialGuest.new(guest_id: 1, memorial_id: 1)
   end
