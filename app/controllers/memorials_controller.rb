@@ -2,11 +2,6 @@ include ApplicationHelper
 
 class MemorialsController < ApplicationController
 
-
-	def new
-		@memorial = Memorial.new
-	end
-
   def create
     @memorial = Memorial.new(params[:memorial])
 		@memorial.save
