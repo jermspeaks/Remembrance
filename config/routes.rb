@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   resources :memorials, only: [:index, :show]
 
+  scope :info, :controller => 'info' do
+    get :about, :contact, :team
+  end
+
 
   namespace :admin do
     resources :memorials, except: [:index]

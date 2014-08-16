@@ -19,3 +19,16 @@
 	height: 75%;
 	width: 80%;
 }
+
+.link, a {
+cursor: pointer;
+color: #5291cb;
+font-weight: 300;
+text-decoration: none;
+}
+
+footer {
+width: 800px;
+margin: 0 auto 15px auto;
+text-align: center;
+}
