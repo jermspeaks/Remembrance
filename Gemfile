@@ -12,6 +12,8 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.4.1'
 end
 
+gem 'rails_12factor', group: :production
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
