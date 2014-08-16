@@ -14,9 +14,7 @@ class MemorialsController < ApplicationController
   end
 
 	def index
-		current_user
-		@attended_memorials = @current_user.attended_memorials
-		@created_memorials = @current_user.created_memorials
+		
 	end
 
 	def show
@@ -25,11 +23,12 @@ class MemorialsController < ApplicationController
 
 
 	def created
-
+		@moderator = User.find_by(id: current_user)
+		@created_memorials = @moderator.created_memorials
 	end
 
 	def attended
-
+		@attended_memorials = @current_user.attended_memorials
 	end
 
 end

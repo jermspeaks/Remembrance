@@ -1,1 +1,21 @@
-<h1>Created memorials</h1>
+<% if @created_memorials.length == 0 %>
+  <%= link_to "Create new memorial", new_admin_memorial_path, id: "new_memorial", class: "btn btn-default btn-sm" %>
+<% else %>
+	<h1>Created memorials</h1>
+	<table>
+	<!-- 	<thead>
+			<tr>
+				<th>Deceased name</th>
+				<th>Memorial date</th>
+			</tr>
+		</thead> -->
+		<tbody>
+			<% @created_memorials.each do |memorial| %>
+				<tr>
+					<td> <%= link_to memorial.deceased_name, memorial_path(memorial.id) %> </td>
+					<td> <%= memorial.date_of_death.strftime("%B %d, %Y") %> </td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>
+<% end %>
