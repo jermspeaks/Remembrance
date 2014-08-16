@@ -1,1 +1,11 @@
-<h1><%= @memorial.deceased_name %></h1>
+<div id="deceased-page">
+  <h1><%= @memorial.deceased_name %></h1>
+
+
+  <span>Date of Birth: <%= @memorial.date_of_birth.strftime("%B %d, %Y") %></span>|
+  <span>Date of Passing: <%= @memorial.date_of_death.strftime("%B %d, %Y") %></span>
+
+  <p><%= @memorial.obituary_description %></p>
+  <p><%= @memorial.service_description %></p>
+
+</div>
