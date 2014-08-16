@@ -5,7 +5,8 @@ class Admin::MemorialsController < ApplicationController
 	end
 
 	def create
-		@memorial = Memorial.new(memorial_params)
+		@moderator = User.find_by(id: current_user)
+		@memorial = @moderator.created_memorials.new(memorial_params)
 		if @memorial.save
 			redirect_to @memorial
 		else
@@ -34,7 +35,6 @@ class Admin::MemorialsController < ApplicationController
 		def memorial_params
 			params.require(:memorial).permit(:deceased_name, :date_of_birth, :date_of_death, :obituary_description, :service_description)
 		end
-
 	# def show
 	# 	@memorial = Memorial.find(params[:id])
 	# end
