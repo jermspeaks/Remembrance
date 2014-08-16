@@ -21,7 +21,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick'
 # Use SCSS for stylesheets
-gem 'bcrypt-ruby', '~> 3.1.0'
+gem 'bcrypt'
 gem 'sass-rails', '~> 4.0.3'
 gem 'less-rails'
 gem 'therubyracer'
