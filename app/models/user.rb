@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
 	has_many :posts, foreign_key: :author_id
 	has_many :photos, foreign_key: :uploader_id
 	has_many :comments, foreign_key: :commenter_id
+	has_secure_password
 
 	before_save { self.email_address = email_address.downcase }
  	VALID_EMAIL_ADDRESS_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
