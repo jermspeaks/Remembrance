@@ -1,6 +1,6 @@
 <div class="new_memorial_form">
-  <%= form_for @memorial, url: {action: "create"} do |f| %>
-    
+  <%= form_for @memorial, as: :memorial, url: {action: "create"} do |f| %>
+
     <%= f.label :deceased_name %><br>
     <%= f.text_field :deceased_name, placeholder: "Name" %><br>
 
