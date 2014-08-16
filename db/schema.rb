@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20140815004343) do
     t.datetime "updated_at"
   end
 
+  add_index "memorials", ["moderator_id"], name: "index_memorials_on_moderator_id", using: :btree
+
   create_table "photos", force: true do |t|
     t.integer  "uploader_id"
     t.integer  "memorial_id"

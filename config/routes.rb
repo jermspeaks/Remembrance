@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   scope :memorials, :controller => 'memorials' do
     get :attended, :created
   end
-  
+
   resources :memorials, only: [:index, :show]
 
 
@@ -22,4 +22,6 @@ Rails.application.routes.draw do
   get 'auth/backdoor' if Rails.env.test?
 
   root "sessions#new"
+
+  get 'admin_memorials', to: 'admin/memorials#show'
 end

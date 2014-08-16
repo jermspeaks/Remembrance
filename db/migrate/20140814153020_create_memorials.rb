@@ -1,7 +1,7 @@
 class CreateMemorials < ActiveRecord::Migration
   def change
     create_table :memorials do |t|
-      t.integer :moderator_id
+      t.belongs_to :moderator, index: true
       t.string :deceased_name
       t.datetime :date_of_birth
       t.datetime :date_of_death
