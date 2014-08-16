@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 	include ApplicationHelper
+	
 	def new
 		current_user
 		if @current_user

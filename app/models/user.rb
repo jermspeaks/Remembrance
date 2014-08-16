@@ -21,8 +21,15 @@ class User < ActiveRecord::Base
       user.email_address = auth.info.email
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      temp_pass = temp_password
+      user.password = temp_pass
+      user.password_confirmation = temp_pass
       user.save!
     end
   end
 
+  private
+  	def self.temp_password
+  		(0...50).map { ('a'..'z').to_a[rand(26)] }.join
+  	end
 end
