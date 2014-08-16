@@ -21,6 +21,7 @@ gem 'carrierwave'
 gem 'fog'
 gem 'mini_magick'
 # Use SCSS for stylesheets
+gem 'bcrypt'
 gem 'sass-rails', '~> 4.0.3'
 gem 'less-rails'
 gem 'therubyracer'
@@ -54,7 +55,7 @@ gem 'spring',        group: :development
 gem 'annotate', '~> 2.6.5'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+
 
 # Use unicorn as the app server
 # gem 'unicorn'
