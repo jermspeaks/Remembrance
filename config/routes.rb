@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   scope :memorials, :controller => 'memorials' do
     get :attended, :created
   end
-  
+
   resources :memorials, only: [:index, :show]
 
 
@@ -21,4 +21,6 @@ Rails.application.routes.draw do
 	match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
 
   root "sessions#new"
+
+  get 'admin_memorials', to: 'admin/memorials#show'
 end
