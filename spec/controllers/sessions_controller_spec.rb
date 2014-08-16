@@ -9,7 +9,7 @@ RSpec.describe SessionsController, :type => :controller do
 		end
 
 		it 'should redirect to memorials path if user is session exists' do
-			@user = User.create(name: "Frank", email_address: "frank@example.com")
+			@user = User.create(name: "Frank", email_address: "frank@example.com", password: "123456", password_confirmation: "123456")
 			session[:user_id] = @user.id
 			get :new
 			expect(response).to be_redirect
@@ -32,7 +32,7 @@ RSpec.describe SessionsController, :type => :controller do
 
 	describe '#destroy' do
 		it 'should log out a user' do
-			user = User.create(name: "Frank", email_address: "frank@example.com")
+			user = User.create(name: "Frank", email_address: "frank@example.com", password: "123456", password_confirmation: "123456")
 			session[:user_id] = user.id
 			expect(session[:user_id]).to_not be_nil
 	    delete :destroy

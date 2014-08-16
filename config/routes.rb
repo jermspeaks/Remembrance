@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     get :about, :contact, :team
   end
 
+  resources :users, only: [:new, :create, :destroy]
+
 
   namespace :admin do
     resources :memorials, except: [:index]
@@ -28,4 +30,5 @@ Rails.application.routes.draw do
   root "sessions#new"
 
   get 'admin_memorials', to: 'admin/memorials#show'
+  get 'new_with_email', to: 'sessions#new_with_email'
 end
