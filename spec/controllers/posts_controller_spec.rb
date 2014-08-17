@@ -22,10 +22,37 @@ RSpec.describe PostsController, :type => :controller do
 		end
 	end
 
-	describe 'GET #edit'
+	describe 'GET #edit' do
+		it 'should render a form to edit the post' do
+			@post = Post.create(author: @user, memorial: @memorial, approved: true, text: "Sorry about loss")
+			get :edit, :memorial_id => @memorial.id, :id => @post.id
+			expect(response).to be_success
+			expect(response.code).to eq("200")
+		end
+	end
 
-	describe 'PUT #update'
+	describe 'PUT #update' do
+		it 'should edit the post' do
+			@post = Post.create(author: @user, memorial: @memorial, approved: true, text: "Sorry about loss")
+			post :update, :memorial_id => @memorial.id, id: @post.id, :post => { text: "Sorry" }
+			expect(response.code).to eq("302")
+			expect(Post.last.text).to eq("Sorry")
+		end
+	end
 
-	describe 'DELETE #destroy'
+	describe 'DELETE #destroy' do
+		it "destroys the requested post" do
+			@post = Post.create(author: @user, memorial: @memorial, approved: true, text: "Sorry about loss")
+			expect {
+        delete :destroy, {memorial_id: @memorial.id, :id => @post.id}
+      }.to change(Post, :count).by(-1)
+    end
+
+    it "redirects to the memorial page" do
+			@post = Post.create(author: @user, memorial: @memorial, approved: true, text: "Sorry about loss")
+      delete :destroy, {memorial_id: @memorial.id, :id => @post.id}
+      expect(response.code).to eq("302")
+    end
+	end
 
 end

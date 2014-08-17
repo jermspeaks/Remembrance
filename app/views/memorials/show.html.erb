@@ -14,7 +14,7 @@
   <h3>Memories</h3>
   <%= render 'partials/memorialpost' %>
 
-	<% if @user.id == @memorial.moderator_id %>
+	<% if @current_user.id == @memorial.moderator_id %>
     <%= link_to "Edit", edit_admin_memorial_path, id: "edit-memorial", class: "btn btn-default btn-sm" %>
     
     <div id = "button-1">
