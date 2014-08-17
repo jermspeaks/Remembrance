@@ -5,8 +5,8 @@ include ApplicationHelper
 	end
 
 	def create
-		@current_user = current_user
-		@moderator = User.find(@current_user.id)
+		current_user
+		@moderator = @current_user
 		@memorial = @moderator.created_memorials.new(memorial_params)
 		if @memorial.save
 			redirect_to @memorial
