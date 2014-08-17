@@ -9,10 +9,13 @@
   <p><%= @memorial.service_description %></p>
 
   <%= link_to "Add a memory post", new_memorial_post_path(@memorial), id: "new-memorial-post", class: "btn btn-default btn-sm" %>
-  <br><br>
+  <br>
+  <%= link_to "Add a memory photo", new_memorial_photo_path(@memorial), id: "new-memorial-post", class: "btn btn-default btn-sm" %>
+  <br>
 
   <h3>Memories</h3>
   <%= render 'partials/memorialpost' %>
+  <%= render 'partials/memorialphoto' %>
 
 	<% if @current_user.id == @memorial.moderator_id %>
     <%= link_to "Edit", edit_admin_memorial_path, id: "edit-memorial", class: "btn btn-default btn-sm" %>
