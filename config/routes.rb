@@ -10,6 +10,9 @@ Rails.application.routes.draw do
     resources :posts, except: [:index, :show] do
       resources :comments, except: [:index, :show]
     end
+    resources :photos, except: [:index, :show, :edit, :update] do
+      resources :comments, except: [:index, :show]
+    end
   end
 
   scope :info, :controller => 'info' do
@@ -22,10 +25,6 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :memorials, except: [:index]
   end
-
-  # resources :posts, except: [:index]
-  resources :photos, except: [:index, :edit, :update]
-  # resources :comments, except: [:index]
 
   match 'auth/:provider/callback', to: 'facebook#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
