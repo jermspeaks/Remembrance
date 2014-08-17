@@ -1,6 +1,7 @@
 
   <% @memorial.posts.each do |f| %>
       <article class="post_item"><%= f.text %><br>
-      <span><%= f.created_at%></span>
+      <span><%= f.created_at.strftime("%B %d, %Y") %></span>
+      <p><%= f.author.name %></p>
       </article>
   <% end %>

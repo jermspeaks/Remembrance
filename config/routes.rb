@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
 
   resources :memorials, only: [:index, :show] do
-    resources :posts, except: [:index] do
+    resources :posts, except: [:index, :show] do
       resources :comments, only: [:new, :create, :index, :show]
     end
   end
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   # resources :posts, except: [:index]
-  # resources :photos, except: [:index, :edit, :update]
+  resources :photos, except: [:index, :edit, :update]
   # resources :comments, except: [:index]
 
   match 'auth/:provider/callback', to: 'facebook#create', via: [:get, :post]

@@ -1,4 +1,4 @@
-include PostsHelper
+include ApplicationHelper
 
 class PostsController < ApplicationController
 
@@ -6,30 +6,25 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  # def create
-  #   current_user
-  #   @post = Post.new
-  #   @post.save
-  #   @user = current_user
-  #   @memorial = Memorial.find(params[:memorial_id])
-  #   @new_post = @memorial.posts.create(author_id: current_user.id, text: params[:post][:text])
-  #   # redirect_to memorial_path(@author)
-  # end
-
   def create
     current_user
+    @memorial = Memorial.find(params[:memorial_id])
     if @current_user
       new_post = Post.create(post_params)
-      new_post.update(author: @current_user)
-      new_post.save
-      redirect_to memorial_path(Post.find(new_post.id))
+      new_post.update(author: @current_user, memorial: @memorial)
+      redirect_to memorial_path(@memorial)
     else
       redirect_to root_path
     end
   end
 
-  def show
-    @post = Post.fi-bnd(params[:id])
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
   end
 
   private
