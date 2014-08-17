@@ -3,7 +3,6 @@ class PhotosController < ApplicationController
 		@user = User.find(session[:user_id])
 		@photo = Photo.new(photo_params)
     @photo.uploader = @user
-    binding.pry
     respond_to do |format|
       if @photo.save
         format.html { redirect_to memorials_path, notice: 'Photo was successfully created.' }

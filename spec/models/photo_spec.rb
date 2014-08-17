@@ -19,11 +19,6 @@ RSpec.describe Photo, :type => :model do
     it { is_expected.to be_valid }
   end
 
-  describe "when url is not present" do
-    before { @photo.url = '' }
-    it { is_expected.to_not be_valid }
-  end
-
 	describe "when caption is not present" do
     before { @photo.caption = '' }
     it { is_expected.to_not be_valid }

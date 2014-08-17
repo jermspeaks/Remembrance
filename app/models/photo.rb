@@ -4,5 +4,5 @@ class Photo < ActiveRecord::Base
 	belongs_to :memorial
 	mount_uploader :url, PhotoUploader
 	
-	# validates :caption, presence: true
+	validates :caption, presence: true
 end
