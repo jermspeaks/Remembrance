@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :memorials, only: [:index, :show] do
     resources :posts, except: [:index, :show] do
-      resources :comments, only: [:new, :create, :index, :show]
+      resources :comments, except: [:index, :show]
     end
   end
 
