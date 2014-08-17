@@ -37,6 +37,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment = Comment.find(params[:id])
     @comment.destroy
+    @memorial = Memorial.find(params[:memorial_id])
     redirect_to memorial_path(@memorial)
   end
 

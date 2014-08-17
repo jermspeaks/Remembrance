@@ -23,11 +23,11 @@ RSpec.describe CommentsController, :type => :controller do
     end
   end
   describe 'Modifying comment' do
-    before do
+    before(:each) do
       @user = User.create(name: "Frank", email_address: "frank@example.com", password: "123456", password_confirmation: "123456")
       @memorial = Memorial.create(moderator: @user, deceased_name: "Peters")
       @post = Post.create(author: @user, memorial: @memorial, approved: true, text: "Sorry about loss")
-      @comment = Comment.create!(commenter: @user, commentable_id: @post.id, commentable_type: 'Post', text: "Sample comment")
+      @comment = Comment.create(commenter: @user, commentable_id: @post.id, commentable_type: 'Post', text: "Sample comment")
     end
 
     context 'GET #edit' do
@@ -54,7 +54,7 @@ RSpec.describe CommentsController, :type => :controller do
       end
 
       it "redirects to the memorial page" do
-        delete :destroy, {memorial_id: @memorial.id, :post => @post.id, :id => @comment.id}
+        delete :destroy, {memorial_id: @memorial.id, :post_id => @post.id, :id => @comment.id}
         expect(response.code).to eq("302")
       end
     end
