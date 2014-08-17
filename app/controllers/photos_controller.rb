@@ -21,6 +21,13 @@ class PhotosController < ApplicationController
     end
 	end
 
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    @memorial = Memorial.find(params[:memorial_id])
+    redirect_to memorial_path(@memorial)
+  end
+
 	private
 		def photo_params
       params.require(:photo).permit(:memorial_id, :approved, :uploader, :url, :caption, :profile)
