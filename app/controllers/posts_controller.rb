@@ -9,12 +9,12 @@ class PostsController < ApplicationController
   def create
     current_user
     @memorial = Memorial.find(params[:memorial_id])
-    if @current_user
-      new_post = Post.create(post_params)
+    new_post = Post.new(post_params)
+    if new_post.save
       new_post.update(author: @current_user, memorial: @memorial)
       redirect_to memorial_path(@memorial)
     else
-      redirect_to root_path
+      redirect_to memorials_path
     end
   end
 
