@@ -19,6 +19,7 @@ class MemorialsController < ApplicationController
 	end
 
 	def attended
+		@current_user = current_user
 		@attended_memorials = @current_user.attended_memorials
 	end
 
