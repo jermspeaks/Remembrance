@@ -5,6 +5,14 @@
       <p><%= post.author.name %></p>
 
       <%= link_to "Add a comment", new_memorial_post_comment_path(@memorial, post), id: "new-memorial-comment", class: "btn btn-default btn-sm" %>
+      <hr>
+      <div class="comment">
+        <% post.comments.each do |comment| %>
+        <h6>Name of commenter: <%= comment.commenter.name %></h6>
+        <h6>Comment: <%= comment.text %></h6>
+        <hr>
+        <% end %>
+      </div>
 
       <% if @current_user.id == post.author.id %>
       	<%= link_to 'Edit your post', edit_memorial_post_path(@memorial, post), id: "edit-memorial-post", class: "btn btn-default btn-sm" %>
