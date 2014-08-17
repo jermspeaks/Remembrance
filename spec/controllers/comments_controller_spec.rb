@@ -9,7 +9,7 @@ RSpec.describe CommentsController, :type => :controller do
 
   describe 'GET #new' do
     it 'should render a new form for comments' do
-      get :new, :memorial_id => @memorial.id
+      get :new, :memorial_id => @memorial.id, :post_id => @post.id
       expect(response).to be_success
       expect(response.code).to eq("200")
     end
@@ -17,7 +17,7 @@ RSpec.describe CommentsController, :type => :controller do
 
   describe 'POST #create' do
     it 'should save a new comment' do
-      comment :create, :post_id => @post.id, :comment { author: @user, post: @post, text: "Sample comment" }
+      post :create, :memorial_id => @memorial.id, :post_id => @post.id, :comment => { author: @user, post: @post, text: "Sample comment" }
       expect(response.code).to eq("302")
       expect(Comment.last.text).to eq("Sample comment")
     end
