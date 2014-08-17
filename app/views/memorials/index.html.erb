@@ -1,1 +1,8 @@
 <h1>Welcome to Memorials</h1>
+<%= render 'partials/uploadphotos' %>
+
+
+<p>TEST IMAGE!</p>
+<% if @photo_last %>
+	<%= image_tag(@photo_last.url) %>
+<% end %>

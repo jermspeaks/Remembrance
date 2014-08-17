@@ -60,6 +60,8 @@ gem 'annotate', '~> 2.6.5'
 # Use ActiveModel has_secure_password
 
 
+gem 'pry-rails'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

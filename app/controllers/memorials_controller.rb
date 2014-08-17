@@ -2,7 +2,8 @@ include ApplicationHelper
 
 class MemorialsController < ApplicationController
 	def index
-		
+		@photo = Photo.new
+		@photo_last = Photo.last
 	end
 
 	def show

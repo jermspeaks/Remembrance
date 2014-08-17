@@ -15,9 +15,9 @@ CarrierWave.configure do |config|
  
     # Configuration for Amazon S3
     :provider              => 'AWS',
-    :aws_access_key_id     => 'S3_KEY',
-    :aws_secret_access_key => 'S3_SECRET',
-    :region                => 'US-Standard'
+    :aws_access_key_id     => ENV['S3_KEY'],
+    :aws_secret_access_key => ENV['S3_SECRET'],
+    :region                => 'us-west-2'
   }
  
   # For testing, upload files to local `tmp` folder.
@@ -31,5 +31,5 @@ CarrierWave.configure do |config|
  
   config.cache_dir = "#{Rails.root}/tmp/uploads"                  # To let CarrierWave work on heroku
  
-  config.fog_directory    = "memoriam"
+  config.fog_directory    = "memoriam-dbc"
 end
