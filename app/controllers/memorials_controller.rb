@@ -7,6 +7,7 @@ class MemorialsController < ApplicationController
 	end
 
 	def show
+		@user = current_user
 		@memorial = Memorial.find(params[:id])
 	end
 
