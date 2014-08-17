@@ -23,11 +23,18 @@ class Admin::MemorialsController < ApplicationController
 	end
 
 	def update
-
+		@memorial = Memorial.find params[:id]
+		if @memorial.update_attributes(memorial_params)
+			redirect_to @memorial
+		else
+			redirect_to edit_admin_memorial_path
+		end
 	end
 
 	def destroy
-
+		@memorial = Memorial.find params[:id]
+		@memorial.destroy
+		redirect_to memorials_path
 	end
 
 
