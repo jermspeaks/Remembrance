@@ -18,7 +18,7 @@ gem 'rails_12factor', group: :production
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.0'
 gem 'sass-rails', '~> 4.0.3'
 gem 'less-rails'
 gem 'therubyracer'
