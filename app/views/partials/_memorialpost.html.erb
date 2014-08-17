@@ -3,11 +3,14 @@
       <article class="post_item"><%= post.text %><br>
       <span><%= post.created_at.strftime("%B %d, %Y") %></span>
       <p><%= post.author.name %></p>
+
+      <%= link_to "Add a comment", new_memorial_post_comment_path(@memorial, post), id: "new-memorial-comment", class: "btn btn-default btn-sm" %>
+
       <% if @current_user.id == post.author.id %>
       	<%= link_to 'Edit your post', edit_memorial_post_path(@memorial, post), id: "edit-memorial-post", class: "btn btn-default btn-sm" %>
+
       	<%= button_to "Delete Post", { controller: "posts", action: "destroy", memorial_id: @memorial.id, id: post.id },
                                 method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
       <% end %>
       </article>
   <% end %>
-1
