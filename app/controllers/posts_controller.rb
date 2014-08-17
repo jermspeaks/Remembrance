@@ -14,17 +14,30 @@ class PostsController < ApplicationController
       new_post.update(author: @current_user, memorial: @memorial)
       redirect_to memorial_path(@memorial)
     else
-      redirect_to memorials_path
+      @post = Post.new
+      render :new
     end
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      @memorial = Memorial.find(params[:memorial_id])
+      redirect_to memorial_path(@memorial)
+    else
+      render 'edit'
+    end
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    @memorial = Memorial.find(params[:memorial_id])
+    redirect_to memorial_path(@memorial)
   end
 
   private
