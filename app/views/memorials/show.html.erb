@@ -14,7 +14,7 @@
   <h3>Memories</h3>
   <%= render 'partials/memorialpost' %>
 
-	<% if @user.id == @memorial.moderator_id %>
+	<% if @current_user.id == @memorial.moderator_id %>
     <%= link_to "Edit", edit_admin_memorial_path, id: "edit-memorial", class: "btn btn-default btn-sm" %>
     <%= link_to "Delete", admin_memorial_path, :method => :delete, :confirm => 'Are you sure you want to delete this memorial?', id: "delete-memorial", class: "btn btn-default btn-sm" %>
 	<% end %>
