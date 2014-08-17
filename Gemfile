@@ -36,12 +36,14 @@ gem 'omniauth-facebook', '1.4.0'
 #simplecov
 gem 'simplecov', '~> 0.9.0', :require => false, :group => :test
 
-# Images
-gem 'carrierwave'
-# for aws cloud storage
-gem 'fog'
-# photo resizing
-gem "mini_magick"
+group :development, :test, :production do
+	# Images
+	gem 'carrierwave'
+	# for aws cloud storage
+	gem 'fog'
+	# photo resizing
+	gem "mini_magick"
+end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
