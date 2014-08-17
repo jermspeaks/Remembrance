@@ -1,11 +1,12 @@
 class Admin::MemorialsController < ApplicationController
-
+include ApplicationHelper
 	def new
 		@memorial = Memorial.new
 	end
 
 	def create
-		@moderator = User.find_by(id: current_user)
+		@current_user = current_user
+		@moderator = User.find(@current_user.id)
 		@memorial = @moderator.created_memorials.new(memorial_params)
 		if @memorial.save
 			redirect_to @memorial
