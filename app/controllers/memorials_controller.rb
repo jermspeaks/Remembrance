@@ -13,8 +13,8 @@ class MemorialsController < ApplicationController
 
 
 	def created
-		@current_user = current_user
-		@moderator = User.find(@current_user.id)
+		current_user
+		@moderator = @current_user
 		@created_memorials = @moderator.created_memorials
 	end
 
