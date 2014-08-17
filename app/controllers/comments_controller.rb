@@ -27,7 +27,7 @@ class CommentsController < ApplicationController
   def update
     @comment = Comment.find(params[:id])
     if @comment.update(comment_params)
-      @comment = Comment.find(params[:post_id])
+      @memorial = Memorial.find(params[:memorial_id])
       redirect_to memorial_path(@memorial)
     else
       render 'edit'

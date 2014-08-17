@@ -10,7 +10,7 @@
         <% post.comments.each do |comment| %>
         <h6>Name of commenter: <%= comment.commenter.name %></h6>
         <h6>Comment: <%= comment.text %></h6>
-        <%= link_to "Edit your comment", edit_memorial_post_comment_path(memorial_id: @memorial.id, post_id: post.id), id: "edit-memorial-comment", class: "btn btn-default btn-sm" %>
+        <%= link_to "Edit your comment", edit_memorial_post_comment_path(memorial_id: @memorial.id, post_id: post.id, id: comment.id), id: "edit-memorial-comment", class: "btn btn-default btn-sm" %>
         <%= button_to "Delete Post", { controller: "comments", action: "destroy", memorial_id: @memorial.id, post_id: post.id, id: comment.id },
                                 method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
         <hr>
