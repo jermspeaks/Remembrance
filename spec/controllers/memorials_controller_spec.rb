@@ -27,6 +27,7 @@ RSpec.describe MemorialsController, :type => :controller do
 
   describe 'GET #created' do
     it 'should render the page' do
+      session[:user_id] = @user.id
       get :created 
       expect(response).to be_success
       expect(response.code).to eq("200")
@@ -35,6 +36,7 @@ RSpec.describe MemorialsController, :type => :controller do
 
   describe 'GET #attended' do
     it 'should render the page' do
+      session[:user_id] = @user.id
       get :attended
       expect(response).to be_success
       expect(response.code).to eq("200")
