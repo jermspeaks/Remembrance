@@ -17,9 +17,6 @@ gem 'rails_12factor', group: :production
 
 # Use postgresql as the database for Active Record
 gem 'pg'
-gem 'carrierwave'
-gem 'fog'
-gem 'mini_magick'
 # Use SCSS for stylesheets
 gem 'bcrypt'
 gem 'sass-rails', '~> 4.0.3'
@@ -39,6 +36,14 @@ gem 'omniauth-facebook', '1.4.0'
 #simplecov
 gem 'simplecov', '~> 0.9.0', :require => false, :group => :test
 
+group :development, :test, :production do
+	# Images
+	gem 'carrierwave'
+	# for aws cloud storage
+	gem 'fog'
+	# photo resizing
+	gem "mini_magick"
+end
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -56,6 +61,8 @@ gem 'annotate', '~> 2.6.5'
 
 # Use ActiveModel has_secure_password
 
+
+gem 'pry-rails'
 
 # Use unicorn as the app server
 # gem 'unicorn'
