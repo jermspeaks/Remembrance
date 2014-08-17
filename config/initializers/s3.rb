@@ -1,7 +1,5 @@
 require "carrierwave"
 require "carrierwave/orm/activerecord"
-
-# config/initializers/carrierwave.rb
  
 CarrierWave.configure do |config|
   config.fog_credentials = {
