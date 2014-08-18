@@ -24,8 +24,11 @@ RSpec.describe Admin::GuestsController, :type => :controller do
   end
 
   describe 'POST #create' do
-    @attendee = User.create(name: "Fran", email_address: "fran@example.com", password: "123456", password_confirmation: "123456")
-    post :create, :memorial_guest => { :guest => ["#{@attendee.id}", ""] }
-    expect(@memorial.guests.last).to eq(@attendee)
+  	it 'should add an attendee' do
+	    @attendee = User.create!(name: "Fran", email_address: "franz@example.com", password: "123456", password_confirmation: "123456")
+	    id = @attendee.id
+	    post :create, :memorial_id => @memorial.id, :memorial_guest => { :guest => ["#{id}", ""] }
+	    expect(@memorial.guests.last).to eq(@attendee)
+	  end
   end
 end
