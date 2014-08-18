@@ -17,7 +17,7 @@ RSpec.describe Admin::MemorialsController, :type => :controller do
   describe 'GET #edit' do
     it 'should render the page' do
       session[:user_id] = @user.id
-      get :edit, id: @memorial.id 
+      get :edit, id: @memorial.id
       expect(response).to be_success
       expect(response.code).to eq("200")
     end
@@ -25,9 +25,9 @@ RSpec.describe Admin::MemorialsController, :type => :controller do
 
   describe 'POST #create' do
     it 'should save a new memorial' do
-    	session[:user_id] = @user.id
-    	post :create, :memorial_id => @memorial.id, :memorial => { moderator: @user, deceased_name: "Father"}
-			expect(response.code).to eq("302")
+      session[:user_id] = @user.id
+      post :create, :memorial_id => @memorial.id, :memorial => { moderator: @user, deceased_name: "Father"}
+      expect(response.code).to eq("302")
       expect(Memorial.last.deceased_name).to eq("Father")
     end
   end
@@ -48,8 +48,8 @@ RSpec.describe Admin::MemorialsController, :type => :controller do
       session[:user_id] = @user.id
       post :create, :memorial_id => @memorial.id, :memorial => { moderator: @user, deceased_name: "Father"}
       expect {
-      	delete :destroy, {memorial_id: @memorial.id, id: @memorial.id}
-      	}.to change(Memorial, :count).by(-1)
+        delete :destroy, {memorial_id: @memorial.id, id: @memorial.id}
+      }.to change(Memorial, :count).by(-1)
     end
   end
 

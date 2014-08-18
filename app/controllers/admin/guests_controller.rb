@@ -10,7 +10,7 @@ class Admin::GuestsController < ApplicationController
     guest_ids = params[:memorial_guest][:guest]
     guest_ids.pop
     @memorial = Memorial.find(params[:memorial_id])
-    
+
     guest_ids.each do |guest_id|
       guest = User.find(guest_id)
       MemorialGuest.create(guest_id: guest.id, memorial_id: @memorial.id)
