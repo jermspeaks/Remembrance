@@ -4,6 +4,26 @@
   <%= link_to "Create A New Memorial", new_admin_memorial_path, id: "create-memorial", class: "btn btn-default btn-lg" %>
 </div>
 
+<div class="created-right-links">
+  <%= link_to "Created Memorials", "#", id: "created-memorials", class: "btn btn-default btn-sm" %>
+</div>
+
+<div class="attended-right-links">
+  <%= link_to "Attended Memorials", "#", id: "attended-memorials", class: "btn btn-default btn-sm" %>
+</div>
+
+<div>
+  <ul id="created-memorial-list">
+
+  </ul>
+</div>
+
+<div>
+  <ul id="attended-memorial-list">
+
+  </ul>
+</div>
+
 <br>
 <h3 class="title-card">Feed</h3>
 <hr>
@@ -53,3 +73,6 @@
     <p><%= @nothing %></p>
   </div>
 <% end %>
+=======
+
+>>>>>>> 203b2abd24a9575229b42e827c35117946756ba1
