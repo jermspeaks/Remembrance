@@ -6,10 +6,8 @@ class MemorialsController < ApplicationController
     attend = @current_user.attended_memorials
     created = @current_user.created_memorials
     @attended_memorials = attend + created
-    @post = Post.where("memorial_id IN (?)", @attended_memorials.map(&:id)).order("created_at DESC").limit(5)
-    binding.pry
-    # find all posts in memorials, order by recent, limit 5
-    # find all photos in memorials, order by recent, limit 5
+    @posts = Post.where("memorial_id IN (?)", @attended_memorials.map(&:id)).order("created_at DESC").limit(5)
+    @photos = Photo.where("memorial_id IN (?)", @attended_memorials.map(&:id)).order("created_at DESC").limit(5)
   end
 
   def show
