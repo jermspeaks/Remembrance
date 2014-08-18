@@ -47,7 +47,7 @@ Rails.application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'memoriam-dbc.herokuapp.com',
-    user_name:            ENV['ADMIN_EMAIL]',
+    user_name:            ENV['ADMIN_EMAIL'],
     password:             ENV['ADMIN_EMAIL_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true  }
