@@ -56,13 +56,13 @@ feature "the memorial page" do
 
   scenario "a user can post a comment" do
   end
-  
+
   scenario "a user can edit a comment" do
   end
-  
+
   scenario "a user can delete a comment" do
   end
-  
+
   scenario "a user can view a map of the location of the service" do
   end
 

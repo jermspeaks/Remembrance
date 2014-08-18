@@ -9,13 +9,13 @@ RSpec.describe MemorialGuest, :type => :model do
 
   describe "associations" do
 
-      it 'should join Memorial and Guest(aka Users) table' do
-        @memorial_guest.guest = @user
-        @memorial_guest.memorial = @memorial
-        @memorial_guest.save
-        expect(@memorial_guest.memorial).to be_a(Memorial)
-        expect(@memorial_guest.guest).to be_a(User)
-      end
+    it 'should join Memorial and Guest(aka Users) table' do
+      @memorial_guest.guest = @user
+      @memorial_guest.memorial = @memorial
+      @memorial_guest.save
+      expect(@memorial_guest.memorial).to be_a(Memorial)
+      expect(@memorial_guest.guest).to be_a(User)
+    end
 
   end
 

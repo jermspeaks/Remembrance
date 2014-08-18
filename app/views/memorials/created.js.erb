@@ -1,0 +1,6 @@
+<% @created_memorials.each do |memorial| %>
+	<tr>
+		<td> <%= link_to memorial.deceased_name, created_path(:memorial_id => memorial.id, :remote => true) %> </td>
+		<td> <%= memorial.date_of_death.strftime("%B %d, %Y") %> </td>
+	</tr>
+<% end %>

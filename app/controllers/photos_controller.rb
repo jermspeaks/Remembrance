@@ -1,12 +1,12 @@
 class PhotosController < ApplicationController
-	def new
+  def new
     @photo = Photo.new
   end
 
   def create
-		@user = User.find(session[:user_id])
+    @user = User.find(session[:user_id])
     @memorial = Memorial.find(params[:memorial_id])
-		@photo = Photo.new(photo_params)
+    @photo = Photo.new(photo_params)
     respond_to do |format|
       if @photo.save
         format.html do
@@ -19,7 +19,7 @@ class PhotosController < ApplicationController
         format.json { render json: @photo.errors, status: :unprocessable_entity }
       end
     end
-	end
+  end
 
   def destroy
     @photo = Photo.find(params[:id])
@@ -28,8 +28,8 @@ class PhotosController < ApplicationController
     redirect_to memorial_path(@memorial)
   end
 
-	private
-		def photo_params
-      params.require(:photo).permit(:memorial_id, :approved, :uploader, :url, :caption, :profile)
-    end
+  private
+  def photo_params
+    params.require(:photo).permit(:memorial_id, :approved, :uploader, :url, :caption, :profile)
+  end
 end
