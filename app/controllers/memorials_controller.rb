@@ -35,6 +35,10 @@ class MemorialsController < ApplicationController
         @attended << Memorial.find(record.memorial_id)
       end
     end
+    respond_to do |format|
+      format.html
+      format.json { render json: @attended.to_json}
+    end
   end
 
 end
