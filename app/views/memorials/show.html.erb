@@ -20,9 +20,11 @@
 </div>
 <div class="memories">
   <h2>Memories</h2>
-  <div class="btn-group btn-group-lg">
-    <%= button_to "Add a memory post", new_memorial_post_path(@memorial), id: "new-memorial-post", class: "btn btn-default" %>
-    <%= button_to "Add a memory photo", new_memorial_photo_path(@memorial), id: "new-memorial-post", class: "btn btn-default" %>
+  <div class="btn-group btn-group-lg" id="ctrl-memorial-nav">
+    <ul class="pager">
+      <li><%= link_to "Add a memory post", new_memorial_post_path(@memorial), id: "new-memorial-post", class: "btn btn-default" %></li>
+      <li><%= link_to "Add a memory photo", new_memorial_photo_path(@memorial), id: "new-memorial-post", class: "btn btn-default" %></li>
+    </ul>
   </div>
   <%= render 'partials/memorialpost' %>
   <%= render 'partials/memorialphoto' %>
