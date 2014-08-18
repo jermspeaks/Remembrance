@@ -10,10 +10,16 @@ class CommentsController < ApplicationController
 
   def create
     current_user
-    @post = Post.find(params[:post_id])
     @memorial = Memorial.find(params[:memorial_id])
-    @comment = @post.comments.create(comment_params)
-    @comment.update(commenter: @current_user)
+    if params[:post_id]
+      @post = Post.find(params[:post_id])
+      @comment = @post.comments.create(comment_params)
+      @comment.update(commenter: @current_user)
+    elsif params[:photo_id]
+      @photo = Photo.find(params[:photo_id])
+      @comment = @photo.comments.create(comment_params)
+      @comment.update(commenter: @current_user)
+    end
     redirect_to memorial_path(@memorial)
   end
 

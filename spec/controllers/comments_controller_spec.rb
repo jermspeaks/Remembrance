@@ -5,6 +5,7 @@ RSpec.describe CommentsController, :type => :controller do
     @user = User.create(name: "Frank", email_address: "frank@example.com", password: "123456", password_confirmation: "123456")
     @memorial = Memorial.create(moderator: @user, deceased_name: "Nanners")
     @post = Post.create(author: @user, memorial: @memorial, approved: true, text: "Sorry about loss")
+    @photo = Photo.create(approved: true, url: "http://blog.jimdo.com/wp-content/uploads/2014/01/tree-247122.jpg", caption: "This is a test picture", profile: false)
   end
 
   describe 'GET #new' do
@@ -16,12 +17,19 @@ RSpec.describe CommentsController, :type => :controller do
   end
 
   describe 'POST #create' do
-    it 'should save a new comment' do
+    it 'should save a new comment from a post' do
       post :create, :memorial_id => @memorial.id, :post_id => @post.id, :comment => { commenter_id: @user.id, post: @post, text: "Sample comment" }
       expect(response.code).to eq("302")
       expect(Comment.last.text).to eq("Sample comment")
     end
+
+    it 'should save a new comment from a photo' do
+      post :create, :memorial_id => @memorial.id, :photo_id => @photo.id, :comment => { commenter_id: @user.id, post: @post, text: "Sample comment" }
+      expect(response.code).to eq("302")
+      expect(Comment.last.text).to eq("Sample comment")
+    end
   end
+
   describe 'Modifying comment' do
     before(:each) do
       @user = User.create(name: "Frank", email_address: "frank@example.com", password: "123456", password_confirmation: "123456")
