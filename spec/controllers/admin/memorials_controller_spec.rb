@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Admin::MemorialsController, :type => :controller do
   before do
     @user = User.create(name: "Jon", email_address: "jon@example.com", password: "123456", password_confirmation: "123456")
-    @memorial = Memorial.create(moderator: @user, deceased_name: "Father")
+    @memorial = Memorial.create(moderator: @user, deceased_name: "Father", service_location: "123 Fake Street")
   end
 
   describe 'GET #new' do
@@ -26,7 +26,7 @@ RSpec.describe Admin::MemorialsController, :type => :controller do
   describe 'POST #create' do
     it 'should save a new memorial' do
       session[:user_id] = @user.id
-      post :create, :memorial_id => @memorial.id, :memorial => { moderator: @user, deceased_name: "Father"}
+      post :create, :memorial_id => @memorial.id, :memorial => { moderator: @user, deceased_name: "Father", service_location: "123 Fake Street"}
       expect(response.code).to eq("302")
       expect(Memorial.last.deceased_name).to eq("Father")
     end
@@ -46,7 +46,7 @@ RSpec.describe Admin::MemorialsController, :type => :controller do
   describe 'DELETE #destroy' do
     it 'destroys the memorial' do
       session[:user_id] = @user.id
-      post :create, :memorial_id => @memorial.id, :memorial => { moderator: @user, deceased_name: "Father"}
+      post :create, :memorial_id => @memorial.id, :memorial => { moderator: @user, deceased_name: "Father", service_location: "123 Fake Street"}
       expect {
         delete :destroy, {memorial_id: @memorial.id, id: @memorial.id}
       }.to change(Memorial, :count).by(-1)
