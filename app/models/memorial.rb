@@ -3,5 +3,6 @@ class Memorial < ActiveRecord::Base
 	has_many :posts
 	has_many :photos
 	has_many :comments, as: :commentable
-	has_many :guests, through: :memorial_guests
+	has_many :memorial_guests
+	has_many :guests, through: :memorial_guests, source: :guest
 end
