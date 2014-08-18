@@ -24,7 +24,7 @@ RSpec.describe User, :type => :model do
 
   describe "when email_address format is invalid" do
     addresses = %w[user@foo,com user_at_foo.org example.user@foo.
-                  foo@bar_baz.com foo@bar+baz.com]
+                   foo@bar_baz.com foo@bar+baz.com]
     addresses.each do |invalid_address|
       before { @user.email_address = invalid_address }
       it { is_expected.to_not be_valid }
@@ -49,39 +49,39 @@ RSpec.describe User, :type => :model do
     it { is_expected.to_not be_valid }
   end
 
-  
+
   describe "should have many created memorials" do
-  	before { @user.created_memorials << Memorial.new }
-  	it { is_expected.to be_valid }
+    before { @user.created_memorials << Memorial.new }
+    it { is_expected.to be_valid }
   end
 
   describe "should have many attended memorials" do
-  	before do
-  		@memorial = Memorial.new
-  		@user.created_memorials << @memorial
-  		@user2 = User.new(name: "Gondeck", email_address: "gondeck@example.com")
-  		@user2.attended_memorials << @memorial
-  	end
-  	it { is_expected.to be_valid }
+    before do
+      @memorial = Memorial.new
+      @user.created_memorials << @memorial
+      @user2 = User.new(name: "Gondeck", email_address: "gondeck@example.com")
+      @user2.attended_memorials << @memorial
+    end
+    it { is_expected.to be_valid }
   end
 
   describe "should have many authored posts" do
-  	before { @user.posts << Post.new(approved: true, text: "This guy had lots of fun") }
-  	it { is_expected.to be_valid }
+    before { @user.posts << Post.new(approved: true, text: "This guy had lots of fun") }
+    it { is_expected.to be_valid }
   end
 
   describe "should have many uploaded photos" do
-  	before { @user.photos << Photo.new(approved: true, url: "http://blog.jimdo.com/wp-content/uploads/2014/01/tree-247122.jpg", caption: "This is a test picture", profile: false) }
-  	it { is_expected.to be_valid }
+    before { @user.photos << Photo.new(approved: true, url: "http://blog.jimdo.com/wp-content/uploads/2014/01/tree-247122.jpg", caption: "This is a test picture", profile: false) }
+    it { is_expected.to be_valid }
   end
 
   describe "should have many comments" do
-  	before do
+    before do
       @photo = Photo.new
       @comment = Comment.new
       @comment.commentable = @photo
       @user.comments << @comment
     end
-  	it { is_expected.to be_valid }
+    it { is_expected.to be_valid }
   end
 end

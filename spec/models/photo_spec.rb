@@ -19,17 +19,17 @@ RSpec.describe Photo, :type => :model do
     it { is_expected.to be_valid }
   end
 
-	describe "when caption is not present" do
+  describe "when caption is not present" do
     before { @photo.caption = '' }
     it { is_expected.to_not be_valid }
   end
-  
+
   describe "when photo is a profile picture" do
     before { @photo.profile = true }
     it { is_expected.to be_valid }
   end
-  
-	describe "photo by default shouldn't be a profile picture" do
+
+  describe "photo by default shouldn't be a profile picture" do
     before { @photo = Photo.new(approved: true, url: "http://blog.jimdo.com/wp-content/uploads/2014/01/tree-247122.jpg", caption: "This is a test picture") }
     it { expect(@photo.profile).to eq(false) }
   end
@@ -52,7 +52,7 @@ RSpec.describe Photo, :type => :model do
 end
 
 
-  
+
 
 
 
