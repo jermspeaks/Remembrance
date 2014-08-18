@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
   resources :sessions, only: [:index, :new, :create, :destroy]
   match 'login', to: 'sessions#new', via: [:get, :post]
 
@@ -35,4 +37,6 @@ Rails.application.routes.draw do
 
   get 'admin_memorials', to: 'admin/memorials#show'
   get 'new_with_email', to: 'sessions#new_with_email'
+
+  resources :guests
 end
