@@ -1,6 +1,12 @@
-<% @created_memorials.each do |memorial| %>
-	<tr>
-		<td> <%= link_to memorial.deceased_name, created_path(:memorial_id => memorial.id, :remote => true) %> </td>
-		<td> <%= memorial.date_of_death.strftime("%B %d, %Y") %> </td>
-	</tr>
-<% end %>
+<h1 class="title-card">Created memorials</h1>
+<br>
+<table>
+	<tbody>
+		<% @created_memorials.each do |memorial| %>
+			<tr>
+				<td><h4> <%= link_to memorial.deceased_name, memorial_path(memorial.id) %> </h4></td>
+				<td><h6> <%= memorial.date_of_death.strftime("%B %d, %Y") %> </h6></td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
