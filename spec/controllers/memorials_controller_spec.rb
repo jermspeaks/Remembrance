@@ -8,6 +8,7 @@ RSpec.describe MemorialsController, :type => :controller do
 
   describe 'GET #index' do
     it 'should render the page' do
+      session[:user_id] = @user.id
       get :index
       expect(response).to be_success
       expect(response.code).to eq("200")
