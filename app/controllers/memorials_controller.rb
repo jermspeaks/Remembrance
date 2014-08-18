@@ -8,8 +8,16 @@ class MemorialsController < ApplicationController
 	end
 
   def index
-    @photo = Photo.new
-    @photo_last = Photo.last
+    current_user
+    attend = @current_user.attended_memorials
+    created = @current_user.created_memorials
+    @attended_memorials = attend + created
+    if @attended_memorials
+      @posts = Post.where("memorial_id IN (?)", @attended_memorials.map(&:id)).order("created_at DESC").limit(5)
+      @photos = Photo.where("memorial_id IN (?)", @attended_memorials.map(&:id)).order("created_at DESC").limit(5)
+    else
+      @nothing = "You have nothing in your feed"
+    end
   end
 
   def show

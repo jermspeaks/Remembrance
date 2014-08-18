@@ -1,26 +1,78 @@
-	<h1 class="title-card">Welcome to Memorials</h1>
+<h1 class="title-card">Welcome to Memorials</h1>
 
-	<div class="center-links">
-		<%= link_to "Create A New Memorial", new_admin_memorial_path, id: "create-memorial", class: "btn btn-default btn-lg" %>
-	</div>
-
-  <div class="created-right-links">
-    <%= link_to "Created Memorials", "#", id: "created-memorials", class: "btn btn-default btn-sm" %>
-  </div>
-
-  <div class="attended-right-links">
-    <%= link_to "Attended Memorials", "#", id: "attended-memorials", class: "btn btn-default btn-sm" %>
-  </div>
-
-  <div>
-    <ul id="created-memorial-list">
-
-    </ul>
-  </div>
-
-  <div>
-    <ul id="attended-memorial-list">
-
-    </ul>
-  </div>
+<div class="center-links">
+  <%= link_to "Create A New Memorial", new_admin_memorial_path, id: "create-memorial", class: "btn btn-default btn-lg" %>
 </div>
+
+<div class="created-right-links">
+  <%= link_to "Created Memorials", "#", id: "created-memorials", class: "btn btn-default btn-sm" %>
+</div>
+
+<div class="attended-right-links">
+  <%= link_to "Attended Memorials", "#", id: "attended-memorials", class: "btn btn-default btn-sm" %>
+</div>
+
+<div>
+  <ul id="created-memorial-list">
+
+  </ul>
+</div>
+
+<div>
+  <ul id="attended-memorial-list">
+
+  </ul>
+</div>
+
+<br>
+<h3 class="title-card">Feed</h3>
+<hr>
+<% if @posts || @photos %>
+  <div class="feed">
+    <% @posts.each do |post| %>
+    <div class="memorial-post">
+      <p><%= post.text %></p>
+      
+      <p>Name: <%= post.author.name %> | <span><%= post.created_at.strftime("%B %d, %Y") %></span></p>
+      <p>For: <%= post.memorial.deceased_name %></p>
+
+      <%= link_to "Add a comment", new_memorial_post_comment_path(post.memorial, post), id: "new-memorial-comment", class: "btn btn-default btn-sm" %>
+      <div class="comment">
+        <% post.comments.each do |comment| %>
+        <h6>Name of commenter: <%= comment.commenter.name %></h6>
+        <h6>Comment: <%= comment.text %></h6>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+
+    <% @photos.each do |photo| %>
+      <div class="memorial-photo">
+        <p><%= image_tag(photo.url) %></p>
+        <p><%= photo.created_at.strftime("%B %d, %Y") %></p>
+        <article class="photo_item"><%= photo.caption %><br>
+        <p><%= photo.uploader.name %></p>
+
+        <%= link_to "Add a comment", new_memorial_photo_comment_path(photo.memorial, photo), id: "new-memorial-comment", class: "btn btn-default btn-sm" %>
+        <hr>
+        <div class="comment">
+          <% photo.comments.each do |comment| %>
+          <h6>Name of commenter: <%= comment.commenter.name %></h6>
+          <h6>Comment: <%= comment.text %></h6>
+          <%= link_to "Edit your comment", edit_memorial_photo_comment_path(memorial_id: photo.memorial.id, photo_id: photo.id, id: comment.id), id: "edit-memorial-comment", class: "btn btn-default btn-sm" %>
+          <%= button_to "Delete photo", { controller: "comments", action: "destroy", memorial_id: photo.memorial.id, photo_id: photo.id, id: comment.id },
+                                  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
+          <hr>
+        </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <div class="feed">
+    <p><%= @nothing %></p>
+  </div>
+<% end %>
+=======
+
+>>>>>>> 203b2abd24a9575229b42e827c35117946756ba1
