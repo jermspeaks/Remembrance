@@ -8,23 +8,25 @@
 
   <% if @current_user.id == @memorial.moderator_id %>
     <div class="btn-group btn-group-lg" id="ctrl-memorial-nav">
-      
-      <p><%= @memorial.obituary_description %></p>
-      <p><%= @memorial.service_description %></p>
-
       <ul class="pager">
         <li><%= link_to "Edit Memorial Page", edit_admin_memorial_path, id: "edit-memorial", class: "btn btn-default" %></li>
         <li><%= link_to "Delete Memorial Page", { controller: "admin/memorials", action: "destroy", id: @memorial.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %></li>
         <li><%= link_to "Invite Guests", new_admin_memorial_guest_path(@memorial), id: "new-guest", class: "btn btn-default btn-sm" %></li>
       </ul>
+      <h3>Obituary Description</h3>
+        <p><%= @memorial.obituary_description %></p>
+      <h3>Service Description</h3> 
+      <p><%= @memorial.service_description %></p>
     </div>
+  <% else %>
+    <h3>Obituary Description</h3>
+      <p><%= @memorial.obituary_description %></p>
+    <h3>Service Description</h3> 
+      <p><%= @memorial.service_description %></p>
   <% end %>
 
 
-  <h3>Obituary Description</h3>
-    <p><%= @memorial.obituary_description %></p>
-  <h3>Service Description</h3> 
-  <p><%= @memorial.service_description %></p>
+  
   <h3>Service Location</h3>
   <iframe
     width="50%"
