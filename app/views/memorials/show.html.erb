@@ -16,16 +16,20 @@
     </div>
   <% end %>
 
-  <p><%= @memorial.obituary_description %></p>
+  <h3>Obituary Description</h3>
+    <p><%= @memorial.obituary_description %></p>
+  <h3>Service Description</h3> 
   <p><%= @memorial.service_description %></p>
+  <h3>Service Location</h3>
   <iframe
-    width="100%"
+    width="90%"
     height="250"
     frameborder="0" style="border:0"
     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDPgzthWTl5XYtapoLmMxd0-b5vc0ooz74&q=<%=@memorial.service_location%>">
   </iframe>
-</div>
-<div class="memories">
+
+<hr>
+
   <h2>Memories</h2>
   <div class="btn-group btn-group-lg" id="ctrl-memorial-nav">
     <ul class="pager">
