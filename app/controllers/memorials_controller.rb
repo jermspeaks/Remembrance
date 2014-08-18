@@ -19,6 +19,7 @@ class MemorialsController < ApplicationController
 	end
 
 	def attended
+		current_user
 		@attended = []
 		MemorialGuest.all.each do |record|
 			if @current_user.id == record.guest_id

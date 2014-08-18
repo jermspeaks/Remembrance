@@ -25,7 +25,9 @@ Rails.application.routes.draw do
   resources :facebook, only: [:create]
 
   namespace :admin do
-    resources :memorials, except: [:index]
+    resources :memorials, except: [:index] do
+      resources :guests
+    end
   end
 
   match 'auth/:provider/callback', to: 'facebook#create', via: [:get, :post]
@@ -38,5 +40,4 @@ Rails.application.routes.draw do
   get 'admin_memorials', to: 'admin/memorials#show'
   get 'new_with_email', to: 'sessions#new_with_email'
 
-  resources :guests
 end
