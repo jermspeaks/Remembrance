@@ -26,8 +26,13 @@ class Admin::GuestsController < ApplicationController
     @memorial = Memorial.find(params[:memorial_id])
     emails = params[:email][:email].split(', ')
     emails.each do |email|
-      Invite.create(email: email, memorial: @memorial)
-      InviteMailer.invite_email(email, @memorial.deceased_name).deliver
+      existing_user = User.find_by(email_address: email)
+      if existing_user
+        @memorial.guests << existing_user
+      else
+        Invite.create(email: email, memorial: @memorial)
+        InviteMailer.invite_email(email, @memorial.deceased_name).deliver
+      end
     end
     redirect_to memorial_path(@memorial)
   end
