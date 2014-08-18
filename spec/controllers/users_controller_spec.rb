@@ -25,6 +25,14 @@ RSpec.describe UsersController, :type => :controller do
     	expect(session[:user_id]).to be_nil
     end
 
+    it 'adds you to an attended list if you have been invited' do
+      user_creator = User.create(name: "Jon", email_address: "jon@example.com", password: "123456", password_confirmation: "123456")
+      @memorial = Memorial.create(moderator: user_creator, deceased_name: "Father")
+      @invite = Invite.create(email: "frankie@example.com", memorial: @memorial)
+      post :create, user: { name: "Frank", email_address: "frankie@example.com", password: "123456", password_confirmation: "123456"}
+      expect(User.last.attended_memorials.first).to eq(@memorial)
+    end
+
   end
 
 end

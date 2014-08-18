@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :memorials, except: [:index] do
       resources :guests
+      get 'invite_new_with_email', to: 'guests#invite_new_with_email'
+      post 'invite_new_with_email', to: 'guests#invite_create_with_email'
     end
   end
 
@@ -37,5 +39,6 @@ Rails.application.routes.draw do
 
   get 'admin_memorials', to: 'admin/memorials#show'
   get 'new_with_email', to: 'sessions#new_with_email'
+
 
 end

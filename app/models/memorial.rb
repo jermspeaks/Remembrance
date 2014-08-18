@@ -5,4 +5,5 @@ class Memorial < ActiveRecord::Base
 	has_many :comments, as: :commentable
 	has_many :memorial_guests
 	has_many :guests, through: :memorial_guests, source: :guest
+	has_many :invites
 end
