@@ -1,0 +1,11 @@
+<h1>Available Guests</h1>
+<%= form_for @guest, url: {action: "create"}, role: "form" do |f| %>
+<% @guests.each do |guest| %>
+
+	<li><%= check_box_tag(:guest) %>
+
+	<%= label_tag(:guest, "#{guest.name}") %></li>
+<% end %> 	
+<%= submit_tag("Invite!") %>
+	
+<% end %> 

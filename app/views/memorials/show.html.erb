@@ -18,6 +18,8 @@
   <%= render 'partials/memorialphoto' %>
 
 	<% if @current_user.id == @memorial.moderator_id %>
+    <%= link_to "Invite Guests", new_guest_path, id: "new-guest", class: "btn btn-default btn-sm" %>
+
     <%= link_to "Edit", edit_admin_memorial_path, id: "edit-memorial", class: "btn btn-default btn-sm" %>
     
     <div id = "button-1">
