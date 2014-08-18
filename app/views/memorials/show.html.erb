@@ -1,28 +1,29 @@
-<div id="deceased-page">
-  <h1><%= @memorial.deceased_name %></h1>
+<div class="deceased-page">
+  <h1 class="title-card"><%= @memorial.deceased_name %></h1>
 
+  <div id="passing-dates">
+    <span>Date of Birth: <%= @memorial.date_of_birth.strftime("%B %d, %Y") %></span> | 
+    <span>Date of Passing: <%= @memorial.date_of_death.strftime("%B %d, %Y") %></span>
+  </div>
 
-  <span>Date of Birth: <%= @memorial.date_of_birth.strftime("%B %d, %Y") %></span>|
-  <span>Date of Passing: <%= @memorial.date_of_death.strftime("%B %d, %Y") %></span>
+  <% if @current_user.id == @memorial.moderator_id %>
+    <div class="btn-group btn-group-lg" id="ctrl-memorial-nav">
+      <ul class="pager">
+        <li><%= link_to "Edit Memorial Page", edit_admin_memorial_path, id: "edit-memorial", class: "btn btn-default" %></li>
+        <li><%= link_to "Delete Memorial Page", { controller: "admin/memorials", action: "destroy", id: @memorial.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %></li>
+      </ul>
+    </div>
+  <% end %>
 
   <p><%= @memorial.obituary_description %></p>
   <p><%= @memorial.service_description %></p>
-
-  <%= link_to "Add a memory post", new_memorial_post_path(@memorial), id: "new-memorial-post", class: "btn btn-default btn-sm" %>
-  <br>
-  <%= link_to "Add a memory photo", new_memorial_photo_path(@memorial), id: "new-memorial-post", class: "btn btn-default btn-sm" %>
-  <br>
-
-  <h3>Memories</h3>
+</div>
+<div class="memories">
+  <h2>Memories</h2>
+  <div class="btn-group btn-group-lg">
+    <%= button_to "Add a memory post", new_memorial_post_path(@memorial), id: "new-memorial-post", class: "btn btn-default" %>
+    <%= button_to "Add a memory photo", new_memorial_photo_path(@memorial), id: "new-memorial-post", class: "btn btn-default" %>
+  </div>
   <%= render 'partials/memorialpost' %>
   <%= render 'partials/memorialphoto' %>
-
-	<% if @current_user.id == @memorial.moderator_id %>
-    <%= link_to "Edit", edit_admin_memorial_path, id: "edit-memorial", class: "btn btn-default btn-sm" %>
-    
-    <div id = "button-1">
-    <%= link_to "Delete", admin_memorial_path, :method => :delete, :confirm => 'Are you sure you want to delete this memorial?', id: "delete-memorial", class: "btn btn-default btn-sm" %>
-		</div>
-	<% end %>
-
 </div>
