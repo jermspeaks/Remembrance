@@ -8,6 +8,7 @@ class Admin::MemorialsController < ApplicationController
     current_user
     @moderator = @current_user
     @memorial = @moderator.created_memorials.new(memorial_params)
+    @memorial.service_location.gsub!(/\W/, '+')
     if @memorial.save
       redirect_to @memorial
     else
@@ -16,7 +17,6 @@ class Admin::MemorialsController < ApplicationController
   end
 
   def show
-
   end
 
   def edit
@@ -41,7 +41,7 @@ class Admin::MemorialsController < ApplicationController
 
   private
   def memorial_params
-    params.require(:memorial).permit(:deceased_name, :date_of_birth, :date_of_death, :obituary_description, :service_description)
+    params.require(:memorial).permit(:deceased_name, :date_of_birth, :date_of_death, :obituary_description, :service_description, :service_location)
   end
   # def show
   # 	@memorial = Memorial.find(params[:id])
