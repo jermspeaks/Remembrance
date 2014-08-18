@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
-
   resources :sessions, only: [:index, :new, :create, :destroy]
   match 'login', to: 'sessions#new', via: [:get, :post]
 
