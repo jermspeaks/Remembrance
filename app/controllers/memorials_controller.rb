@@ -1,7 +1,6 @@
 include ApplicationHelper
 
 class MemorialsController < ApplicationController
-  respond_to :json
 
 	def index
 		@photo = Photo.new
@@ -22,9 +21,10 @@ class MemorialsController < ApplicationController
 		current_user
 		@moderator = @current_user
 		@created_memorials = @moderator.created_memorials
-      respond_to do |format|
-      format.js
-      end
+    respond_to do |format|
+      format.html
+      format.json { render json: @created_memorials.to_json}
+    end
 	end
 
   def attended

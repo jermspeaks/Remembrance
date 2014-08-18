@@ -34,6 +34,14 @@
         <%= f.text_area :service_description, class: "form-control", placeholder: "Service Description" %><br>
       </div>
     </div>
+
+    <div class="form-group">
+      <%= f.label :service_location, class: "col-sm-3 control-label" %>
+      <div class="col-sm-8">
+        <%= f.text_area :service_location, class: "form-control", placeholder: "Service Location" %><br>
+      </div>
+    </div>
+
     <br>
     <div class="col-sm-2">
       <%= button_tag(type: 'submit', class: "btn btn-primary") do %>

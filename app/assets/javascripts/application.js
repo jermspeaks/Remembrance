@@ -15,3 +15,19 @@
 //= require turbolinks
 //= require_tree .
 
+$(function(){
+  $('.right-links').on('click', function(event){
+    event.preventDefault();
+    $.ajax({
+      type: 'GET',
+      url: '/memorials/created',
+      dataType: 'JSON',
+      success: function(createdMemorials) {
+        var memorial = createdMemorials;
+        console.log(memorial);
+        $('.right-links').append(createdMemorials);
+      }
+    });
+  });
+});
+

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140818135926) do
+ActiveRecord::Schema.define(version: 20140818194356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20140818135926) do
     t.text     "service_description"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "service_location"
   end
 
   add_index "memorials", ["moderator_id"], name: "index_memorials_on_moderator_id", using: :btree
