@@ -1,0 +1,6 @@
+<%= form_for @invite , :url => admin_memorial_invite_create_with_email_path, role: "form" do |f| %>
+  <%= f.hidden_field :memorial_id, :value => @memorial.id %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.submit 'Send' %>
+<% end %>

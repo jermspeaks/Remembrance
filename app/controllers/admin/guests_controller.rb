@@ -16,4 +16,13 @@ class Admin::GuestsController < ApplicationController
   	end
   	redirect_to memorial_path(memorial)
   end
+
+  def invite_new_with_email
+    @memorial = Memorial.find(params[:memorial_id])
+    @invite = InviteMailer.new
+  end
+
+  def invite_create_with_email
+    emails = params[:emails].split(', ')
+  end
 end
