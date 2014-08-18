@@ -2,8 +2,14 @@ include ApplicationHelper
 
 class MemorialsController < ApplicationController
   def index
-    @photo = Photo.new
-    @photo_last = Photo.last
+    current_user
+    @attended_memorials = []
+    MemorialGuest.all.each do |record|
+      if @current_user.id == record.guest_id
+        attended << Memorial.find(record.memorial_id)
+      end
+    end
+
   end
 
   def show

@@ -46,7 +46,7 @@ RSpec.describe Admin::MemorialsController, :type => :controller do
   describe 'DELETE #destroy' do
     it 'destroys the memorial' do
       session[:user_id] = @user.id
-      post :create, :memorial_id => @memorial.id, :memorial => { moderator: @user, deceased_name: "Father", service_location: "123 Fake Street"}
+      post :create, :memorial_id => @memorial.id, :memorial => { moderator: @user, deceased_name: "Father", service_location: "123 Fake Street111"}
       expect {
         delete :destroy, {memorial_id: @memorial.id, id: @memorial.id}
       }.to change(Memorial, :count).by(-1)
