@@ -3,7 +3,7 @@ class InviteMailer < ActionMailer::Base
 
   def invite_email(email, memorial)
     mail(to: email,
-         subject: "Mourn for the loss of #{memorial.deceased_name}") do |format|
+    subject: "Mourn for the loss of #{memorial.deceased_name}") do |format|
       format.html { render 'invitation' }
       format.text { render 'invitation' }
     end
@@ -11,7 +11,7 @@ class InviteMailer < ActionMailer::Base
 
   def existing_email(user, memorial)
     mail(to: user.email_address,
-         subject: "Mourn for the loss of #{memorial.deceased_name}") do |format|
+    subject: "Mourn for the loss of #{memorial.deceased_name}") do |format|
       format.html { render 'invitation' }
       format.text { render 'invitation' }
     end
