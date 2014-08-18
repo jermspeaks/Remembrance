@@ -1,4 +1,4 @@
-<div class="deceased-page">
+
   <h1 class="title-card"><%= @memorial.deceased_name %></h1>
 
   <div id="passing-dates">
@@ -8,6 +8,10 @@
 
   <% if @current_user.id == @memorial.moderator_id %>
     <div class="btn-group btn-group-lg" id="ctrl-memorial-nav">
+      
+      <p><%= @memorial.obituary_description %></p>
+      <p><%= @memorial.service_description %></p>
+
       <ul class="pager">
         <li><%= link_to "Edit Memorial Page", edit_admin_memorial_path, id: "edit-memorial", class: "btn btn-default" %></li>
         <li><%= link_to "Delete Memorial Page", { controller: "admin/memorials", action: "destroy", id: @memorial.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default" %></li>
@@ -16,8 +20,7 @@
     </div>
   <% end %>
 
-  <p><%= @memorial.obituary_description %></p>
-  <p><%= @memorial.service_description %></p>
+
 </div>
 <div class="memories">
   <h2>Memories</h2>
@@ -29,4 +32,3 @@
   </div>
   <%= render 'partials/memorialpost' %>
   <%= render 'partials/memorialphoto' %>
-</div>
