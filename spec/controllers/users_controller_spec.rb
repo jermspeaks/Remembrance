@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe UsersController, :type => :controller do
 
-	describe "GET #new" do
+  describe "GET #new" do
     it "should render the template and return http success" do
       get :new
       expect(response).to render_template("new")
@@ -13,16 +13,16 @@ RSpec.describe UsersController, :type => :controller do
 
   describe 'POST #create' do
 
-  	it 'should create a new user' do
-  		post :create, :user => {name: "Frank", email_address: "frank@example.com", password: "123456", password_confirmation: "123456"}
-  		expect(response).to redirect_to(memorials_path)
-  		expect(User.last.name).to eq("Frank")
-  	end
+    it 'should create a new user' do
+      post :create, :user => {name: "Frank", email_address: "frank@example.com", password: "123456", password_confirmation: "123456"}
+      expect(response).to redirect_to(memorials_path)
+      expect(User.last.name).to eq("Frank")
+    end
 
-  	it "does not save the user to the db if the form is invalid" do
+    it "does not save the user to the db if the form is invalid" do
       post :create, user: { name: "Frank", email_address: "", password: "123456", password_confirmation: "123456"}
-    	expect(response).to render_template :new
-    	expect(session[:user_id]).to be_nil
+      expect(response).to render_template :new
+      expect(session[:user_id]).to be_nil
     end
 
     it 'adds you to an attended list if you have been invited' do

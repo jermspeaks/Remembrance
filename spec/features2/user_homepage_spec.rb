@@ -28,7 +28,7 @@ feature "the user's homepage " do
   scenario "a user can create a memorial from the form on the page" do
   end
 
- 
+
 
 end
 
