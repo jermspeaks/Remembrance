@@ -36,6 +36,9 @@ gem 'omniauth-facebook', '1.4.0'
 #simplecov
 gem 'simplecov', '~> 0.9.0', :require => false, :group => :test
 
+#state machine
+gem 'state_machine'
+
 group :development, :test, :production do
 	# Images
 	gem 'carrierwave'

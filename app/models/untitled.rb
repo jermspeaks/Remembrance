@@ -1,16 +1,8 @@
 class Post < ActiveRecord::Base
-  include PostsHelper
-  belongs_to :author, class_name: "User"
-  belongs_to :memorial
-  has_many :comments, as: :commentable
-
-  validates :text, presence: true
-
-
   state_machine initial: :published do
-    state :published, value: 0
-    state :flagged, value: 1
-    state :deleted, value: 2
+  state :published, value: 0
+  state :flagged, value: 1
+  state :deleted, value: 2
 
   event :flag do
     transition :published => :flagged
@@ -27,9 +19,6 @@ class Post < ActiveRecord::Base
   event :accident do
     transition :deleted => :published
   end
-end
-
-
 
 
 
