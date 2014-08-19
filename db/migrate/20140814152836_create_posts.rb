@@ -3,7 +3,7 @@ class CreatePosts < ActiveRecord::Migration
     create_table :posts do |t|
       t.integer :author_id
       t.integer :memorial_id
-      t.boolean :approved
+      t.boolean :approved, default: true
       t.string :text
 
       t.timestamps

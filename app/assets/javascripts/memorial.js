@@ -1,21 +1,5 @@
 $(function(){
-
-
-  // $('#create-memorial').one('click', function(event){
-  //   event.preventDefault();
-  //   $.ajax({
-  //     type: 'GET',
-  //     url: '/admin/memorials/new',
-  //     dataType: 'JSON',
-  //     success: function(createMemorial) {
-  //       console.log(createMemorial);
-  //       $( '.center-links' ).append(createMemorial);
-  //       $("#create-memorial").attr("disabled", "disabled");
-  //       }
-  //     });
-  // });
-
-
+  var pathName = window.location.pathname;
 
   $('#create-memorial').one('click', function(event){
     event.preventDefault();
@@ -34,8 +18,8 @@ $(function(){
 
   $('#new-memorial-post').on('click', function(event){
     event.preventDefault();
-
-    $.get('/memorials/3/posts/new', function(data){
+    var postUrl = pathName + '/posts/new'
+    $.get(postUrl, function(data){
        var $response=$(data);
        var form = $response.find('.new-post-form');
       $('.memorial-posts').append(form);
@@ -86,6 +70,22 @@ $(function(){
     });
   });
 
-
-
+  $('#flagged-post').on('click', function(event){
+    event.preventDefault();
+    $.ajax({
+      type: 'GET',
+      url: '/admin' + pathName + '/spam',
+      dataType: 'JSON',
+      success: function(flaggedPosts){
+        console.log(flaggedPosts);
+        if(flaggedPosts === "no_posts"){
+          alert("No Flagged Posts");
+        }
+        else{
+          alert("Some posts have been flagged");
+        }
+        $("#flagged-post").attr("disabled", "disabled");
+      }
+    })
+  });
 });

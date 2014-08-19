@@ -27,7 +27,9 @@ Rails.application.routes.draw do
       resources :guests
       get 'invite_new_with_email', to: 'guests#invite_new_with_email'
       post 'invite_new_with_email', to: 'guests#invite_create_with_email'
+      get 'spam', to: 'memorials#spam' 
     end
+
   end
 
   match 'auth/:provider/callback', to: 'facebook#create', via: [:get, :post]
