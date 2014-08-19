@@ -23,6 +23,8 @@ class MemorialsController < ApplicationController
   def show
     current_user
     @memorial = Memorial.find(params[:id])
+    @photo = Photo.where(memorial_id: @memorial.id && profile: true)
+    #not sure if line 26 works
   end
 
 	def created
