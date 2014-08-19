@@ -36,6 +36,5 @@ RSpec.describe Post, :type => :model do
     before { @post.memorial = Memorial.new }
     it { is_expected.to be_valid }
   end
-
 end
 
