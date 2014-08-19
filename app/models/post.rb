@@ -11,6 +11,7 @@ class Post < ActiveRecord::Base
     state :published, value: 0
     state :flagged, value: 1
     state :deleted, value: 2
+  end
 
   event :flag do
     transition :published => :flagged
