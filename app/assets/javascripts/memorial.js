@@ -3,14 +3,12 @@ $(function(){
 
   $('#create-memorial').one('click', function(event){
     event.preventDefault();
-
     $.get('/admin/memorials/new', function(data){
        //create jquery object from the response html
        var $response=$(data);
        //query the jq object for the values
        var form = $response.find('.new-memorial-form');
       $('.center-links').append(form);
-        console.log(response);
     });
   });
 
@@ -18,30 +16,58 @@ $(function(){
 
   $('#new-memorial-post').on('click', function(event){
     event.preventDefault();
-    var postUrl = pathName + '/posts/new'
+    var postUrl = pathName + '/posts/new';
     $.get(postUrl, function(data){
-       var $response=$(data);
-       var form = $response.find('.new-post-form');
+      var $response=$(data);
+      var form = $response.find('.new-post-form');
       $('.memorial-posts').append(form);
         console.log(response);
     });
   });
 
 
-// $("#create_choice").on("submit", function(event) {
-//         event.preventDefault();
-//         $.ajax({
-//             url: "/surveys/create",
-//             type: "POST",
-//             data: $(this).serialize(),
-//             dataType: "json",
-//             success: function(result) {
-//                 console.log(result);
-//                 $("ul").append("<li>" + result.choice_body + "</li>");
-//                 $("#create_choice input[type = 'text']").val("")
 
-//             }
-//         });
+  $(".new-post-form").on("submit", function(event){
+    event.preventDefault();
+    var postUrl = pathName + '/posts/new';
+    $.post(postUrl, function(data){
+      var $response=$(data);
+      var form = $response.find('new-memorial-post');
+      $('.new-memorial-post').append(form);
+        console.log(response);
+    });
+  });
+
+
+
+  $('.created-right-links').one('click', function(event){
+    event.preventDefault();
+    $.ajax({
+      type: 'GET',
+      url: '/memorials/created',
+      dataType: 'JSON',
+      success: function(createdMemorials) {
+        var list = [];
+        for (var memorial in createdMemorials) {
+          if(createdMemorials.hasOwnProperty(memorial)){
+            var obj = createdMemorials[memorial];
+            var url = "/memorials/" + obj["id"];
+            var name = obj["deceased_name"];
+            var render = "<li><a href='" + url + "'>" + name + "</a></li>";
+            list.push(render); 
+          }
+        }
+        for (var i=0; i < list.length; i++) {
+          console.log(list[i])
+          $('.created-right-links').append(list[i]);
+          $("#created-memorials").attr("disabled", "disabled");
+        }
+        
+      }
+    });
+  });
+
+
 
 
   $('.attended-right-links').one('click', function(event){
@@ -70,6 +96,8 @@ $(function(){
     });
   });
 
+
+
   $('#flagged-post').on('click', function(event){
     event.preventDefault();
     $.ajax({
@@ -86,6 +114,9 @@ $(function(){
         }
         $("#flagged-post").attr("disabled", "disabled");
       }
-    })
+    });
   });
+
+
+
 });

@@ -14,32 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-$(function(){
-  $('.created-right-links').one('click', function(event){
-    event.preventDefault();
-    $.ajax({
-      type: 'GET',
-      url: '/memorials/created',
-      dataType: 'JSON',
-      success: function(createdMemorials) {
-        var list = [];
-        for (var memorial in createdMemorials) {
-          if(createdMemorials.hasOwnProperty(memorial)){
-            var obj = createdMemorials[memorial];
-            var url = "/memorials/" + obj["id"];
-            var name = obj["deceased_name"];
-            var render = "<li><a href='" + url + "'>" + name + "</a></li>";
-            list.push(render); 
-          }
-        }
-        for (var i=0; i < list.length; i++) {
-          console.log(list[i])
-          $('.created-right-links').append(list[i]);
-          $("#created-memorials").attr("disabled", "disabled");
-        }
-        
-      }
-    });
-  });
-});
