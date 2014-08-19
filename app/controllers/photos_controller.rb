@@ -1,5 +1,4 @@
 class PhotosController < ApplicationController
-  include ApplicationHelper
   def new
     @photo = Photo.new
   end
@@ -10,7 +9,6 @@ class PhotosController < ApplicationController
     @photo = Photo.new(photo_params)
     respond_to do |format|
       if @photo.save
-        set_approved_to_false(@photo) if bad_text?(@photo.caption)
         format.html do
           @photo.update(uploader: @user, memorial: @memorial)
           redirect_to memorial_path(@memorial), notice: 'Photo was successfully created.'

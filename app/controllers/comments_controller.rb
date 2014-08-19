@@ -14,12 +14,10 @@ class CommentsController < ApplicationController
     if params[:post_id]
       @post = Post.find(params[:post_id])
       @comment = @post.comments.create(comment_params)
-      set_approved_to_false(@comment) if bad_text?(@comment.text)
       @comment.update(commenter: @current_user)
     elsif params[:photo_id]
       @photo = Photo.find(params[:photo_id])
       @comment = @photo.comments.create(comment_params)
-      set_approved_to_false(@comment) if bad_text?(@comment.text)
       @comment.update(commenter: @current_user)
     end
     redirect_to memorial_path(@memorial)
