@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20140819012415) do
     t.integer  "memorial_id"
     t.boolean  "approved"
     t.string   "text"
+    t.integer  "status"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
