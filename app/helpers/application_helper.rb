@@ -10,19 +10,20 @@ module ApplicationHelper
   end
 
   def bad_text?(object_text)
-    string_array = object_text.downcase.split(' ')
+    string_array = object_text.downcase.gsub(/[^a-z0-9\s]/i, '').split(' ')
     @score = score(string_array)
     @score <= -5
   end
 
-  def score(string_array)
-    @filter_number = 0
-    string_array.each do |word|
-      obscenity = Word.find_by(negativity: word)
-      if obscenity
-        @filter_number += obscenity.rank
+  private
+    def score(string_array)
+      @filter_number = 0
+      string_array.each do |word|
+        obscenity = Word.find_by(negativity: word)
+        if obscenity
+          @filter_number += obscenity.rank
+        end
       end
-    end
-    @filter_number
-  end  
+      @filter_number
+    end  
 end
