@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140819012415) do
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.text     "text"
+    t.boolean  "approved"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -69,8 +70,10 @@ ActiveRecord::Schema.define(version: 20140819012415) do
   create_table "posts", force: true do |t|
     t.integer  "author_id"
     t.integer  "memorial_id"
-    t.boolean  "approved"
+    t.boolean  "approved",    default: true
     t.string   "text"
+    t.integer  "status"
+    t.string   "state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

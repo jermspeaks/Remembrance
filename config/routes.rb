@@ -6,12 +6,6 @@ Rails.application.routes.draw do
     get :attended, :created
   end
 
-  resources :review, only: [:index]
-
-  scope :review, :controller => 'review' do
-    put :report
-  end
-
   resources :memorials, only: [:index, :show] do
     resources :posts, except: [:index, :show] do
       resources :comments, except: [:index, :show]
@@ -40,6 +34,22 @@ Rails.application.routes.draw do
 
   match '/post/:id/report' => 'review#report',
     :action => :report, :via => :put
+
+  match 'admin/memorials/:memorial_id/queue' => 'review#queue',
+    :action => :queue, :via => :get
+
+  match 'admin/memorials/:memorial_id/post/:id/green_light' => 'review#greenlight',
+    :action => :green_light, :via => :put
+
+  match 'admin/memorials/:memorial_id/post/:id/red_light' => 'review#red_light',
+  :action => :red_light, :via => :put
+
+  match 'admin/memorials/:memorial_id/deleted_list' => 'review#deleted_list',
+    :action => :deleted_list, :via => :get
+
+  match 'admin/memorials/:memorial_id/deleted_list/post/:id' => 'review#callback',
+    :action => :callback, :via => :put
+
 
   match 'auth/:provider/callback', to: 'facebook#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
