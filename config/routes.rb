@@ -6,6 +6,12 @@ Rails.application.routes.draw do
     get :attended, :created
   end
 
+  resources :review, only: [:index]
+
+  scope :review, :controller => 'review' do
+    put :report
+  end
+
   resources :memorials, only: [:index, :show] do
     resources :posts, except: [:index, :show] do
       resources :comments, except: [:index, :show]
@@ -31,6 +37,9 @@ Rails.application.routes.draw do
     end
 
   end
+
+  match '/post/:id/report' => 'review#report',
+    :action => :report, :via => :put
 
   match 'auth/:provider/callback', to: 'facebook#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
