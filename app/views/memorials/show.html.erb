@@ -1,5 +1,8 @@
-
 <h1 class="title-card"><%= @memorial.deceased_name %></h1>
+
+  <img src = "<%= @photo.url %>" alt="profile_picture">
+
+  <br>
 
   <br>  
   <p>Date of Birth: <%= @memorial.date_of_birth.strftime("%B %d, %Y") %> | Date of Passing: <%= @memorial.date_of_death.strftime("%B %d, %Y") %></p>

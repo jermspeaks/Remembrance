@@ -9,10 +9,23 @@ class Admin::MemorialsController < ApplicationController
     @moderator = @current_user
     @memorial = @moderator.created_memorials.new(memorial_params)
     @memorial.service_location.gsub!(/\W/, '+')
-    if @memorial.save
-      redirect_to @memorial
-    else
-      render 'newmemorial'
+    @photo = Photo.new
+    respond_to do |format|
+      if @memorial.save && @photo.save
+        format.html do
+          @photo.update(uploader: @user, memorial: @memorial)
+          redirect_to memorial_path(@memorial), notice: 'Photo was successfully created.'
+        end
+        format.json { render :show, status: :created, location: @photo }
+      elsif @memorial.save
+        format.html do
+          redirect_to memorial_path(@memorial), notice: 'Memorial was successfully created.'
+        end
+        format.json { render :show, status: :created, location: @memorial }
+      else
+        format.html { render :new, notice: 'Photo was not uploaded correctly.' }
+        format.json { render json: @photo.errors, status: :unprocessable_entity }
+      end
     end
   end
 
