@@ -3,12 +3,12 @@ class ReviewController < ApplicationController
   def report
     @post = Post.find(params[:id])
     @post.flag
-    if input == @post.delete
-      @post.destroy
-    elsif input == @post.delete
-      @post.destroy
-    else
-    end
+    # if input == @post.delete
+    #   @post.destroy
+    # elsif input == @post.delete
+    #   @post.destroy
+    # else
+    # end
   end
 
 
