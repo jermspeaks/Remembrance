@@ -38,6 +38,17 @@ class Admin::MemorialsController < ApplicationController
     redirect_to memorials_path
   end
 
+  def spam
+    @memorial = Memorial.find params[:memorial_id]
+    @spam = Post.where(memorial: @memorial, approved: false)
+    respond_to do |format|
+      unless @spam.empty?
+        format.json { render :json => @spam.to_json }
+      else
+        format.json { render :json => "no_posts".to_json }
+      end
+    end
+  end
 
   private
   def memorial_params

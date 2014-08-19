@@ -2,6 +2,8 @@
 
 
 $(function(){
+  var pathName = window.location.pathname;
+
   $('.attended-right-links').one('click', function(event){
     event.preventDefault();
     $.ajax({
@@ -26,5 +28,25 @@ $(function(){
         
       }
     });
+  });
+
+
+
+  $('#flagged-post').on('click', function(event){
+    event.preventDefault();
+    $.ajax({
+      type: 'GET',
+      url: '/admin' + pathName + '/spam',
+      dataType: 'JSON',
+      success: function(flaggedPosts){
+        console.log(flaggedPosts);
+        if(flaggedPosts === "no_posts"){
+          alert("No Flagged Posts");
+        }
+        else{
+          alert("Some posts have been flagged");
+        }
+      }
+    })
   });
 });

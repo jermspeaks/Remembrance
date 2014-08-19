@@ -10,7 +10,6 @@ class PostsController < ApplicationController
     @memorial = Memorial.find(params[:memorial_id])
     new_post = Post.new(post_params)
     if new_post.save
-      bad_text?(new_post)
       new_post.update(author: @current_user, memorial: @memorial)
       redirect_to memorial_path(@memorial)
     else
