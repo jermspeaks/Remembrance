@@ -9,7 +9,6 @@ class Admin::MemorialsController < ApplicationController
     @moderator = @current_user
     @memorial = @moderator.created_memorials.new(memorial_params)
     @memorial.service_location.gsub!(/\W/, '+')
-    memorial_photos = Photo.where(memorial_id: @memorial.id)
     @photo = Photo.new
     if @memorial.save
       redirect_to @memorial
@@ -18,11 +17,6 @@ class Admin::MemorialsController < ApplicationController
     end
     respond_to do |format|
       if @photo.save
-        memorial_photos.each do |photo|
-          if photo.profile == true
-            photo.profile = false
-          end
-        end
         format.html do
           @photo.update(uploader: @user, memorial: @memorial)
           redirect_to memorial_path(@memorial), notice: 'Photo was successfully created.'

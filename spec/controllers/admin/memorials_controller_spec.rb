@@ -32,8 +32,6 @@ RSpec.describe Admin::MemorialsController, :type => :controller do
     end
   end
 
-
-
   describe 'PUT #update' do
     it 'should edit the memorial' do
       session[:user_id] = @user.id
