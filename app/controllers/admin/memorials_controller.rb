@@ -2,13 +2,16 @@ class Admin::MemorialsController < ApplicationController
   include ApplicationHelper
   def new
     @memorial = Memorial.new
+    @photo = Photo.new
   end
 
   def create
     current_user
     @moderator = @current_user
-    @memorial = @moderator.created_memorials.new(memorial_params)
+    @memorial = Memorial.new(moderator_id: @moderator.id)
+    @memorial.update_attributes(memorial_params)
     @memorial.service_location.gsub!(/\W/, '+')
+    @memorial.save
     @photo = Photo.new
     respond_to do |format|
       if @memorial.save && @photo.save
