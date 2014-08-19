@@ -1,5 +1,7 @@
 class PhotosController < ApplicationController
   def new
+    @user = User.find(session[:user_id])
+    @moderator = Memorial.find(params[:memorial_id]).moderator
     @photo = Photo.new
   end
 

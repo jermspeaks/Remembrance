@@ -22,6 +22,14 @@
     <%= f.file_field :url %>
   </div>
 
+
+  <% if @user == @moderator %>
+    Make Profile?
+    <%= f.check_box(:profile, {}, true) %> Yes
+     
+  <% end %>
+
+  <br> <br> 
   <div class="actions">
     <%= f.submit %>
   </div>
