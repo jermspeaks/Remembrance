@@ -37,17 +37,5 @@ RSpec.describe Post, :type => :model do
     it { is_expected.to be_valid }
   end
 
-  describe "should flag obscene comments" do
-    it 'has no obscene language' do
-      post = Post.create(text: "This is all happy language")
-      expect(post.approved).to eq(true)
-    end
-
-    it 'has obscene language' do
-      post = Post.create(text: "fuck the motherfucker and that son-of-a-bitch")
-      expect(post.approved).to eq(false)
-    end
-  end
-
 end
 
