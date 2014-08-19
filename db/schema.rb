@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140819012415) do
     t.integer  "commentable_id"
     t.string   "commentable_type"
     t.text     "text"
+    t.boolean  "approved"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

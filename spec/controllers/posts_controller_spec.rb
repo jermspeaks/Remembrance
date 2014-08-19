@@ -20,6 +20,16 @@ RSpec.describe PostsController, :type => :controller do
       expect(response.code).to eq("302")
       expect(Post.last.text).to eq("What a loss")
     end
+
+    it 'has no obscene language' do
+      post :create, :memorial_id => @memorial.id, :post => { author: @user, memorial: @memorial, text: "This is all happy language" }
+      expect(Post.last.approved).to eq(true)
+    end
+
+    it 'has obscene language' do
+      post :create, :memorial_id => @memorial.id, :post => { author: @user, memorial: @memorial, text: "fuck the motherfucker and that son-of-a-bitch" }
+      expect(Post.last.approved).to eq(false)
+    end
   end
 
   describe 'GET #edit' do
