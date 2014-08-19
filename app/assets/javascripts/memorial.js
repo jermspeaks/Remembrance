@@ -1,3 +1,5 @@
+// ============= AJAX FOR GET REQUESTS =================
+
 $(function(){
   var pathName = window.location.pathname;
 
@@ -20,24 +22,40 @@ $(function(){
     $.get(postUrl, function(data){
       var $response=$(data);
       var form = $response.find('.new-post-form');
-      $('.memorial-posts').append(form);
-        console.log(response);
+      $('.memorial-posts').prepend(form);
     });
   });
 
 
 
-  $(".new-post-form").on("submit", function(event){
+  $('#new-memorial-comment').on('click', function(event){
     event.preventDefault();
-    var postUrl = pathName + '/posts/new';
-    $.post(postUrl, function(data){
-      var $response=$(data);
-      var form = $response.find('new-memorial-post');
-      $('.new-memorial-post').append(form);
-        console.log(response);
+    var postUrl = $(this).attr('href');
+    console.log(postUrl);
+    $.get(postUrl, function(data){
+        console.log(data);
+       var $response=$(data);
+       var form = $response.find('.new-comment');
+      $('.memorial-post').prepend(form);
     });
   });
 
+
+// ============= AJAX FOR POST REQUESTS =================
+
+
+  // $(".new-post-form").on("submit", function(event){
+  //   event.preventDefault();
+  //   var postUrl = pathName + '/posts/';
+  //   $.post(postUrl, function(data){
+  //     var $response=$(data);
+  //     var form = $response.find('.new-memorial-post');
+  //     $('.new-memorial-post').append(form);
+  //       console.log(response);
+  //   });
+  // });
+
+// ============= AJAX FOR DROP DOWN MENUS =================
 
 
   $('.created-right-links').one('click', function(event){
@@ -96,26 +114,27 @@ $(function(){
     });
   });
 
+// ============= AJAX FOR MODERATION =================
 
 
-  $('#flagged-post').on('click', function(event){
-    event.preventDefault();
-    $.ajax({
-      type: 'GET',
-      url: '/admin' + pathName + '/spam',
-      dataType: 'JSON',
-      success: function(flaggedPosts){
-        console.log(flaggedPosts);
-        if(flaggedPosts === "no_posts"){
-          alert("No Flagged Posts");
-        }
-        else{
-          alert("Some posts have been flagged");
-        }
-        $("#flagged-post").attr("disabled", "disabled");
-      }
-    });
-  });
+  // $('#flagged-post').on('click', function(event){
+  //   event.preventDefault();
+  //   $.ajax({
+  //     type: 'GET',
+  //     url: '/admin' + pathName + '/spam',
+  //     dataType: 'JSON',
+  //     success: function(flaggedPosts){
+  //       console.log(flaggedPosts);
+  //       if(flaggedPosts === "no_posts"){
+  //         alert("No Flagged Posts");
+  //       }
+  //       else{
+  //         alert("Some posts have been flagged");
+  //       }
+  //       $("#flagged-post").attr("disabled", "disabled");
+  //     }
+  //   });
+  // });
 
 
 
