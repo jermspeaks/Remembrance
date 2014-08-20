@@ -3,7 +3,7 @@ require "rails_helper"
 feature "the homepage" do
   scenario "a user should get the home page" do
     visit root_path
-    expect(page).to have_content("Memorials")
+    expect(page).to have_content("Remembrance")
   end
 
   scenario "a user can sign up with Facebook" do

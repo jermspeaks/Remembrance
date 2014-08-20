@@ -1,10 +1,8 @@
 <h1 class="title-card"><%= @memorial.deceased_name %></h1>
-
-  <img src = "<%= @photo.url %>" alt="profile_picture">
-
-  <br>
-
-  <br>  
+  <% if @photo %>
+    <%= image_tag(@photo.url) %>
+  <% end %>
+ 
   <p>Date of Birth: <%= @memorial.date_of_birth.strftime("%B %d, %Y") %> | Date of Passing: <%= @memorial.date_of_death.strftime("%B %d, %Y") %></p>
 
 
@@ -14,7 +12,7 @@
   <p><%= @memorial.service_description %></p>
   <h4>Service Location</h4>
   <iframe
-    width="50%"11
+    width="50%"
     height="250"
     frameborder="0" style="border:0"
     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDPgzthWTl5XYtapoLmMxd0-b5vc0ooz74&q=<%=@memorial.service_location%>">
