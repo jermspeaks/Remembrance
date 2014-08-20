@@ -1,6 +1,6 @@
 class ReviewController < ApplicationController
   include ApplicationHelper
-
+  
   def report
     @post = Post.find(params[:id])
     if bad_text?(@post.text)
