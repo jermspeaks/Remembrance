@@ -10,3 +10,4 @@
 @parsed_dictionary.each do |word, value|
   Word.create(negativity: word, rank: value.to_i)
 end
+

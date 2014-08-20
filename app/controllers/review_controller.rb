@@ -10,6 +10,7 @@ class ReviewController < ApplicationController
     end
     message = "processed"
     respond_to do |format|
+      format.html
       format.json { render json: message.to_json }
     end
   end
@@ -21,6 +22,7 @@ class ReviewController < ApplicationController
     respond_to do |format|
       format.json { render json: @posts.to_json }
     end
+    redirect_to memorials_path
   end
 
   def green_light

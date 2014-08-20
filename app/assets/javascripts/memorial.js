@@ -14,8 +14,6 @@ $(function(){
     });
   });
 
-
-
   $('#new-memorial-post').on('click', function(event){
     event.preventDefault();
     var postUrl = pathName + '/posts/new';
@@ -25,8 +23,6 @@ $(function(){
       $('.memorial-posts').prepend(form);
     });
   });
-
-
 
   $('#new-memorial-comment').on('click', function(event){
     event.preventDefault();
@@ -39,6 +35,18 @@ $(function(){
       $('.memorial-post').prepend(form);
     });
   });
+
+  // $('#new-memorial-comment').on('click', function(event){
+  //   event.preventDefault();
+  //   // var postUrl = $(this).attr('href');
+  //   // console.log(postUrl);
+  //   $.get('memorials/1/posts/1/comments/new', function(data){
+  //       console.log(data);
+  //      var $response=$(data);
+  //      var form = $response.find('.new-photo-comment');
+  //     $('.comment').prepend(form);
+  //   });
+  // });
 
 
 // ============= AJAX FOR POST REQUESTS =================
