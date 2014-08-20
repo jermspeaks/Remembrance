@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   match 'admin/memorials/:memorial_id/queue' => 'review#queue',
     :action => :queue, :via => :get
 
-  match 'admin/memorials/:memorial_id/posts/:id/green_light' => 'review#greenlight',
+  match 'admin/memorials/:memorial_id/posts/:id/green_light' => 'review#green_light',
     :action => :green_light, :via => :put
 
   match 'admin/memorials/:memorial_id/posts/:id/red_light' => 'review#red_light',

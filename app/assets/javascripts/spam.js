@@ -30,15 +30,16 @@ $(function(){
       else {
         var queue = [];
         for (var j = 0; j < reported.length; j++) {
-          var greenLightUrl = "";
-          var redLightUrl = "";
-          var render = "<div class='reported-posts'><p>" + reported[j].text + "</p><p>" + reported[j].poster + "</p><a href='#'>accept this post?</a> | <a href='#'>reject this post?</a></div>";
+          var greenLightUrl = "/admin" + pathName + "/posts/" +reported[j].id + "/green_light";
+          var redLightUrl = "/admin" + pathName + "/posts/" +reported[j].id + "/red_light";
+          var render = "<div class='reported-posts'><p>" + reported[j].text + "</p><p>" + reported[j].poster + "</p><a class='accept-post' href='" + greenLightUrl + "'>accept this post?</a> | <a href='" + redLightUrl + "'>reject this post?</a></div>";
           queue.push(render);
         }
         for (var k = 0; k < queue.length; k++) {
           $('#new-guest').after(queue[k]);
         }
         showQueue();
+        modAccept();
       }
     }
   });
@@ -50,6 +51,24 @@ $(function(){
     });
   }
 
+  // Moderator accepts post
+  var modAccept = function(){
+    $('.accept-post').on('click', function(event){
+      event.preventDefault();
+      var pathUrl = $(this).attr('href');
+      $(this).parent().remove();
+      $.ajax ({
+        type: 'PUT',
+        url: pathUrl,
+        dataType: 'JSON',
+        success: function(message){
+          console.log(message);
+        }
+      });
+    });
+  };
+
+  // Moderator rejects post
 
 }); 
   
