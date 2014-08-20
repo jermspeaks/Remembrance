@@ -1,5 +1,5 @@
 class InviteMailer < ActionMailer::Base
-  default from: "inmemoriamdbc@gmail.com"
+  default from: "remembrancedbc@gmail.com"
 
   def invite_email(email, memorial)
     mail(to: email,
