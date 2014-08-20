@@ -36,6 +36,9 @@ $(function(){
     });
   });
 
+
+
+
   // $('#new-memorial-comment').on('click', function(event){
   //   event.preventDefault();
   //   // var postUrl = $(this).attr('href');
@@ -84,7 +87,6 @@ $(function(){
           }
         }
         for (var i=0; i < list.length; i++) {
-          console.log(list[i])
           $('.created-right-links').append(list[i]);
           $("#created-memorials").attr("disabled", "disabled");
         }
@@ -144,6 +146,13 @@ $(function(){
   //   });
   // });
 
+// ================== LOADING PAGE ===============
+
+  $(".actions").on('submit', 'form', function(event) {
+      $("body :not(#loading)").css("opacity", "0.6");
+      $('#loading').css("opacity", "1");
+      $('#loading').css("visibility", "visible");
+  });
 
 
 });
