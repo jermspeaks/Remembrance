@@ -8,6 +8,7 @@ RSpec.describe Admin::GuestsController, :type => :controller do
 
   describe 'GET #new' do
     it 'should render the form page' do
+      session[:user_id] = @user.id
       get :new, :memorial_id => @memorial.id
       expect(response).to be_success
       expect(response.code).to eq("200")
