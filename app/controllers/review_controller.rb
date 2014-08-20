@@ -8,9 +8,8 @@ class ReviewController < ApplicationController
     else
       @post.passable
     end
-    message = "processed"
+    message = "Your report has been sent to the moderator."
     respond_to do |format|
-      format.html
       format.json { render json: message.to_json }
     end
   end
@@ -30,13 +29,20 @@ class ReviewController < ApplicationController
   end
 
   def queue
-    pass = Post.where(state: 1)
-    fail = Post.where(state: 2)
+    pass = Post.where(state: "1", memorial_id: params[:memorial_id])
+    fail = Post.where(state: "2", memorial_id: params[:memorial_id])
     @posts = pass + fail
     respond_to do |format|
-      format.json { render json: @posts.to_json }
+      if @posts.empty?
+        format.json { render json: @posts.to_json }
+      else
+        @queue = []
+        @posts.each do |post|
+          @queue << { id: post.id, text: post.text, poster: post.author.name }
+        end
+        format.json { render json: @queue.to_json }
+      end
     end
-    redirect_to memorials_path
   end
 
   def green_light
