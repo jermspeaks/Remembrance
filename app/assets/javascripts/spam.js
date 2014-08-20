@@ -30,6 +30,8 @@ $(function(){
       else {
         var queue = [];
         for (var j = 0; j < reported.length; j++) {
+          var greenLightUrl = "";
+          var redLightUrl = "";
           var render = "<div class='reported-posts'><p>" + reported[j].text + "</p><p>" + reported[j].poster + "</p><a href='#'>accept this post?</a> | <a href='#'>reject this post?</a></div>";
           queue.push(render);
         }
