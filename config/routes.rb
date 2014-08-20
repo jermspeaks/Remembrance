@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:index, :new, :create, :destroy]
   match 'login', to: 'sessions#new', via: [:get, :post]
 
-    match '/post/:id/report' => 'review#report',
+    match '/posts/:id/report' => 'review#report',
     :action => :report, :via => :put
 
-    match '/photo/:photo_id/report' => 'review#reportphoto',
+    match '/photos/:photo_id/report' => 'review#reportphoto',
     :action => :report, :via => :put
 
 
@@ -35,7 +35,6 @@ Rails.application.routes.draw do
       resources :guests
       get 'invite_new_with_email', to: 'guests#invite_new_with_email'
       post 'invite_new_with_email', to: 'guests#invite_create_with_email'
-      get 'spam', to: 'memorials#spam' 
     end
 
   end
@@ -43,10 +42,10 @@ Rails.application.routes.draw do
   match 'admin/memorials/:memorial_id/queue' => 'review#queue',
     :action => :queue, :via => :get
 
-  match 'admin/memorials/:memorial_id/post/:id/green_light' => 'review#greenlight',
+  match 'admin/memorials/:memorial_id/posts/:id/green_light' => 'review#greenlight',
     :action => :green_light, :via => :put
 
-  match 'admin/memorials/:memorial_id/post/:id/red_light' => 'review#red_light',
+  match 'admin/memorials/:memorial_id/posts/:id/red_light' => 'review#red_light',
     :action => :red_light, :via => :put
 
   match 'admin/memorials/:memorial_id/deleted_list' => 'review#deleted_list',

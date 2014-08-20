@@ -23,8 +23,10 @@
       <% if @current_user.id == @memorial.moderator_id %>
         <li><%= link_to "Edit Memorial Page", edit_admin_memorial_path, id: "edit-memorial", class: "btn btn-default btn-sm" %></li>
         <li><%= link_to "Delete Memorial Page", { controller: "admin/memorials", action: "destroy", id: @memorial.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %></li>
+        <li><%= link_to "Reported Posts", "/admin/memorials/#{@memorial.id}/queue", class: "btn btn-default btn-sm report-queue" %></li>
       <% end %>
         <li><%= link_to "Invite Guests", new_admin_memorial_guest_path(@memorial), id: "new-guest", class: "btn btn-default btn-sm" %></li>
+
     </ul>
   </div>
 
