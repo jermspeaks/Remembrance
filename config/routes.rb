@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     match '/post/:id/report' => 'review#report',
     :action => :report, :via => :put
 
+    match '/photo/:photo_id/report' => 'review#reportphoto',
+    :action => :report, :via => :put
+
+
 
   scope :memorials, :controller => 'memorials' do
     get :attended, :created
