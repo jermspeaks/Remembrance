@@ -46,15 +46,15 @@ class Post < ActiveRecord::Base
   end
 
   def post_impassable
-    self.update(status: 2)
+    self.update(status: 2, approved: false)
   end
 
   def post_approval
-    self.update(status: 3)
+    self.update(status: 3, approved: true)
   end
 
   def post_disapproval
-    self.update(status: 4)
+    self.update(status: 4, approved: false)
   end
 
 end
