@@ -12,30 +12,17 @@
   <%= link_to "Attended Memorials", "#", id: "attended-memorials", class: "btn btn-default btn-sm" %>
 </div>
 
-<!-- <div>
-  <ul id="created-memorial-list">
-
-  </ul>
-</div>
-
-<div>
-  <ul id="attended-memorial-list">
-
-  </ul>
-</div> -->
-
 <br>
 <h3 class="title-card">Feed</h3>
 <hr>
 <% if @posts || @photos %>
   <div class="feed">
     <% @posts.each do |post| %>
+    <% if post.approved %>
     <div class="memorial-post">
-      
       <p><%= post.author.name %> posted to <%= post.memorial.deceased_name %>'s memorial:</p>
-      <p><%= post.text %></p>
+      <p><strong><%= post.text %></strong></p>
       <span><%= post.created_at.strftime("%B %d, %Y") %></span></p>
-      
       <%= link_to "Add a comment", new_memorial_post_comment_path(post.memorial, post), id: "new-memorial-comment", class: "btn btn-default btn-sm" %>
       <div class="comment">
         <% post.comments.each do |comment| %>
@@ -43,6 +30,7 @@
         <% end %>
       </div>
     </div>
+  <% end %>
     <br><br>
     <% end %>
     

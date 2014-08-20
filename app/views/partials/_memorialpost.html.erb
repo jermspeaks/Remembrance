@@ -1,30 +1,31 @@
 <div class="memorial-posts">
   <% @memorial.posts.each do |post| %>
-    <%= link_to "Report", { controller: "review", action: "report", memorial_id: @memorial.id, id: post.id }, method: :put, class: "btn btn-default btn-sm" %>
     <% if post.approved %>
       <div class="memorial-post">
-        <% if post.state == 1 %>            
-        <p>Post has been flagged</p>
-          <p><%= "http://post.author.name" %> posted:</p>
-          <p><%= post.text %></p>
-          <span><%= post.created_at.strftime("%B %d, %Y") %></span></p>
-        <% elsif post.state == 3 %>
+        <% if post.state == "1" %>           
+          <p><strong><%= post.text %></strong></p>
+          <p><%= post.author.name %>, <%= post.created_at.strftime("%B %d, %Y") %></p>
+          <p style="color:red;">Post has been flagged</p>
+        <% elsif post.state == "3" %>
         <p>Post was recently flagged and now approved</p>
-          <p><%= "http://post.author.name" %> posted:</p>
-          <p><%= post.text %></p>
-          <span><%= post.created_at.strftime("%B %d, %Y") %></span></p>
+          <p><strong><%= post.text %></strong></p>
+          <p><%= post.author.name %>, <%= post.created_at.strftime("%B %d, %Y") %></p>
+          <p style="color:red;">Post has been flagged</p>
         <% else %>
-          <p><%= "http://post.author.name" %> posted:</p>
-          <p><%= post.text %></p>
-          <span><%= post.created_at.strftime("%B %d, %Y") %></span></p>
+          <p><strong><%= post.text %></strong></p>
+          <p><%= post.author.name %>, <%= post.created_at.strftime("%B %d, %Y") %></p>
+          <p style="color:red;">Post has been flagged</p>
+          
+          <%= link_to "Report", { controller: "review", action: "report", memorial_id: @memorial.id, id: post.id }, method: :put, class: "btn btn-default btn-sm" %>
         <% end %>
 
         <% if @current_user.id == post.author.id %>
-        	<%= link_to 'Edit post', edit_memorial_post_path(@memorial, post), id: "edit-memorial-post", class: "btn btn-default btn-sm" %>
+          <%= link_to 'Edit post', edit_memorial_post_path(@memorial, post), id: "edit-memorial-post", class: "btn btn-default btn-sm" %>
 
-        	<%= button_to "Delete Post", { controller: "posts", action: "destroy", memorial_id: @memorial.id, id: post.id },
+          <%= button_to "Delete Post", { controller: "posts", action: "destroy", memorial_id: @memorial.id, id: post.id },
                                   method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
         <% end %>
+        
 
         <%= link_to "Add a comment", new_memorial_post_comment_path(@memorial, post), id: "new-memorial-comment", class: "btn btn-default btn-sm" %>
         <div class="comment">
