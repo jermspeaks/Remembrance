@@ -14,7 +14,7 @@ $(function(){
     });
   });
 
-  $('#new-memorial-post').on('click', function(event){
+  $('#new-memorial-post').one('click', function(event){
     event.preventDefault();
     var postUrl = pathName + '/posts/new';
     $.get(postUrl, function(data){
@@ -24,7 +24,7 @@ $(function(){
     });
   });
 
-  $('#new-memorial-comment').on('click', function(event){
+  $('#new-memorial-comment').one('click', function(event){
     event.preventDefault();
     var postUrl = $(this).attr('href');
     console.log(postUrl);

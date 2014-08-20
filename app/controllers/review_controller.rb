@@ -1,12 +1,26 @@
 class ReviewController < ApplicationController
   include ApplicationHelper
-
+  
   def report
     @post = Post.find(params[:id])
     if bad_text?(@post.text)
       @post.impassable
     else
       @post.passable
+    end
+    message = "processed"
+    respond_to do |format|
+      format.html
+      format.json { render json: message.to_json }
+    end
+  end
+
+  def reportphoto
+    @photo = Photo.find(params[:id])
+    if bad_text?(@photo.text)
+      @photo.impassable
+    else
+      @photo.passable
     end
     message = "processed"
     respond_to do |format|

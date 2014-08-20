@@ -11,6 +11,11 @@ $titles: 80%;
 	margin: auto;
 	padding: auto;
 	text-align: center;
+	clear: both;
+}
+
+.feed {
+	clear: both;
 }
 
 #passing-dates {
@@ -58,14 +63,17 @@ $titles: 80%;
 .center-links {
 	width: 80%;
 	margin: 0 auto;
+	clear: both;
 }
 
 .created-right-links {
 	margin: auto;
 	float: right;
+	clear: both;
 }
 
 .attended-right-links {
 	margin: auto;
 	float: right;
+	clear: both;
 }
