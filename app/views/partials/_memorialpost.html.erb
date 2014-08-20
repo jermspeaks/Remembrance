@@ -2,6 +2,9 @@
   <% @memorial.posts.each do |post| %>
     <% if post.approved %>
       <div class="memorial-post">
+        <p><%= post.author.name %> posted:</p>
+        <p><%= post.text %></p>
+        <span><%= post.created_at.strftime("%B %d, %Y") %></span></p>
         <% if @current_user.id == post.author.id %>
         	<%= link_to 'Edit post', edit_memorial_post_path(@memorial, post), id: "edit-memorial-post", class: "btn btn-default btn-sm" %>
 
