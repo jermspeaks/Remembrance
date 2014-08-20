@@ -1,4 +1,4 @@
-<% @memorial.photos.each do |photo| %>
+<% @memorial_photos.each do |photo| %>
   <span><%= image_tag(photo.url) %></span>
   <p><%= photo.created_at.strftime("%B %d, %Y") %></p>
   <article class="photo_item"><%= photo.caption %><br>

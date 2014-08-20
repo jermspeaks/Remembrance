@@ -24,6 +24,7 @@ class MemorialsController < ApplicationController
     current_user
     @memorial = Memorial.find(params[:id])
     @photo = Photo.find_by(memorial_id: @memorial.id, profile: true)
+    @memorial_photos = Photo.where(memorial_id: @memorial.id, profile: false)
   end
 
 	def created

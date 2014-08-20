@@ -1,8 +1,10 @@
 class Admin::GuestsController < ApplicationController
   def new
+    current_user
+    @moderator = @current_user
     @memorial = Memorial.find(params[:memorial_id])
     @exclude_ids = @memorial.guests.map(&:id)
-    @users = User.where.not(id: @exclude_ids)
+    @users = User.where.not(id: @exclude_ids) && User.where.not(id: @moderator.id)
     @enlist_guests = MemorialGuest.new
   end
 
