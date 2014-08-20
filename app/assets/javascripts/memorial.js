@@ -1,16 +1,16 @@
+// ============= AJAX FOR GET REQUESTS =================
+
 $(function(){
   var pathName = window.location.pathname;
 
   $('#create-memorial').one('click', function(event){
     event.preventDefault();
-
     $.get('/admin/memorials/new', function(data){
        //create jquery object from the response html
        var $response=$(data);
        //query the jq object for the values
        var form = $response.find('.new-memorial-form');
       $('.center-links').append(form);
-        console.log(response);
     });
   });
 
@@ -18,30 +18,74 @@ $(function(){
 
   $('#new-memorial-post').on('click', function(event){
     event.preventDefault();
-    var postUrl = pathName + '/posts/new'
+    var postUrl = pathName + '/posts/new';
     $.get(postUrl, function(data){
-       var $response=$(data);
-       var form = $response.find('.new-post-form');
-      $('.memorial-posts').append(form);
-        console.log(response);
+      var $response=$(data);
+      var form = $response.find('.new-post-form');
+      $('.memorial-posts').prepend(form);
     });
   });
 
 
-// $("#create_choice").on("submit", function(event) {
-//         event.preventDefault();
-//         $.ajax({
-//             url: "/surveys/create",
-//             type: "POST",
-//             data: $(this).serialize(),
-//             dataType: "json",
-//             success: function(result) {
-//                 console.log(result);
-//                 $("ul").append("<li>" + result.choice_body + "</li>");
-//                 $("#create_choice input[type = 'text']").val("")
 
-//             }
-//         });
+  $('#new-memorial-comment').on('click', function(event){
+    event.preventDefault();
+    var postUrl = $(this).attr('href');
+    console.log(postUrl);
+    $.get(postUrl, function(data){
+        console.log(data);
+       var $response=$(data);
+       var form = $response.find('.new-comment');
+      $('.memorial-post').prepend(form);
+    });
+  });
+
+
+// ============= AJAX FOR POST REQUESTS =================
+
+
+  // $(".new-post-form").on("submit", function(event){
+  //   event.preventDefault();
+  //   var postUrl = pathName + '/posts/';
+  //   $.post(postUrl, function(data){
+  //     var $response=$(data);
+  //     var form = $response.find('.new-memorial-post');
+  //     $('.new-memorial-post').append(form);
+  //       console.log(response);
+  //   });
+  // });
+
+// ============= AJAX FOR DROP DOWN MENUS =================
+
+
+  $('.created-right-links').one('click', function(event){
+    event.preventDefault();
+    $.ajax({
+      type: 'GET',
+      url: '/memorials/created',
+      dataType: 'JSON',
+      success: function(createdMemorials) {
+        var list = [];
+        for (var memorial in createdMemorials) {
+          if(createdMemorials.hasOwnProperty(memorial)){
+            var obj = createdMemorials[memorial];
+            var url = "/memorials/" + obj["id"];
+            var name = obj["deceased_name"];
+            var render = "<li><a href='" + url + "'>" + name + "</a></li>";
+            list.push(render); 
+          }
+        }
+        for (var i=0; i < list.length; i++) {
+          console.log(list[i])
+          $('.created-right-links').append(list[i]);
+          $("#created-memorials").attr("disabled", "disabled");
+        }
+        
+      }
+    });
+  });
+
+
 
 
   $('.attended-right-links').one('click', function(event){
@@ -70,22 +114,28 @@ $(function(){
     });
   });
 
-  $('#flagged-post').on('click', function(event){
-    event.preventDefault();
-    $.ajax({
-      type: 'GET',
-      url: '/admin' + pathName + '/spam',
-      dataType: 'JSON',
-      success: function(flaggedPosts){
-        console.log(flaggedPosts);
-        if(flaggedPosts === "no_posts"){
-          alert("No Flagged Posts");
-        }
-        else{
-          alert("Some posts have been flagged");
-        }
-        $("#flagged-post").attr("disabled", "disabled");
-      }
-    })
-  });
+// ============= AJAX FOR MODERATION =================
+
+
+  // $('#flagged-post').on('click', function(event){
+  //   event.preventDefault();
+  //   $.ajax({
+  //     type: 'GET',
+  //     url: '/admin' + pathName + '/spam',
+  //     dataType: 'JSON',
+  //     success: function(flaggedPosts){
+  //       console.log(flaggedPosts);
+  //       if(flaggedPosts === "no_posts"){
+  //         alert("No Flagged Posts");
+  //       }
+  //       else{
+  //         alert("Some posts have been flagged");
+  //       }
+  //       $("#flagged-post").attr("disabled", "disabled");
+  //     }
+  //   });
+  // });
+
+
+
 });

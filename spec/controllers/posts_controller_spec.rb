@@ -43,8 +43,8 @@ RSpec.describe PostsController, :type => :controller do
 
   describe 'PUT #update' do
     it 'should edit the post' do
-      @post = Post.create(author: @user, memorial: @memorial, approved: true, text: "Sorry about loss")
-      post :update, :memorial_id => @memorial.id, id: @post.id, :post => { text: "Sorry" }
+      @post = Post.create(author: @user, memorial: @memorial, text: "Sorry about loss")
+      put :update, :memorial_id => @memorial.id, id: @post.id, :post => { text: "Sorry" }
       expect(response.code).to eq("302")
       expect(Post.last.text).to eq("Sorry")
     end
