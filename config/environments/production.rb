@@ -84,7 +84,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'memoriam-dbc.herokuapp.com',
+    domain:               'remembrance-dbc.herokuapp.com',
     user_name:            ENV['ADMIN_EMAIL'],
     password:             ENV['ADMIN_EMAIL_PASSWORD'],
     authentication:       'plain',

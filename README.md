@@ -2,7 +2,7 @@ Remembrance - DBC Final Project
 ========
 #Project Description:
 
-Memoriam is an app for individuals who have lost a loved one. Users are able to create a memoriam page for their loved ones and can invite friends/family to view the page, write a loving memory, and upload photos.
+Remembrance is an app for individuals who have lost a loved one. Users are able to create a remembrance page for their loved ones and can invite friends/family to view the page, write a loving memory, and upload photos.
 
 
 ##Technologies Used:
@@ -24,7 +24,7 @@ Jeremy Wong,
 Jonathan Young, 
 
 ### Website
-[Link to our website](http://memoriam-dbc.herokuapp.com/)
+[Link to our website](http://remembrance-dbc.herokuapp.com/)
 
 ========
 [ ![Codeship Status for JYoung217/memorium](https://www.codeship.io/projects/ceb368c0-ffca-0131-a18b-6aff84905aac/status)](https://www.codeship.io/projects/29779)
