@@ -83,7 +83,7 @@ $(function(){
             var url = "/memorials/" + obj["id"];
             var name = obj["deceased_name"];
             var render = "<li><a href='" + url + "'>" + name + "</a></li>";
-            list.push(render); 
+            list.push(render);
           }
         }
         for (var i=0; i < list.length; i++) {
