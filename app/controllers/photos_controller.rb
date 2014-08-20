@@ -9,7 +9,7 @@ class PhotosController < ApplicationController
     @user = User.find(session[:user_id])
     @memorial = Memorial.find(params[:memorial_id])
     @photo = Photo.new(photo_params)
-    @profile_photo = Photo.where(memorial_id: @memorial.id).select{|photo| photo.profile == true}
+    @profile_photo = Photo.where(memorial_id: @memorial.id).select{|photo| photo.profile == true}.first
     respond_to do |format|
       if @photo.save
         if @photo.profile == true
