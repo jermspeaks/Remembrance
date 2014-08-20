@@ -6,30 +6,17 @@
           <p><strong><%= post.text %></strong></p>
           <p><%= post.author.name %>, <%= post.created_at.strftime("%B %d, %Y") %></p>
           <p style="color:red;">Post has been flagged</p>
+          <%= render partial: "partials/post_settings", locals: {current_user: @current_user, post: post, memorial: @memorial, state: post.state} %>
         <% elsif post.state == "3" %>
-        <p>Post was recently flagged and now approved</p>
+          <p>Post was recently flagged and now approved</p>
           <p><strong><%= post.text %></strong></p>
           <p><%= post.author.name %>, <%= post.created_at.strftime("%B %d, %Y") %></p>
-          <p style="color:red;">Post has been flagged</p>
-        <% else %>
+          <%= render partial: "partials/post_settings", locals: {current_user: @current_user, post: post, memorial: @memorial, state: post.state} %>
+        <% elsif post.state == "0" %>
           <p><strong><%= post.text %></strong></p>
           <p><%= post.author.name %>, <%= post.created_at.strftime("%B %d, %Y") %></p>
-          <p style="color:red;">Post has been flagged</p>
-          
-          <%= link_to "Report", { controller: "review", action: "report", memorial_id: @memorial.id, id: post.id }, method: :put, class: "btn btn-default btn-sm" %>
+            <%= render partial: "partials/post_settings", locals: {current_user: @current_user, post: post, memorial: @memorial, state: post.state} %>
         <% end %>
-        <p><%= post.author.name %> posted:</p>
-        <p><%= post.text %></p>
-        <span><%= post.created_at.strftime("%B %d, %Y") %></span></p>
-        <% if @current_user.id == post.author.id %>
-          <%= link_to 'Edit post', edit_memorial_post_path(@memorial, post), id: "edit-memorial-post", class: "btn btn-default btn-sm" %>
-
-          <%= button_to "Delete Post", { controller: "posts", action: "destroy", memorial_id: @memorial.id, id: post.id },
-                                  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
-        <% end %>
-        <%= link_to "Report", "/posts/#{post.id}/report", class: "btn btn-default btn-sm report" %>
-
-        <%= link_to "Add a comment", new_memorial_post_comment_path(@memorial, post), id: "new-memorial-comment", class: "btn btn-default btn-sm" %>
         <div class="comment">
           <% post.comments.each do |comment| %>
           <h6><%= comment.commenter.name %>: <%= comment.text %></h6>
