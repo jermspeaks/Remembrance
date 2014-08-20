@@ -154,6 +154,12 @@ $(function(){
         $('#loading').css("opacity", "1");
         $('#loading').css("visibility", "visible");
     });
+
+    $("form.new_memorial_guest").on('submit', function(event) {
+        $("body :not(#loading)").css("opacity", "0.6");
+        $('#loading').css("opacity", "1");
+        $('#loading').css("visibility", "visible");
+    });
   });
 
 
