@@ -15,6 +15,20 @@ class ReviewController < ApplicationController
     end
   end
 
+  def reportphoto
+    @photo = Photo.find(params[:id])
+    if bad_text?(@photo.text)
+      @photo.impassable
+    else
+      @photo.passable
+    end
+    message = "processed"
+    respond_to do |format|
+      format.html
+      format.json { render json: message.to_json }
+    end
+  end
+
   def queue
     pass = Post.where(state: 1)
     fail = Post.where(state: 2)
