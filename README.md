@@ -27,4 +27,4 @@ Jonathan Young,
 [Link to our website](http://remembrance-dbc.herokuapp.com/)
 
 ========
-[ ![Codeship Status for JYoung217/memorium](https://www.codeship.io/projects/ceb368c0-ffca-0131-a18b-6aff84905aac/status)](https://www.codeship.io/projects/29779)
+[ ![Codeship Status for JYoung217/Remembrance](https://www.codeship.io/projects/c54d4540-0a37-0132-5dd3-46fa92d981bf/status)](https://www.codeship.io/projects/31732)
