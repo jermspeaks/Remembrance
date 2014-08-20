@@ -21,15 +21,15 @@ RSpec.describe PostsController, :type => :controller do
       expect(Post.last.text).to eq("What a loss")
     end
 
-    it 'has no obscene language' do
-      post :create, :memorial_id => @memorial.id, :post => { author: @user, memorial: @memorial, text: "This is all happy language" }
-      expect(Post.last.approved).to eq(true)
-    end
+    # it 'has no obscene language' do
+    #   post :create, :memorial_id => @memorial.id, :post => { author: @user, memorial: @memorial, text: "This is all happy language" }
+    #   expect(Post.last.approved).to eq(true)
+    # end
 
-    it 'has obscene language' do
-      post :create, :memorial_id => @memorial.id, :post => { author: @user, memorial: @memorial, text: "fuck the motherfucker and that son-of-a-bitch" }
-      expect(Post.last.approved).to eq(false)
-    end
+    # it 'has obscene language' do
+    #   post :create, :memorial_id => @memorial.id, :post => { author: @user, memorial: @memorial, text: "fuck the motherfucker and that son-of-a-bitch" }
+    #   expect(Post.last.approved).to eq(false)
+    # end
   end
 
   describe 'GET #edit' do
@@ -43,8 +43,8 @@ RSpec.describe PostsController, :type => :controller do
 
   describe 'PUT #update' do
     it 'should edit the post' do
-      @post = Post.create(author: @user, memorial: @memorial, approved: true, text: "Sorry about loss")
-      post :update, :memorial_id => @memorial.id, id: @post.id, :post => { text: "Sorry" }
+      @post = Post.create(author: @user, memorial: @memorial, text: "Sorry about loss")
+      put :update, :memorial_id => @memorial.id, id: @post.id, :post => { text: "Sorry" }
       expect(response.code).to eq("302")
       expect(Post.last.text).to eq("Sorry")
     end
