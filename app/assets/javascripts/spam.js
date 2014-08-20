@@ -12,7 +12,6 @@ $(function(){
       url: pathUrl,
       dataType: 'JSON',
       success: function(response){
-        console.log(response);
         self.append("<p>" + response + "</p>");
       }
     });
@@ -25,6 +24,7 @@ $(function(){
     dataType: 'JSON',
     success: function(reported){
       if (reported.length === 0) {
+        console.log(reported);
         $('.report-queue').remove();
       }
       else {
