@@ -12,7 +12,7 @@ class PhotosController < ApplicationController
     @profile_photo = Photo.where(memorial_id: @memorial.id).select{|photo| photo.profile == true}.first
     respond_to do |format|
       if @photo.save
-        if @photo.profile == true
+        if @photo.profile == true && @profile_photo
           @profile_photo.profile = false
           @profile_photo.save
         end

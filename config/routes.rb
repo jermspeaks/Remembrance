@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:index, :new, :create, :destroy]
   match 'login', to: 'sessions#new', via: [:get, :post]
 
+    match '/post/:id/report' => 'review#report',
+    :action => :report, :via => :put
+
+
   scope :memorials, :controller => 'memorials' do
     get :attended, :created
   end
@@ -32,9 +36,6 @@ Rails.application.routes.draw do
 
   end
 
-  match '/post/:id/report' => 'review#report',
-    :action => :report, :via => :put
-
   match 'admin/memorials/:memorial_id/queue' => 'review#queue',
     :action => :queue, :via => :get
 
@@ -42,7 +43,7 @@ Rails.application.routes.draw do
     :action => :green_light, :via => :put
 
   match 'admin/memorials/:memorial_id/post/:id/red_light' => 'review#red_light',
-  :action => :red_light, :via => :put
+    :action => :red_light, :via => :put
 
   match 'admin/memorials/:memorial_id/deleted_list' => 'review#deleted_list',
     :action => :deleted_list, :via => :get
