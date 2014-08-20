@@ -11,7 +11,7 @@ $(function(){
       else {
         var flagList = [];
         for (key in flaggedPosts) {
-          obj = flaggedPosts[key];
+          var obj = flaggedPosts[key];
           console.log(obj['text']);
           console.log(obj['author_id'])
         }
