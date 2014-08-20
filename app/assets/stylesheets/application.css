@@ -38,8 +38,8 @@ text-decoration: none;
 	height:100px;
 	left:0;
 	margin: 10px auto;
-  position: fixed;
-  bottom: 0px;
+  bottom: 0;
+  position: static;
 }
 
 .footer-container {
