@@ -1,5 +1,6 @@
 class ReviewController < ApplicationController
   include ApplicationHelper
+  respond_to :html, :json
   
   def report
     @post = Post.find(params[:id])
@@ -8,23 +9,9 @@ class ReviewController < ApplicationController
     else
       @post.passable
     end
-    message = "Your report has been sent to the moderator."
+    @message = "Your report has been sent to the moderator."
     respond_to do |format|
-      format.json { render json: message.to_json }
-    end
-  end
-
-  def reportphoto
-    @photo = Photo.find(params[:id])
-    if bad_text?(@photo.text)
-      @photo.impassable
-    else
-      @photo.passable
-    end
-    message = "processed"
-    respond_to do |format|
-      format.html
-      format.json { render json: message.to_json }
+      format.json { render json: @message.to_json }
     end
   end
 
