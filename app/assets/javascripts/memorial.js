@@ -3,6 +3,15 @@
 $(function(){
   var pathName = window.location.pathname;
 
+  // $('#log_in').on('click', function(event){
+  //   $.get('/login', function(data){
+  //     console.log(data);
+  //     var $response=$(data);
+  //     var form = $response.find('.new-user-form');
+  //     $('.intro-text').append(form);
+  //   });
+  // });
+
   $('#create-memorial').one('click', function(event){
     event.preventDefault();
     $.get('/admin/memorials/new', function(data){
@@ -83,7 +92,7 @@ $(function(){
             var url = "/memorials/" + obj["id"];
             var name = obj["deceased_name"];
             var render = "<li><a href='" + url + "'>" + name + "</a></li>";
-            list.push(render); 
+            list.push(render);
           }
         }
         for (var i=0; i < list.length; i++) {
