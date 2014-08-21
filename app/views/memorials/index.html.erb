@@ -1,47 +1,49 @@
-<div class="created-right-links">
-  <%= link_to "Created Memorials", "#", id: "created-memorials", class: "btn btn-default btn-sm" %>
-</div>
-
-<div class="attended-right-links">
-  <%= link_to "Attended Memorials", "#", id: "attended-memorials", class: "btn btn-default btn-sm" %>
-</div>
-
 <div class="center-links">
-  <h3><center><%= link_to "Create A New Memorial", new_admin_memorial_path, id: "create-memorial"  %></center></h3>
+  <h3><%= link_to "Create A New Memorial", new_admin_memorial_path, id: "create-memorial", class: "btn btn-primary btn-default btn-lg" %></h3>
 </div>
-
-<br>
-<h3 class="title-card">Feed</h3>
-
-<hr>
+<div class="created-right-links">
+  <%= link_to "Created Memorials", "#", id: "created-memorials", class: "btn btn-primary btn-default btn" %>
+</div>
+<div class="attended-right-links">
+  <%= link_to "Attended Memorials", "#", id: "attended-memorials", class: "btn btn-primary btn-default btn" %>
+</div>
+<div id="feed-title">
+  <h1 class="title-card">Feed</h1>
+  <hr>
+</div>
 <% if @posts || @photos %>
-  <div class="feed">
-    <% @posts.each do |post| %>
-    <% if post.approved %>
-    <div class="memorial-post">
-      <p><%= post.author.name %> posted to <%= post.memorial.deceased_name %>'s memorial:</p>
-      <p><strong><%= post.text %></strong></p>
-      <span><%= post.created_at.strftime("%B %d, %Y") %></span></p>
-      <%= link_to "Add a comment", new_memorial_post_comment_path(post.memorial, post), id: "new-memorial-comment", class: "btn btn-default btn-sm" %>
-      <div class="comment">
-        <% post.comments.each do |comment| %>
-        <h6><%= comment.commenter.name %>: <%= comment.text %></h6>
-        <% end %>
-      </div>
+<div class="feed">
+  <% @posts.each do |post| %>
+  <% if post.approved %>
+  <div class="memorial-post">
+    <h3><%= post.author.name %> posted to <%= post.memorial.deceased_name %>'s memorial:</h3>
+    <h4><%= post.text %></h4>
+    <p><%= post.created_at.strftime("%B %d, %Y") %></p>
+    <%= link_to "Add a comment", new_memorial_post_comment_path(post.memorial, post), id: "new-memorial-comment", class: "btn btn-sm" %>
+    <div class="comment">
+      <% post.comments.each do |comment| %>
+      <h6><%= comment.commenter.name %>: <%= comment.text %></h6>
+      <% end %>
     </div>
+  </div>
   <% end %>
-    <br><br>
-    <% end %>
-    
-
-    <% @photos.each do |photo| %>
-      <div class="memorial-photo">
-        <p><%= image_tag(photo.url) %></p>
-        <p><%= photo.created_at.strftime("%B %d, %Y") %></p>
-        <article class="photo_item"><%= photo.caption %><br>
-        <p><%= photo.uploader.name %></p>
-
-        <%= link_to "Add a comment", new_memorial_photo_comment_path(photo.memorial, photo), id: "new-memorial-comment", class: "btn btn-default btn-sm" %>
+  <br><br>
+  <% end %>
+  
+  <% @photos.each do |photo| %>
+  <div class="memorial-photo">
+    <p><%= image_tag(photo.url) %></p>
+    <p><%= photo.created_at.strftime("%B %d, %Y") %></p>
+    <article class="photo_item"><%= photo.caption %><br>
+      <p><%= photo.uploader.name %></p>
+      <%= link_to "Add a comment", new_memorial_photo_comment_path(photo.memorial, photo), id: "new-memorial-comment", class: "btn btn-default btn-sm" %>
+      <hr>
+      <div class="comment">
+        <% photo.comments.each do |comment| %>
+        <h6><%= comment.commenter.name %>: <%= comment.text %></h6>
+        <%= link_to "Edit your comment", edit_memorial_photo_comment_path(memorial_id: photo.memorial.id, photo_id: photo.id, id: comment.id), id: "edit-memorial-comment", class: "btn btn-default btn-sm" %>
+        <%= button_to "Delete photo", { controller: "comments", action: "destroy", memorial_id: photo.memorial.id, photo_id: photo.id, id: comment.id },
+        method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
         <hr>
         <div class="comment">
           <% photo.comments.each do |comment| %>
@@ -49,16 +51,18 @@
           <% if comment.commenter == @current_user %>
           <%= link_to "Edit your comment", edit_memorial_photo_comment_path(memorial_id: photo.memorial.id, photo_id: photo.id, id: comment.id), id: "edit-memorial-comment", class: "btn btn-default btn-sm" %>
           <%= button_to "Delete Comment", { controller: "comments", action: "destroy", memorial_id: photo.memorial.id, photo_id: photo.id, id: comment.id },
-                                  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
+          method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
           <% end %>
           <hr>
         </div>
         <% end %>
       </div>
+      <% end %>
+    </div>
     <% end %>
   </div>
-<% else %>
+  <% else %>
   <div class="feed">
     <p><%= @nothing %></p>
   </div>
-<% end %>
+  <% end %>
