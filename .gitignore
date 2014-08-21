@@ -24,4 +24,3 @@ config/initializers/secret_token.rb
 .rvmrc
 
 /coverage
-/public/assets
