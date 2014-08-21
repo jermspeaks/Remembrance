@@ -16,7 +16,8 @@
 
 body {
 	margin: 0;
-  background-image: url ("http://imgur.com/RHW7ePg");
+  background-image: url("bluegreen.jpg");
+  background-size: 100%;
 }
 
 .new-memorial-form {
