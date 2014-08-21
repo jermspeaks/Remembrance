@@ -6,7 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.boolean :approved, default: true
       t.string :text
       t.integer :status
-      t.string :state
+      t.string :state, default: "0"
 
       t.timestamps
     end
