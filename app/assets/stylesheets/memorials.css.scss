@@ -46,35 +46,36 @@ $titles: 80%;
 	}
 }
 
-.memorial-posts {
+.memorial-post, .memorial-photo {
 	width: 80%;
 	margin: 10px auto;
 	height: 80%;
-}
-
-.memorial-post {
-	border: 1px solid white;
+	border-radius: 10px;
+	background-color: #F0F0F0;
+	padding: 1px 20px 20px 20px;
 }
 
 .container-remembrance {
 	height: 100%;
+	margin-top: 100px;
 }
 
 .center-links {
 	width: 80%;
-	margin: 0 auto;
+	margin: 0 0 0 30px;
 	clear: both;
+	float: left;
 }
 
 .created-right-links {
-	margin: auto;
-	float: right;
+	margin: 0 0 10px 30px;
+	float: left;
 	clear: both;
 }
 
 .attended-right-links {
-	margin: auto;
-	float: right;
+	margin: 0 0 0 30px;
+	float: left;
 	clear: both;
 }
 
@@ -84,4 +85,11 @@ $titles: 80%;
 
 .post-settings-list {
 	list-style-type: none;
+}
+
+.comment {
+	border-radius: 10px;
+	background-color: #FAFAFA;
+	margin: 5px 0 0 30px;
+	padding: 10px;
 }
