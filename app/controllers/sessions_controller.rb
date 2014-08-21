@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
   include ApplicationHelper
 
   def index
+    @home_page = true
     current_user
     if @current_user
       redirect_to memorials_path

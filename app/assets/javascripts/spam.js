@@ -86,5 +86,7 @@ $(function(){
     });
   };
 
+  $('.dropdown-toggle').dropdown('toggle');
+
 }); 
   

@@ -14,10 +14,16 @@
  *= require_self
  */
 
+ //= depend_on_asset "espiga.jpg"
 body {
 	margin: 0;
-  background-image: url ("http://imgur.com/RHW7ePg");
 }
+
+.homepage {
+  background-image: url('<%= asset_path("espiga.jpg") %> ');
+  background-size: 100%;
+}
+
 .new-memorial-form {
 	padding: 40px 0 0 0;
 	margin: 0 0 0 20px;
@@ -35,10 +41,15 @@ text-decoration: none;
 #footer {
 	width:100%;
 	height:100px;
+<<<<<<< HEAD:app/assets/stylesheets/application.css
 	position: relative bottom;
 	bottom:0;
+=======
+>>>>>>> 54affdf5a63b6651465d88d184b6b61dd00be0f1:app/assets/stylesheets/application.css.erb
 	left:0;
 	margin: 10px auto;
+  bottom: 0;
+  position: absolute;
 }
 
 .footer-container {
@@ -59,4 +70,14 @@ nav {
 
 .new-memorial-form {
 	height: 100%;
+}
+
+#loading {
+  position: fixed;
+  height: 13px;
+  width: 212px;
+  margin-left: 10%;
+  margin-top: 10%;
+  background-image: url('http://s27.postimg.org/64srd7bvn/loading.gif');
+  visibility: hidden;
 }

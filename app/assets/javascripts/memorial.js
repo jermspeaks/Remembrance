@@ -3,6 +3,15 @@
 $(function(){
   var pathName = window.location.pathname;
 
+  // $('#log_in').on('click', function(event){
+  //   $.get('/login', function(data){
+  //     console.log(data);
+  //     var $response=$(data);
+  //     var form = $response.find('.new-user-form');
+  //     $('.intro-text').append(form);
+  //   });
+  // });
+
   $('#create-memorial').one('click', function(event){
     event.preventDefault();
     $.get('/admin/memorials/new', function(data){
@@ -35,6 +44,9 @@ $(function(){
       $('.memorial-post').prepend(form);
     });
   });
+
+
+
 
   // $('#new-memorial-comment').on('click', function(event){
   //   event.preventDefault();
@@ -80,11 +92,10 @@ $(function(){
             var url = "/memorials/" + obj["id"];
             var name = obj["deceased_name"];
             var render = "<li><a href='" + url + "'>" + name + "</a></li>";
-            list.push(render); 
+            list.push(render);
           }
         }
         for (var i=0; i < list.length; i++) {
-          console.log(list[i])
           $('.created-right-links').append(list[i]);
           $("#created-memorials").attr("disabled", "disabled");
         }
@@ -144,6 +155,21 @@ $(function(){
   //   });
   // });
 
+// ================== LOADING PAGE ===============
+
+  $(document).ready(function(){
+    $("form.new_photo").on('submit', function(event) {
+        $("body :not(#loading)").css("opacity", "0.6");
+        $('#loading').css("opacity", "1");
+        $('#loading').css("visibility", "visible");
+    });
+
+    $("form.new_memorial_guest").on('submit', function(event) {
+        $("body :not(#loading)").css("opacity", "0.6");
+        $('#loading').css("opacity", "1");
+        $('#loading').css("visibility", "visible");
+    });
+  });
 
 
 });
