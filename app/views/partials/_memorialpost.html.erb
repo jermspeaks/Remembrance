@@ -17,6 +17,7 @@
           <p><%= post.author.name %>, <%= post.created_at.strftime("%B %d, %Y") %></p>
             <%= render partial: "partials/post_settings", locals: {current_user: @current_user, post: post, memorial: @memorial, state: post.state} %>
         <% end %>
+        
         <div class="comment">
           <% post.comments.each do |comment| %>
           <h6><%= comment.commenter.name %>: <%= comment.text %></h6>
