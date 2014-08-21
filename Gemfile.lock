@@ -267,6 +267,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simplecov (~> 0.9.0)
+  sprockets
   state_machine
   therubyracer
   turbolinks

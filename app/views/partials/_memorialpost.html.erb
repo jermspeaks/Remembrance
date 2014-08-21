@@ -17,13 +17,15 @@
           <p><%= post.author.name %>, <%= post.created_at.strftime("%B %d, %Y") %></p>
             <%= render partial: "partials/post_settings", locals: {current_user: @current_user, post: post, memorial: @memorial, state: post.state} %>
         <% end %>
+        
         <div class="comment">
           <% post.comments.each do |comment| %>
           <h6><%= comment.commenter.name %>: <%= comment.text %></h6>
-          <%= link_to "Edit", edit_memorial_post_comment_path(memorial_id: @memorial.id, post_id: post.id, id: comment.id), id: "edit-memorial-comment", class: "btn btn-default btn-sm" %>
-          <%= button_to "Delete", { controller: "comments", action: "destroy", memorial_id: @memorial.id, post_id: post.id, id: comment.id },
-                                  method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
-          <% end %>
+          <% if comment.commenter == @current_user %>
+            <%= link_to "Edit", edit_memorial_post_comment_path(memorial_id: @memorial.id, post_id: post.id, id: comment.id), id: "edit-memorial-comment", class: "btn btn-default btn-sm" %>
+            <%= button_to "Delete", { controller: "comments", action: "destroy", memorial_id: @memorial.id, post_id: post.id, id: comment.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
+            <% end %>
+          <%end%>
         </div>
 
       </div>
