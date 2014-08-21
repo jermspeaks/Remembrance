@@ -11,7 +11,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body class="<%= @home_page ? 'homepage' : ''%>">
     <nav class="navbar" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -36,7 +36,7 @@
     
     <div id="footer">
       <div class="footer-container">
-        <a href="/info/about">About</a><a href="/info/contact">Contact</a><a href="/info/team">Team</a><br>
+        <a href="/info/about">About</a> | <a href="/info/contact">Contact</a> | <a href="/info/team">Team</a><br>
       </div>
     </div>
   </body>
