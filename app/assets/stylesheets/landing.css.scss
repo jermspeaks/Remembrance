@@ -1,5 +1,36 @@
+$primary-color: white;
+
 .intro-body {
   width: 80%;
   margin: 0 auto;
   text-align: center;
+}
+
+.brand-heading {
+  color: $primary-color;
+  font-size: 110pt;
+  margin: 220px 0 0 0; 
+}
+
+.intro-text {
+  color: $primary-color;
+  font-size: 20pt;
+  text-align: center;
+  margin: 0 auto;
+  width: 60%;
+  text-align: center;
+  padding-bottom: 70px;
+}
+
+#or {
+  color: $primary-color;
+  margin: 10px 0; 
+}
+
+.footer-container {
+  a {
+    margin: 0 10px;
+    color: $primary-color;
+    font-size: 13pt;
+  }
 }
