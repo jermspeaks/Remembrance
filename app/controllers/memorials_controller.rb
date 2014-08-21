@@ -9,6 +9,7 @@ class MemorialsController < ApplicationController
 
   def index
     current_user
+    @current_user = current_user
     attend = @current_user.attended_memorials
     created = @current_user.created_memorials
     @attended_memorials = attend + created

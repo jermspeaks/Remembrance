@@ -73,7 +73,7 @@ ActiveRecord::Schema.define(version: 20140819012415) do
     t.boolean  "approved",    default: true
     t.string   "text"
     t.integer  "status"
-    t.string   "state"
+    t.string   "state",       default: "0"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

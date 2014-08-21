@@ -46,9 +46,11 @@
         <div class="comment">
           <% photo.comments.each do |comment| %>
           <h6><%= comment.commenter.name %>: <%= comment.text %></h6>
+          <% if comment.commenter == @current_user %>
           <%= link_to "Edit your comment", edit_memorial_photo_comment_path(memorial_id: photo.memorial.id, photo_id: photo.id, id: comment.id), id: "edit-memorial-comment", class: "btn btn-default btn-sm" %>
-          <%= button_to "Delete photo", { controller: "comments", action: "destroy", memorial_id: photo.memorial.id, photo_id: photo.id, id: comment.id },
+          <%= button_to "Delete Comment", { controller: "comments", action: "destroy", memorial_id: photo.memorial.id, photo_id: photo.id, id: comment.id },
                                   method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
+          <% end %>
           <hr>
         </div>
         <% end %>
