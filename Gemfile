@@ -15,6 +15,8 @@ end
 # Assets-pipeline for Heroku
 gem 'rails_12factor', group: :production
 
+gem 'sprockets'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
