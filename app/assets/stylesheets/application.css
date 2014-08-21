@@ -14,7 +14,6 @@
  *= require_self
  */
 
-//= depend_on_asset "green.jpg"
 body {
   margin: 0;
 }
