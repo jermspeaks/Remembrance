@@ -12,6 +12,7 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= @home_page ? 'homepage' : ''%>">
+    <% if @current_user %>
     <nav class="navbar" role="navigation">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -19,7 +20,6 @@
           <a class="navbar-brand page-scroll" href="/">Remembrance</a>
           
         </div>
-        <% if @current_user %>
         <ul class="nav navbar-nav navbar-right">
           <li><%= link_to "Create new memorial", new_admin_memorial_path, id: "new_memorial" %></li>
           <li><%= link_to "Created memorials", created_path, id: "new_memorial" %></li>
