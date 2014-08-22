@@ -1,20 +1,19 @@
 <h1 class="title-card"><%= @memorial.deceased_name %></h1>
-<br>
   <% if @photo %>
     <%= image_tag(@photo.url) %>
   <% end %>
-
+  <br><br>
   <div id="ctrl-memorial-nav">
-    <ul>
+  
       <% if @current_user.id == @memorial.moderator_id %>
-        <li><%= link_to "Edit Memorial Page", edit_admin_memorial_path, id: "edit-memorial", class: "btn btn-default btn-sm" %></li>
-        <li><%= link_to "Delete Memorial Page", { controller: "admin/memorials", action: "destroy", id: @memorial.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %></li>
-        <li><%= link_to "Reported Posts", "/admin/memorials/#{@memorial.id}/queue", class: "btn btn-default btn-sm report-queue" %></li>
+        <%= link_to "Edit Memorial Page", edit_admin_memorial_path, id: "edit-memorial", class: "btn btn-default btn-sm" %>
+        <%= link_to "Delete Memorial Page", { controller: "admin/memorials", action: "destroy", id: @memorial.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-default btn-sm" %>
+        <%= link_to "Reported Posts", "/admin/memorials/#{@memorial.id}/queue", class: "btn btn-default btn-sm report-queue" %>
       <% end %>
-        <li><%= link_to "Invite Guests", new_admin_memorial_guest_path(@memorial), id: "new-guest", class: "btn btn-default btn-sm" %></li>
+        <%= link_to "Invite Guests", new_admin_memorial_guest_path(@memorial), id: "new-guest", class: "btn btn-default btn-sm" %>
 
-    </ul>
   </div>
+<div id="memorial-page-details">
  
   <p>Date of Birth: <%= @memorial.date_of_birth.strftime("%B %d, %Y") %> | Date of Passing: <%= @memorial.date_of_death.strftime("%B %d, %Y") %></p>
   <hr>
@@ -24,6 +23,8 @@
   <h5>Service Description</h5> 
   <p><%= @memorial.service_description %></p>
   <hr>
+</div>
+<div id="service location">
   <h5>Service Location</h5>
     <iframe
       width="60%"
@@ -31,18 +32,13 @@
       frameborder="3" style="border:5"
       src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDPgzthWTl5XYtapoLmMxd0-b5vc0ooz74&q=<%=@memorial.service_location%>">
     </iframe>
-
-
+</div>
 <hr>
 <div class="new-post-or-photo">
   <h2>Memories</h2>
-  <div id="ctrl-memorial-nav">
-    <ul>
-      <li><%= link_to "Add a memory post", new_memorial_post_path(@memorial), id: "new-memorial-post", class: "btn btn-default" %></li>
-      <li><%= link_to "Add a memory photo", new_memorial_photo_path(@memorial), id: "new-memorial-post", class: "btn btn-default" %></li>
-    </ul>
+    <%= link_to "Add a memory post", new_memorial_post_path(@memorial), id: "new-memorial-post", class: "btn btn-default" %>
+    <%= link_to "Add a memory photo", new_memorial_photo_path(@memorial), id: "new-memorial-post", class: "btn btn-default" %>
   </div>
-</div>
 
 <div class="memorial-timeline">  
   <%= render 'partials/memorialpost' %>
