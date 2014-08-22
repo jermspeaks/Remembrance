@@ -9,7 +9,7 @@ $titles: 80%;
 .title-card {
 	width: $titles;
 	margin: auto;
-	padding: auto;
+	padding: 0 0 40px 0;
 	text-align: center;
 	clear: both;
 }
@@ -34,8 +34,10 @@ $titles: 80%;
 	}
 }
 
+
 #ctrl-memorial-nav {
 	margin: 0 auto;
+	padding-bottom: 10px;
 	width: 100%;
 	ul {
 		list-style-type: none;
@@ -46,9 +48,11 @@ $titles: 80%;
 	}
 }
 
+.new-post-or-photo {
+	margin-bottom: 15px;
+}
+
 .memorial-post, .memorial-photo {
-	width: 80%;
-	margin: 10px auto;
 	height: 80%;
 	border-radius: 10px;
 	background-color: #F0F0F0;
@@ -56,8 +60,10 @@ $titles: 80%;
 }
 
 .container-remembrance {
-	height: 100%;
+	margin: 0 auto;
 	margin-top: 100px;
+	height: 100%;
+	width: 80%;
 }
 
 .center-links {
