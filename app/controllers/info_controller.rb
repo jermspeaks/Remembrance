@@ -1,5 +1,4 @@
 class InfoController < ApplicationController
-
   def team
   end
 
@@ -8,5 +7,4 @@ class InfoController < ApplicationController
 
   def about
   end
-
 end

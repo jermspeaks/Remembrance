@@ -4,12 +4,13 @@ Remembrance - DBC Final Project
 
 Remembrance is an app for individuals who have lost a loved one. Users are able to create a remembrance page for their loved ones and can invite friends/family to view the page, write a loving memory, and upload photos.
 
+For our project, we decided to write and implement a sentinent analysis algorithm mixed in with a state machine. This algorithm takes a user's input and gives it a corresponding score based on the content of their input. If the score falls below a certain threshold, our program automatically removes the post due to its negative nature.
+
 
 ##Technologies Used:
 
 Ruby on Rails
 PostgreSQL
-Ember.js
 Bootstrap
 HTML5/CSS3
 JavaScript(jQuery/AJAX)
