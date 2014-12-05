@@ -1,5 +1,9 @@
 Remembrance - DBC Final Project
 ========
+###Update:
+12/5/2014
+Project is going open-source. If you want to help with the project, take some of the open issues and start working on it!
+
 #Project Description:
 
 Remembrance is an app for individuals who have lost a loved one. Users are able to create a remembrance page for their loved ones and can invite friends/family to view the page, write a loving memory, and upload photos.
